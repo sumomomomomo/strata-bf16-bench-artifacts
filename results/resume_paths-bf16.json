@@ -1,0 +1,582 @@
+{
+ "phase": "resume_paths",
+ "codec": "bf16",
+ "env": {
+  "commit": "d178753d117579ae2824d7db7fcc983513196dfb",
+  "engine_version": "0.1.43.1",
+  "codec_under_test": "bf16",
+  "codec_log_line": "stored conversation state: bf16 (parked images and session files; the live state stays fp32)",
+  "engine_args": [
+   "<USER>/Desktop/Strata/engine-cuda12/strata",
+   "--serve",
+   "--pack",
+   "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+   "--native",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+   "--ple-gguf",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+   "--expert-profile",
+   "<USER>/Desktop/Strata/data/expert-profile.bin",
+   "--expert-cache",
+   "auto",
+   "--prefill",
+   "auto",
+   "--spec",
+   "4",
+   "--spec-min-p",
+   "0.5",
+   "--mtp",
+   "<USER>/Desktop/Strata-data/mtp/rt",
+   "--max-context",
+   "262144",
+   "--kv",
+   "int8",
+   "--kv-resident",
+   "32768",
+   "--vision",
+   "--vram-reserve-mib",
+   "722",
+   "--pool-workers",
+   "15",
+   "--conversation-cache-mib",
+   "16384",
+   "--conversation-cache-slots",
+   "12",
+   "--conversation-cache-min-free-mib",
+   "8192",
+   "--session-state-codec",
+   "bf16",
+   ""
+  ],
+  "model": "qwen3.8-flash-next-iq3_s",
+  "kv": "int8",
+  "max_context": 262144,
+  "cache": {
+   "model": "qwen3.8-flash-next-iq3_s",
+   "max_context": 262144,
+   "images": true,
+   "version": "0.1.43.1",
+   "logit_bias": 1,
+   "context": 262144,
+   "kv": "int8",
+   "kv_resident": 32768,
+   "expert_slots": 12064,
+   "expert_cache_mib": 23449,
+   "expert_slots_primary": 12064,
+   "expert_cache_primary_mib": 23449,
+   "spec": 6,
+   "mtp_max": 4,
+   "lookup": 3,
+   "vram_free_mib": 514,
+   "cvec": 0,
+   "arena_mib": 47962,
+   "pool_workers": 15,
+   "pcie_frac": "0.36",
+   "spec_min_p": "0.50",
+   "conversation_cache_mib": 16384,
+   "conversation_cache_slots": 12,
+   "conversation_cache_min_free_mib": 8192,
+   "conversation_cache_min_tokens": 0,
+   "tail_role_token": -1,
+   "vram_elastic": 0,
+   "engine": "0.1.43.1"
+  },
+  "hardware_static": {
+   "gpu_name": "Tesla V100-PCIE-32GB",
+   "gpu_count": 1,
+   "gpu_note": null,
+   "cpu_name": "Genuine Intel(R) 0000",
+   "cores": 24,
+   "threads": 32,
+   "psutil": true
+  },
+  "server_url": "http://127.0.0.1:8080",
+  "log": "<USER>/Desktop/Strata/bench-bf16.log"
+ },
+ "checks": {
+  "older_checkpoint_resume": [
+   {
+    "full_tokens": 63027,
+    "cut": 0.35,
+    "edited_tokens": 20934,
+    "want": "saffron",
+    "cold_answer": "saffron",
+    "answer": "saffron",
+    "ok": true,
+    "reused": 16384,
+    "read": 4550,
+    "checkpoints_after": 2,
+    "resume_events": [],
+    "prompt_ms": 4343.1
+   },
+   {
+    "full_tokens": 63027,
+    "cut": 0.6,
+    "edited_tokens": 38498,
+    "want": "saffron",
+    "cold_answer": "saffron",
+    "answer": "saffron",
+    "ok": true,
+    "reused": 32768,
+    "read": 5730,
+    "checkpoints_after": 3,
+    "resume_events": [],
+    "prompt_ms": 5165.3
+   }
+  ],
+  "park_resume_generate_cycles": [
+   {
+    "cycle": 0,
+    "conversation": "A",
+    "opening": true,
+    "want": "lantern",
+    "answer": "lantern",
+    "ok": true,
+    "generated_tokens": 3,
+    "prompt_tokens": 31807,
+    "prompt_read": 31807,
+    "cache_n": 0,
+    "resume_events": [],
+    "park_events": [
+     {
+      "tokens": 38502,
+      "park_ms": 307.6,
+      "parked": 4,
+      "cache_bytes": 3837685784,
+      "image_bytes": 824361652
+     }
+    ],
+    "cache": {
+     "parked": 4,
+     "bytes": 3837685784,
+     "evictions": 0,
+     "parks": 4,
+     "restores": 0,
+     "last_event": "parked",
+     "last_tokens": 38502
+    }
+   },
+   {
+    "cycle": 1,
+    "conversation": "B",
+    "opening": true,
+    "want": "meadow",
+    "answer": "meadow",
+    "ok": true,
+    "generated_tokens": 3,
+    "prompt_tokens": 14800,
+    "prompt_read": 14800,
+    "cache_n": 0,
+    "resume_events": [],
+    "park_events": [
+     {
+      "tokens": 31811,
+      "park_ms": 248.6,
+      "parked": 5,
+      "cache_bytes": 4500683708,
+      "image_bytes": 662997924
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 4500683708,
+     "evictions": 0,
+     "parks": 5,
+     "restores": 0,
+     "last_event": "parked",
+     "last_tokens": 31811
+    }
+   },
+   {
+    "cycle": 2,
+    "conversation": "A",
+    "opening": false,
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31830,
+    "prompt_read": 19,
+    "cache_n": 31811,
+    "resume_events": [
+     {
+      "tokens": 31811,
+      "kind": "live",
+      "resume_ms": 134.0,
+      "parked": 5,
+      "cache_bytes": 4667429044
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 14804,
+      "park_ms": 138.2,
+      "parked": 5,
+      "cache_bytes": 4181846332,
+      "image_bytes": 344160548
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 4667429044,
+     "evictions": 0,
+     "parks": 6,
+     "restores": 1,
+     "last_event": "restored",
+     "last_tokens": 31811
+    }
+   },
+   {
+    "cycle": 3,
+    "conversation": "B",
+    "opening": false,
+    "want": "meadow",
+    "answer": "The magic code word for this session is meadow.",
+    "ok": true,
+    "generated_tokens": 12,
+    "prompt_tokens": 14823,
+    "prompt_read": 19,
+    "cache_n": 14804,
+    "resume_events": [
+     {
+      "tokens": 14804,
+      "kind": "live",
+      "resume_ms": 82.9,
+      "parked": 5,
+      "cache_bytes": 5346224876
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31840,
+      "park_ms": 122.5,
+      "parked": 5,
+      "cache_bytes": 5120246132,
+      "image_bytes": 1282560348
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5346224876,
+     "evictions": 0,
+     "parks": 7,
+     "restores": 2,
+     "last_event": "restored",
+     "last_tokens": 14804
+    }
+   },
+   {
+    "cycle": 4,
+    "conversation": "A",
+    "opening": false,
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31861,
+    "prompt_read": 21,
+    "cache_n": 31840,
+    "resume_events": [
+     {
+      "tokens": 31840,
+      "kind": "live",
+      "resume_ms": 174.7,
+      "parked": 5,
+      "cache_bytes": 5738873780
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 14834,
+      "park_ms": 94.8,
+      "parked": 5,
+      "cache_bytes": 4692887868,
+      "image_bytes": 855202084
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5738873780,
+     "evictions": 0,
+     "parks": 8,
+     "restores": 3,
+     "last_event": "restored",
+     "last_tokens": 31840
+    }
+   },
+   {
+    "cycle": 5,
+    "conversation": "B",
+    "opening": false,
+    "want": "meadow",
+    "answer": "The magic code word for this session is meadow.",
+    "ok": true,
+    "generated_tokens": 12,
+    "prompt_tokens": 14855,
+    "prompt_read": 21,
+    "cache_n": 14834,
+    "resume_events": [
+     {
+      "tokens": 14834,
+      "kind": "live",
+      "resume_ms": 123.4,
+      "parked": 5,
+      "cache_bytes": 5857334576
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31873,
+      "park_ms": 148.8,
+      "parked": 5,
+      "cache_bytes": 5179405496,
+      "image_bytes": 1341719712
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5857334576,
+     "evictions": 0,
+     "parks": 9,
+     "restores": 4,
+     "last_event": "restored",
+     "last_tokens": 14834
+    }
+   },
+   {
+    "cycle": 6,
+    "conversation": "A",
+    "opening": false,
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31892,
+    "prompt_read": 19,
+    "cache_n": 31873,
+    "resume_events": [
+     {
+      "tokens": 31873,
+      "kind": "live",
+      "resume_ms": 214.0,
+      "parked": 5,
+      "cache_bytes": 5797965136
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 14871,
+      "park_ms": 120.2,
+      "parked": 5,
+      "cache_bytes": 4751979224,
+      "image_bytes": 914293440
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5797965136,
+     "evictions": 0,
+     "parks": 10,
+     "restores": 5,
+     "last_event": "restored",
+     "last_tokens": 31873
+    }
+   },
+   {
+    "cycle": 7,
+    "conversation": "B",
+    "opening": false,
+    "want": "meadow",
+    "answer": "The magic code word for this session is meadow.",
+    "ok": true,
+    "generated_tokens": 12,
+    "prompt_tokens": 14887,
+    "prompt_read": 16,
+    "cache_n": 14871,
+    "resume_events": [
+     {
+      "tokens": 14871,
+      "kind": "live",
+      "resume_ms": 169.9,
+      "parked": 5,
+      "cache_bytes": 5916494056
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31904,
+      "park_ms": 174.4,
+      "parked": 5,
+      "cache_bytes": 5238564976,
+      "image_bytes": 1400879192
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5916494056,
+     "evictions": 0,
+     "parks": 11,
+     "restores": 6,
+     "last_event": "restored",
+     "last_tokens": 14871
+    }
+   },
+   {
+    "cycle": 8,
+    "conversation": "A",
+    "opening": false,
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31923,
+    "prompt_read": 19,
+    "cache_n": 31904,
+    "resume_events": [
+     {
+      "tokens": 31904,
+      "kind": "live",
+      "resume_ms": 258.1,
+      "parked": 5,
+      "cache_bytes": 5857056584
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 14899,
+      "park_ms": 149.7,
+      "parked": 5,
+      "cache_bytes": 4811070672,
+      "image_bytes": 973384888
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5857056584,
+     "evictions": 0,
+     "parks": 12,
+     "restores": 7,
+     "last_event": "restored",
+     "last_tokens": 31904
+    }
+   },
+   {
+    "cycle": 9,
+    "conversation": "B",
+    "opening": false,
+    "want": "meadow",
+    "answer": "The magic code word for this session is meadow.",
+    "ok": true,
+    "generated_tokens": 12,
+    "prompt_tokens": 14919,
+    "prompt_read": 20,
+    "cache_n": 14899,
+    "resume_events": [
+     {
+      "tokens": 14899,
+      "kind": "live",
+      "resume_ms": 209.4,
+      "parked": 5,
+      "cache_bytes": 5975653660
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31935,
+      "park_ms": 202.5,
+      "parked": 5,
+      "cache_bytes": 5297724580,
+      "image_bytes": 1460038796
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5975653660,
+     "evictions": 0,
+     "parks": 13,
+     "restores": 8,
+     "last_event": "restored",
+     "last_tokens": 14899
+    }
+   },
+   {
+    "cycle": 10,
+    "conversation": "A",
+    "opening": false,
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31954,
+    "prompt_read": 19,
+    "cache_n": 31935,
+    "resume_events": [
+     {
+      "tokens": 31935,
+      "kind": "live",
+      "resume_ms": 394.9,
+      "parked": 5,
+      "cache_bytes": 5916148176
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 14931,
+      "park_ms": 243.9,
+      "parked": 5,
+      "cache_bytes": 4870162264,
+      "image_bytes": 1032476480
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5916148176,
+     "evictions": 0,
+     "parks": 14,
+     "restores": 9,
+     "last_event": "restored",
+     "last_tokens": 31935
+    }
+   },
+   {
+    "cycle": 11,
+    "conversation": "B",
+    "opening": false,
+    "want": "meadow",
+    "answer": "The magic code word for this session is meadow.",
+    "ok": true,
+    "generated_tokens": 12,
+    "prompt_tokens": 14951,
+    "prompt_read": 20,
+    "cache_n": 14931,
+    "resume_events": [
+     {
+      "tokens": 14931,
+      "kind": "live",
+      "resume_ms": 258.3,
+      "parked": 5,
+      "cache_bytes": 5975654372
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31966,
+      "park_ms": 201.3,
+      "parked": 5,
+      "cache_bytes": 5297725292,
+      "image_bytes": 1460039508
+     }
+    ],
+    "cache": {
+     "parked": 5,
+     "bytes": 5975654372,
+     "evictions": 0,
+     "parks": 15,
+     "restores": 10,
+     "last_event": "restored",
+     "last_tokens": 14931
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,4585 @@
+{
+ "phase": "park_resume",
+ "codec": "bf16",
+ "env": {
+  "commit": "d178753d117579ae2824d7db7fcc983513196dfb",
+  "engine_version": "0.1.43.1",
+  "codec_under_test": "bf16",
+  "codec_log_line": "stored conversation state: bf16 (parked images and session files; the live state stays fp32)",
+  "engine_args": [
+   "<USER>/Desktop/Strata/engine-cuda12/strata",
+   "--serve",
+   "--pack",
+   "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+   "--native",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+   "--ple-gguf",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+   "--expert-profile",
+   "<USER>/Desktop/Strata/data/expert-profile.bin",
+   "--expert-cache",
+   "auto",
+   "--prefill",
+   "auto",
+   "--spec",
+   "4",
+   "--spec-min-p",
+   "0.5",
+   "--mtp",
+   "<USER>/Desktop/Strata-data/mtp/rt",
+   "--max-context",
+   "262144",
+   "--kv",
+   "int8",
+   "--kv-resident",
+   "32768",
+   "--vision",
+   "--vram-reserve-mib",
+   "722",
+   "--pool-workers",
+   "15",
+   "--conversation-cache-mib",
+   "16384",
+   "--conversation-cache-slots",
+   "12",
+   "--conversation-cache-min-free-mib",
+   "8192",
+   "--session-state-codec",
+   "bf16",
+   ""
+  ],
+  "model": "qwen3.8-flash-next-iq3_s",
+  "kv": "int8",
+  "max_context": 262144,
+  "cache": {
+   "model": "qwen3.8-flash-next-iq3_s",
+   "max_context": 262144,
+   "images": true,
+   "version": "0.1.43.1",
+   "logit_bias": 1,
+   "context": 262144,
+   "kv": "int8",
+   "kv_resident": 32768,
+   "expert_slots": 12064,
+   "expert_cache_mib": 23449,
+   "expert_slots_primary": 12064,
+   "expert_cache_primary_mib": 23449,
+   "spec": 6,
+   "mtp_max": 4,
+   "lookup": 3,
+   "vram_free_mib": 514,
+   "cvec": 0,
+   "arena_mib": 47962,
+   "pool_workers": 15,
+   "pcie_frac": "0.36",
+   "spec_min_p": "0.50",
+   "conversation_cache_mib": 16384,
+   "conversation_cache_slots": 12,
+   "conversation_cache_min_free_mib": 8192,
+   "conversation_cache_min_tokens": 0,
+   "tail_role_token": -1,
+   "vram_elastic": 0,
+   "engine": "0.1.43.1"
+  },
+  "hardware_static": {
+   "gpu_name": "Tesla V100-PCIE-32GB",
+   "gpu_count": 1,
+   "gpu_note": null,
+   "cpu_name": "Genuine Intel(R) 0000",
+   "cores": 24,
+   "threads": 32,
+   "psutil": true
+  },
+  "server_url": "http://127.0.0.1:8080",
+  "log": "<USER>/Desktop/Strata/bench-bf16.log"
+ },
+ "sizes": [
+  {
+   "target_tokens": 31250,
+   "prefill_A": {
+    "tokens": 31798,
+    "prompt_ms": 21716.1,
+    "wall_s": 21.84,
+    "answer": "ember"
+   },
+   "prefill_B": {
+    "tokens": 31798,
+    "prompt_ms": 21486.6,
+    "wall_s": 21.6,
+    "answer": "amber"
+   },
+   "checkpoints_after_prefill": 2,
+   "cache_after_prefill": {
+    "parked": 1,
+    "bytes": 662875740,
+    "evictions": 0,
+    "parks": 1,
+    "restores": 0,
+    "last_event": "parked",
+    "last_tokens": 31802
+   },
+   "switches_total": 20,
+   "switches_ok": 20,
+   "resume_ms": {
+    "n": 20,
+    "median": 177.3,
+    "min": 174.5,
+    "max": 179.4,
+    "mean": 177.21
+   },
+   "park_ms": {
+    "n": 20,
+    "median": 120.1,
+    "min": 119.3,
+    "max": 122.2,
+    "mean": 120.315
+   },
+   "ttft_prompt_ms": {
+    "n": 20,
+    "median": 356.6,
+    "min": 352.7,
+    "max": 358.5,
+    "mean": 356.375
+   },
+   "switch_wall_s": {
+    "n": 20,
+    "median": 0.437,
+    "min": 0.427,
+    "max": 0.446,
+    "mean": 0.436
+   },
+   "resume_kinds": [
+    "checkpoint"
+   ],
+   "image_bytes_parked": [
+    1282407000
+   ],
+   "cache_bytes_final": {
+    "parked": 1,
+    "bytes": 2328239568,
+    "evictions": 0,
+    "parks": 25,
+    "restores": 24,
+    "last_event": "restored",
+    "last_tokens": 31830
+   },
+   "rss_peak_increment_mib": {
+    "n": 20,
+    "median": 224.2,
+    "min": 222.6,
+    "max": 224.5,
+    "mean": 224.135
+   },
+   "turns": [
+    {
+     "rep": 0,
+     "warm": true,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31791,
+     "prompt_read": 46,
+     "prompt_ms": 803.7,
+     "wall_s": 0.901,
+     "resume_events": [
+      {
+       "tokens": 31791,
+       "kind": "checkpoint",
+       "resume_ms": 134.2,
+       "parked": 1,
+       "cache_bytes": 1148336340
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31802,
+       "park_ms": 249.9,
+       "parked": 1,
+       "cache_bytes": 662875740,
+       "image_bytes": 662875740
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31791,
+       "read": 46,
+       "prompt_ms": 804.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1148336340,
+      "evictions": 0,
+      "parks": 2,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "rss_peak_increment_mib": 631.8
+    },
+    {
+     "rep": 0,
+     "warm": true,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31791,
+     "prompt_read": 46,
+     "prompt_ms": 669.7,
+     "wall_s": 0.7582,
+     "resume_events": [
+      {
+       "tokens": 31791,
+       "kind": "checkpoint",
+       "resume_ms": 138.9,
+       "parked": 1,
+       "cache_bytes": 1767867600
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 122.6,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31791,
+       "read": 46,
+       "prompt_ms": 670.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1148336340,
+      "evictions": 0,
+      "parks": 2,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1767867600,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 2,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "rss_peak_increment_mib": 356.5
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 365.5,
+     "wall_s": 0.4512,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 181.6,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 122.3,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 365.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1767867600,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 2,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 4,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 337.8
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 360.9,
+     "wall_s": 0.4471,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 179.3,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.6,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 361.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 4,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 4,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 357.5,
+     "wall_s": 0.4409,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 177.6,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.4,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 357.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 4,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 6,
+      "restores": 5,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 357.1,
+     "wall_s": 0.4406,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 176.8,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.9,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 357.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 6,
+      "restores": 5,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 357.1,
+     "wall_s": 0.4388,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 177.7,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.3,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 357.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 8,
+      "restores": 7,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 358.0,
+     "wall_s": 0.4389,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 178.4,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.1,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 358.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 8,
+      "restores": 7,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 9,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 355.5,
+     "wall_s": 0.4352,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 176.8,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.1,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 355.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 9,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 10,
+      "restores": 9,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 358.0,
+     "wall_s": 0.4375,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 179.4,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.9,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 358.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 10,
+      "restores": 9,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 10,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 354.7,
+     "wall_s": 0.4344,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 176.6,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.4,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 355.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 10,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 12,
+      "restores": 11,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 355.8,
+     "wall_s": 0.4372,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 177.4,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.8,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 356.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 12,
+      "restores": 11,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 12,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 355.4,
+     "wall_s": 0.4335,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 176.1,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.7,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 355.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 12,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 14,
+      "restores": 13,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 358.5,
+     "wall_s": 0.4368,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 177.8,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 122.2,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 358.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 14,
+      "restores": 13,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 15,
+      "restores": 14,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 356.2,
+     "wall_s": 0.4366,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 177.2,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.0,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 356.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 15,
+      "restores": 14,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 16,
+      "restores": 15,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 222.6
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 354.9,
+     "wall_s": 0.4297,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 175.7,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.8,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 355.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 16,
+      "restores": 15,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 17,
+      "restores": 16,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.5
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 354.1,
+     "wall_s": 0.4297,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 176.2,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.3,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 354.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 17,
+      "restores": 16,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 18,
+      "restores": 17,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 357.7,
+     "wall_s": 0.4366,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 178.0,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 121.2,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 358.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 18,
+      "restores": 17,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 19,
+      "restores": 18,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 356.5,
+     "wall_s": 0.4312,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 177.2,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.7,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 356.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 19,
+      "restores": 18,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 20,
+      "restores": 19,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 357.1,
+     "wall_s": 0.4384,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 177.8,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 120.9,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 357.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 20,
+      "restores": 19,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 21,
+      "restores": 20,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 352.7,
+     "wall_s": 0.4275,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 174.5,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.7,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 353.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 21,
+      "restores": 20,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 22,
+      "restores": 21,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 356.7,
+     "wall_s": 0.4315,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 178.3,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 119.9,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 357.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 22,
+      "restores": 21,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 23,
+      "restores": 22,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 356.0,
+     "wall_s": 0.4462,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 176.4,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 121.0,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 356.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 23,
+      "restores": 22,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 24,
+      "restores": 23,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "amber",
+     "answer": "amber",
+     "ok": true,
+     "prompt_tokens": 31837,
+     "cache_n": 31830,
+     "prompt_read": 7,
+     "prompt_ms": 358.0,
+     "wall_s": 0.4361,
+     "resume_events": [
+      {
+       "tokens": 31830,
+       "kind": "checkpoint",
+       "resume_ms": 178.3,
+       "parked": 1,
+       "cache_bytes": 2328239568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31841,
+       "park_ms": 121.0,
+       "parked": 1,
+       "cache_bytes": 1282407000,
+       "image_bytes": 1282407000
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 31837,
+       "reused": 31830,
+       "read": 7,
+       "prompt_ms": 358.0,
+       "checkpoints": 3
+      }
+     ],
+     "cache_before": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 24,
+      "restores": 23,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 2328239568,
+      "evictions": 0,
+      "parks": 25,
+      "restores": 24,
+      "last_event": "restored",
+      "last_tokens": 31830
+     },
+     "rss_peak_increment_mib": 224.2
+    }
+   ]
+  },
+  {
+   "target_tokens": 62500,
+   "prefill_A": {
+    "tokens": 63027,
+    "prompt_ms": 44093.8,
+    "wall_s": 44.2,
+    "answer": "velvet"
+   },
+   "prefill_B": {
+    "tokens": 63027,
+    "prompt_ms": 44565.7,
+    "wall_s": 44.69,
+    "answer": "ember"
+   },
+   "checkpoints_after_prefill": 4,
+   "cache_after_prefill": {
+    "parked": 3,
+    "bytes": 3822995700,
+    "evictions": 0,
+    "parks": 27,
+    "restores": 24,
+    "last_event": "parked",
+    "last_tokens": 63031
+   },
+   "switches_total": 20,
+   "switches_ok": 20,
+   "resume_ms": {
+    "n": 20,
+    "median": 292.2,
+    "min": 287.9,
+    "max": 296.0,
+    "mean": 291.86
+   },
+   "park_ms": {
+    "n": 20,
+    "median": 175.05,
+    "min": 173.7,
+    "max": 178.9,
+    "mean": 175.54
+   },
+   "ttft_prompt_ms": {
+    "n": 20,
+    "median": 526.3,
+    "min": 521.6,
+    "max": 533.1,
+    "mean": 526.585
+   },
+   "switch_wall_s": {
+    "n": 20,
+    "median": 0.621,
+    "min": 0.613,
+    "max": 0.628,
+    "mean": 0.621
+   },
+   "resume_kinds": [
+    "checkpoint"
+   ],
+   "image_bytes_parked": [
+    1999751988,
+    1999751996
+   ],
+   "cache_bytes_final": {
+    "parked": 3,
+    "bytes": 6208977492,
+    "evictions": 0,
+    "parks": 51,
+    "restores": 48,
+    "last_event": "restored",
+    "last_tokens": 63059
+   },
+   "rss_peak_increment_mib": {
+    "n": 20,
+    "median": 336.5,
+    "min": 336.5,
+    "max": 336.8,
+    "mean": 336.53
+   },
+   "turns": [
+    {
+     "rep": 0,
+     "warm": true,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63031,
+     "prompt_read": 36,
+     "prompt_ms": 1011.1,
+     "wall_s": 1.1213,
+     "resume_events": [
+      {
+       "tokens": 63031,
+       "kind": "live",
+       "resume_ms": 250.7,
+       "parked": 3,
+       "cache_bytes": 4785121116
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63031,
+       "park_ms": 452.5,
+       "parked": 3,
+       "cache_bytes": 3822995700,
+       "image_bytes": 1258181700
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63031,
+       "read": 36,
+       "prompt_ms": 1011.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3822995700,
+      "evictions": 0,
+      "parks": 27,
+      "restores": 24,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 4785121116,
+      "evictions": 0,
+      "parks": 28,
+      "restores": 25,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "rss_peak_increment_mib": 1204.0
+    },
+    {
+     "rep": 0,
+     "warm": true,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63020,
+     "prompt_read": 46,
+     "prompt_ms": 815.7,
+     "wall_s": 0.9105,
+     "resume_events": [
+      {
+       "tokens": 63020,
+       "kind": "checkpoint",
+       "resume_ms": 254.3,
+       "parked": 3,
+       "cache_bytes": 5526691412
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 177.8,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63020,
+       "read": 46,
+       "prompt_ms": 816.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 4785121116,
+      "evictions": 0,
+      "parks": 28,
+      "restores": 25,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 5526691412,
+      "evictions": 0,
+      "parks": 29,
+      "restores": 26,
+      "last_event": "restored",
+      "last_tokens": 63020
+     },
+     "rss_peak_increment_mib": 462.8
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 525.4,
+     "wall_s": 0.621,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 291.4,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 174.7,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 525.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 5526691412,
+      "evictions": 0,
+      "parks": 29,
+      "restores": 26,
+      "last_event": "restored",
+      "last_tokens": 63020
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 30,
+      "restores": 27,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 454.0
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 530.8,
+     "wall_s": 0.6268,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 289.4,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 182.3,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 531.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 30,
+      "restores": 27,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 31,
+      "restores": 28,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 337.0
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 527.9,
+     "wall_s": 0.6191,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 293.5,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 175.1,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 528.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 31,
+      "restores": 28,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 32,
+      "restores": 29,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 524.2,
+     "wall_s": 0.6186,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 289.8,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 175.2,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 524.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 32,
+      "restores": 29,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 33,
+      "restores": 30,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 528.8,
+     "wall_s": 0.6221,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 295.6,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 174.0,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 529.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 33,
+      "restores": 30,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 34,
+      "restores": 31,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 524.2,
+     "wall_s": 0.6208,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 290.4,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 174.7,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 524.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 34,
+      "restores": 31,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 35,
+      "restores": 32,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 526.2,
+     "wall_s": 0.6185,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 292.0,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 175.0,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 526.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 35,
+      "restores": 32,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 36,
+      "restores": 33,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 522.5,
+     "wall_s": 0.6248,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 288.9,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 174.5,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 523.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 36,
+      "restores": 33,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 37,
+      "restores": 34,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 525.7,
+     "wall_s": 0.6166,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 292.7,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 173.7,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 526.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 37,
+      "restores": 34,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 38,
+      "restores": 35,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 522.2,
+     "wall_s": 0.6126,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 288.3,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 174.8,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 522.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 38,
+      "restores": 35,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 39,
+      "restores": 36,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.8
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 525.8,
+     "wall_s": 0.6171,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 292.4,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 174.2,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 526.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 39,
+      "restores": 36,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 40,
+      "restores": 37,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 525.4,
+     "wall_s": 0.6217,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 290.1,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 176.1,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 525.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 40,
+      "restores": 37,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 41,
+      "restores": 38,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 528.9,
+     "wall_s": 0.6224,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 292.5,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 177.2,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 529.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 41,
+      "restores": 38,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 42,
+      "restores": 39,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 525.7,
+     "wall_s": 0.6227,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 290.4,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 176.2,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 526.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 42,
+      "restores": 39,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 43,
+      "restores": 40,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 527.6,
+     "wall_s": 0.618,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 293.7,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 174.8,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 528.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 43,
+      "restores": 40,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 44,
+      "restores": 41,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 521.6,
+     "wall_s": 0.6139,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 287.9,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 174.3,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 522.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 44,
+      "restores": 41,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 45,
+      "restores": 42,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.8
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 527.5,
+     "wall_s": 0.6236,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 292.9,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 175.3,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 527.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 45,
+      "restores": 42,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 46,
+      "restores": 43,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 528.1,
+     "wall_s": 0.6278,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 291.8,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 177.3,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 528.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 46,
+      "restores": 43,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 47,
+      "restores": 44,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 526.4,
+     "wall_s": 0.6163,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 292.6,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 174.7,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 526.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 47,
+      "restores": 44,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 48,
+      "restores": 45,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 527.7,
+     "wall_s": 0.6246,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 291.5,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 177.0,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 528.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 48,
+      "restores": 45,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 49,
+      "restores": 46,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 63067,
+     "cache_n": 63060,
+     "prompt_read": 7,
+     "prompt_ms": 533.1,
+     "wall_s": 0.6232,
+     "resume_events": [
+      {
+       "tokens": 63060,
+       "kind": "checkpoint",
+       "resume_ms": 296.0,
+       "parked": 3,
+       "cache_bytes": 6208977484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63070,
+       "park_ms": 177.8,
+       "parked": 3,
+       "cache_bytes": 4564565988,
+       "image_bytes": 1999751988
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63067,
+       "reused": 63060,
+       "read": 7,
+       "prompt_ms": 533.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 49,
+      "restores": 46,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 50,
+      "restores": 47,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "rss_peak_increment_mib": 336.5
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "ember",
+     "answer": "ember",
+     "ok": true,
+     "prompt_tokens": 63066,
+     "cache_n": 63059,
+     "prompt_read": 7,
+     "prompt_ms": 532.2,
+     "wall_s": 0.6258,
+     "resume_events": [
+      {
+       "tokens": 63059,
+       "kind": "checkpoint",
+       "resume_ms": 294.2,
+       "parked": 3,
+       "cache_bytes": 6208977492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63071,
+       "park_ms": 178.9,
+       "parked": 3,
+       "cache_bytes": 4564565996,
+       "image_bytes": 1999751996
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 63066,
+       "reused": 63059,
+       "read": 7,
+       "prompt_ms": 532.0,
+       "checkpoints": 5
+      }
+     ],
+     "cache_before": {
+      "parked": 3,
+      "bytes": 6208977484,
+      "evictions": 0,
+      "parks": 50,
+      "restores": 47,
+      "last_event": "restored",
+      "last_tokens": 63060
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 6208977492,
+      "evictions": 0,
+      "parks": 51,
+      "restores": 48,
+      "last_event": "restored",
+      "last_tokens": 63059
+     },
+     "rss_peak_increment_mib": 336.5
+    }
+   ]
+  },
+  {
+   "target_tokens": 125000,
+   "prefill_A": {
+    "tokens": 121615,
+    "prompt_ms": 99309.9,
+    "wall_s": 99.52,
+    "answer": "tundra"
+   },
+   "prefill_B": {
+    "tokens": 121614,
+    "prompt_ms": 107509.4,
+    "wall_s": 107.68,
+    "answer": "velvet"
+   },
+   "checkpoints_after_prefill": 6,
+   "cache_after_prefill": {
+    "parked": 5,
+    "bytes": 8836440760,
+    "evictions": 0,
+    "parks": 53,
+    "restores": 48,
+    "last_event": "parked",
+    "last_tokens": 121620
+   },
+   "switches_total": 20,
+   "switches_ok": 20,
+   "resume_ms": {
+    "n": 20,
+    "median": 383.6,
+    "min": 381.0,
+    "max": 388.6,
+    "mean": 384.025
+   },
+   "park_ms": {
+    "n": 20,
+    "median": 201.3,
+    "min": 200.7,
+    "max": 203.2,
+    "mean": 201.535
+   },
+   "ttft_prompt_ms": {
+    "n": 20,
+    "median": 646.3,
+    "min": 642.8,
+    "max": 650.7,
+    "mean": 646.575
+   },
+   "switch_wall_s": {
+    "n": 20,
+    "median": 0.797,
+    "min": 0.779,
+    "max": 0.833,
+    "mean": 0.796
+   },
+   "resume_kinds": [
+    "checkpoint"
+   ],
+   "image_bytes_parked": [
+    3011064808,
+    3011070968
+   ],
+   "cache_bytes_final": {
+    "parked": 5,
+    "bytes": 12170526432,
+    "evictions": 0,
+    "parks": 77,
+    "restores": 72,
+    "last_event": "restored",
+    "last_tokens": 121647
+   },
+   "rss_peak_increment_mib": {
+    "n": 20,
+    "median": 392.8,
+    "min": 392.8,
+    "max": 393.2,
+    "mean": 392.82
+   },
+   "turns": [
+    {
+     "rep": 0,
+     "warm": true,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121608,
+     "prompt_read": 47,
+     "prompt_ms": 1587.7,
+     "wall_s": 1.7755,
+     "resume_events": [
+      {
+       "tokens": 121608,
+       "kind": "checkpoint",
+       "resume_ms": 390.7,
+       "parked": 5,
+       "cache_bytes": 10692854644
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121618,
+       "park_ms": 793.4,
+       "parked": 5,
+       "cache_bytes": 8836434604,
+       "image_bytes": 2272116620
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121608,
+       "read": 47,
+       "prompt_ms": 1588.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 8836440760,
+      "evictions": 0,
+      "parks": 53,
+      "restores": 48,
+      "last_event": "parked",
+      "last_tokens": 121620
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 10692854644,
+      "evictions": 0,
+      "parks": 54,
+      "restores": 49,
+      "last_event": "restored",
+      "last_tokens": 121608
+     },
+     "rss_peak_increment_mib": 2169.5
+    },
+    {
+     "rep": 0,
+     "warm": true,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121618,
+     "prompt_read": 36,
+     "prompt_ms": 898.5,
+     "wall_s": 1.034,
+     "resume_events": [
+      {
+       "tokens": 121618,
+       "kind": "live",
+       "resume_ms": 385.3,
+       "parked": 5,
+       "cache_bytes": 11431802848
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 202.4,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121618,
+       "read": 36,
+       "prompt_ms": 899.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 10692854644,
+      "evictions": 0,
+      "parks": 54,
+      "restores": 49,
+      "last_event": "restored",
+      "last_tokens": 121608
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 11431802848,
+      "evictions": 0,
+      "parks": 55,
+      "restores": 50,
+      "last_event": "restored",
+      "last_tokens": 121618
+     },
+     "rss_peak_increment_mib": 398.0
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 648.0,
+     "wall_s": 0.8237,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 383.9,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 202.9,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 648.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 11431802848,
+      "evictions": 0,
+      "parks": 55,
+      "restores": 50,
+      "last_event": "restored",
+      "last_tokens": 121618
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 56,
+      "restores": 51,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 394.2
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 645.6,
+     "wall_s": 0.7977,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 383.5,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 201.0,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 646.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 56,
+      "restores": 51,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 57,
+      "restores": 52,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 393.2
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 650.2,
+     "wall_s": 0.8333,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 387.3,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 201.6,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 650.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 57,
+      "restores": 52,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 58,
+      "restores": 53,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 648.7,
+     "wall_s": 0.7861,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 384.7,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 203.1,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 649.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 58,
+      "restores": 53,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 59,
+      "restores": 54,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 644.0,
+     "wall_s": 0.8008,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 382.2,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 200.7,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 644.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 59,
+      "restores": 54,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 60,
+      "restores": 55,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 644.6,
+     "wall_s": 0.7922,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 383.2,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 200.7,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 645.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 60,
+      "restores": 55,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 61,
+      "restores": 56,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 650.7,
+     "wall_s": 0.807,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 388.6,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 200.8,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 651.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 61,
+      "restores": 56,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 62,
+      "restores": 57,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 644.5,
+     "wall_s": 0.7886,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 382.2,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 201.5,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 644.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 62,
+      "restores": 57,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 63,
+      "restores": 58,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 642.8,
+     "wall_s": 0.7989,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 381.0,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 200.8,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 643.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 63,
+      "restores": 58,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 64,
+      "restores": 59,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 649.4,
+     "wall_s": 0.789,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 387.5,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 201.2,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 649.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 64,
+      "restores": 59,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 65,
+      "restores": 60,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 393.2
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 645.7,
+     "wall_s": 0.8071,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 383.1,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 200.7,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 646.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 65,
+      "restores": 60,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 66,
+      "restores": 61,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 648.5,
+     "wall_s": 0.7825,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 386.4,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 201.4,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 649.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 66,
+      "restores": 61,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 67,
+      "restores": 62,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 645.0,
+     "wall_s": 0.8062,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 382.1,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 201.8,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 645.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 67,
+      "restores": 62,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 68,
+      "restores": 63,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 646.2,
+     "wall_s": 0.7951,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 383.1,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 202.3,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 646.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 68,
+      "restores": 63,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 69,
+      "restores": 64,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 646.7,
+     "wall_s": 0.8035,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 382.3,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 203.2,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 647.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 69,
+      "restores": 64,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 70,
+      "restores": 65,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 646.6,
+     "wall_s": 0.7803,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 384.7,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 201.1,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 647.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 70,
+      "restores": 65,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 71,
+      "restores": 66,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 645.5,
+     "wall_s": 0.8071,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 382.4,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 201.9,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 646.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 71,
+      "restores": 66,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 72,
+      "restores": 67,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 645.5,
+     "wall_s": 0.7786,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 382.7,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 201.7,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 645.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 72,
+      "restores": 67,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 73,
+      "restores": 68,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 646.4,
+     "wall_s": 0.8037,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 384.6,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 200.8,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 646.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 73,
+      "restores": 68,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 74,
+      "restores": 69,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 645.9,
+     "wall_s": 0.7811,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 384.2,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 201.0,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 646.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 74,
+      "restores": 69,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 75,
+      "restores": 70,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "switch_to": "A",
+     "expected": "tundra",
+     "answer": "tundra",
+     "ok": true,
+     "prompt_tokens": 121655,
+     "cache_n": 121648,
+     "prompt_read": 7,
+     "prompt_ms": 646.7,
+     "wall_s": 0.8021,
+     "resume_events": [
+      {
+       "tokens": 121648,
+       "kind": "checkpoint",
+       "resume_ms": 384.2,
+       "parked": 5,
+       "cache_bytes": 12170526416
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121658,
+       "park_ms": 201.2,
+       "parked": 5,
+       "cache_bytes": 9575382792,
+       "image_bytes": 3011064808
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121655,
+       "reused": 121648,
+       "read": 7,
+       "prompt_ms": 647.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 75,
+      "restores": 70,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 76,
+      "restores": 71,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "rss_peak_increment_mib": 392.8
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "switch_to": "B",
+     "expected": "velvet",
+     "answer": "velvet",
+     "ok": true,
+     "prompt_tokens": 121654,
+     "cache_n": 121647,
+     "prompt_read": 7,
+     "prompt_ms": 647.9,
+     "wall_s": 0.7804,
+     "resume_events": [
+      {
+       "tokens": 121647,
+       "kind": "checkpoint",
+       "resume_ms": 384.0,
+       "parked": 5,
+       "cache_bytes": 12170526432
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121660,
+       "park_ms": 203.2,
+       "parked": 5,
+       "cache_bytes": 9575388952,
+       "image_bytes": 3011070968
+      }
+     ],
+     "prompt_events": [
+      {
+       "tokens": 121654,
+       "reused": 121647,
+       "read": 7,
+       "prompt_ms": 648.0,
+       "checkpoints": 6
+      }
+     ],
+     "cache_before": {
+      "parked": 5,
+      "bytes": 12170526416,
+      "evictions": 0,
+      "parks": 76,
+      "restores": 71,
+      "last_event": "restored",
+      "last_tokens": 121648
+     },
+     "cache_after": {
+      "parked": 5,
+      "bytes": 12170526432,
+      "evictions": 0,
+      "parks": 77,
+      "restores": 72,
+      "last_event": "restored",
+      "last_tokens": 121647
+     },
+     "rss_peak_increment_mib": 392.8
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1138 @@
+{
+ "phase": "save_restore",
+ "codec": "bf16",
+ "env": {
+  "commit": "d178753d117579ae2824d7db7fcc983513196dfb",
+  "engine_version": "0.1.43.1",
+  "codec_under_test": "bf16",
+  "codec_log_line": "stored conversation state: bf16 (parked images and session files; the live state stays fp32)",
+  "engine_args": [
+   "<USER>/Desktop/Strata/engine-cuda12/strata",
+   "--serve",
+   "--pack",
+   "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+   "--native",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+   "--ple-gguf",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+   "--expert-profile",
+   "<USER>/Desktop/Strata/data/expert-profile.bin",
+   "--expert-cache",
+   "auto",
+   "--prefill",
+   "auto",
+   "--spec",
+   "4",
+   "--spec-min-p",
+   "0.5",
+   "--mtp",
+   "<USER>/Desktop/Strata-data/mtp/rt",
+   "--max-context",
+   "262144",
+   "--kv",
+   "int8",
+   "--kv-resident",
+   "32768",
+   "--vision",
+   "--vram-reserve-mib",
+   "722",
+   "--pool-workers",
+   "15",
+   "--conversation-cache-mib",
+   "16384",
+   "--conversation-cache-slots",
+   "12",
+   "--conversation-cache-min-free-mib",
+   "8192",
+   "--session-state-codec",
+   "bf16",
+   ""
+  ],
+  "model": "qwen3.8-flash-next-iq3_s",
+  "kv": "int8",
+  "max_context": 262144,
+  "cache": {
+   "model": "qwen3.8-flash-next-iq3_s",
+   "max_context": 262144,
+   "images": true,
+   "version": "0.1.43.1",
+   "logit_bias": 1,
+   "context": 262144,
+   "kv": "int8",
+   "kv_resident": 32768,
+   "expert_slots": 12064,
+   "expert_cache_mib": 23449,
+   "expert_slots_primary": 12064,
+   "expert_cache_primary_mib": 23449,
+   "spec": 6,
+   "mtp_max": 4,
+   "lookup": 3,
+   "vram_free_mib": 514,
+   "cvec": 0,
+   "arena_mib": 47962,
+   "pool_workers": 15,
+   "pcie_frac": "0.36",
+   "spec_min_p": "0.50",
+   "conversation_cache_mib": 16384,
+   "conversation_cache_slots": 12,
+   "conversation_cache_min_free_mib": 8192,
+   "conversation_cache_min_tokens": 0,
+   "tail_role_token": -1,
+   "vram_elastic": 0,
+   "engine": "0.1.43.1"
+  },
+  "hardware_static": {
+   "gpu_name": "Tesla V100-PCIE-32GB",
+   "gpu_count": 1,
+   "gpu_note": null,
+   "cpu_name": "Genuine Intel(R) 0000",
+   "cores": 24,
+   "threads": 32,
+   "psutil": true
+  },
+  "server_url": "http://127.0.0.1:8080",
+  "log": "<USER>/Desktop/Strata/bench-bf16.log"
+ },
+ "sizes": [
+  {
+   "target_tokens": 4800,
+   "actual_tokens": 4223,
+   "first_answer": "copper",
+   "prefill_prompt_ms": 3714.0,
+   "prefill_wall_s": 3.81,
+   "checkpoints_after_prefill": 1,
+   "save_file": "sr-bf16-4800.bin",
+   "save_file_bytes": 182634820,
+   "save_file_version": 2,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 273.4,
+     "client_wall_s": 0.2748,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 160.9,
+     "client_wall_s": 0.1623,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 266.5,
+     "client_wall_s": 0.2677,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 160.0,
+     "client_wall_s": 0.1611,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 266.3,
+     "client_wall_s": 0.2675,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 176.5,
+     "client_wall_s": 0.1778,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 255.3,
+     "client_wall_s": 0.2566,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 200.4,
+     "client_wall_s": 0.2019,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 336.3,
+     "client_wall_s": 0.3377,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 236.3,
+     "client_wall_s": 0.2376,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 201.6,
+     "client_wall_s": 0.2028,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 272.9,
+     "client_wall_s": 0.274,
+     "n_saved": 4227,
+     "n_written": 182634820,
+     "bytes_on_disk": 182634820,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 245.8,
+    "min": 160.0,
+    "max": 336.3,
+    "mean": 237.21
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.247,
+    "min": 0.161,
+    "max": 0.338,
+    "mean": 0.238
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 121.4,
+     "client_wall_s": 0.124,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 140.6,
+     "client_wall_s": 0.1433,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 362.1,
+     "client_wall_s": 0.3649,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 121.0,
+     "client_wall_s": 0.1237,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 248.9,
+     "client_wall_s": 0.2516,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 238.3,
+     "client_wall_s": 0.2413,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 300.8,
+     "client_wall_s": 0.3035,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 406.1,
+     "client_wall_s": 0.4086,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 130.1,
+     "client_wall_s": 0.1331,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 313.5,
+     "client_wall_s": 0.3165,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 238.0,
+     "client_wall_s": 0.2406,
+     "n_restored": 4227,
+     "n_read": 182634820
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 133.7,
+     "client_wall_s": 0.1367,
+     "n_restored": 4227,
+     "n_read": 182634820
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 243.6,
+    "min": 121.0,
+    "max": 406.1,
+    "mean": 249.25
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 0.246,
+    "min": 0.124,
+    "max": 0.409,
+    "mean": 0.252
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  },
+  {
+   "target_tokens": 31250,
+   "actual_tokens": 31797,
+   "first_answer": "ember",
+   "prefill_prompt_ms": 21581.2,
+   "prefill_wall_s": 21.69,
+   "checkpoints_after_prefill": 2,
+   "save_file": "sr-bf16-31250.bin",
+   "save_file_bytes": 603775476,
+   "save_file_version": 2,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 377.2,
+     "client_wall_s": 0.3785,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 401.8,
+     "client_wall_s": 0.4033,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 410.3,
+     "client_wall_s": 0.4116,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 358.6,
+     "client_wall_s": 0.3599,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 467.6,
+     "client_wall_s": 0.4686,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 361.0,
+     "client_wall_s": 0.3621,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 279.3,
+     "client_wall_s": 0.2805,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 368.9,
+     "client_wall_s": 0.3701,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 426.4,
+     "client_wall_s": 0.4275,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 403.1,
+     "client_wall_s": 0.4041,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 362.6,
+     "client_wall_s": 0.3637,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 297.0,
+     "client_wall_s": 0.2984,
+     "n_saved": 31801,
+     "n_written": 603775476,
+     "bytes_on_disk": 603775476,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 365.75,
+    "min": 279.3,
+    "max": 467.6,
+    "mean": 373.48
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.367,
+    "min": 0.281,
+    "max": 0.469,
+    "mean": 0.375
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 382.9,
+     "client_wall_s": 0.3844,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 559.7,
+     "client_wall_s": 0.5729,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 586.4,
+     "client_wall_s": 0.6008,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 540.4,
+     "client_wall_s": 0.5539,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 564.4,
+     "client_wall_s": 0.5778,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 566.3,
+     "client_wall_s": 0.5792,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 402.9,
+     "client_wall_s": 0.4161,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 375.8,
+     "client_wall_s": 0.3893,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 494.6,
+     "client_wall_s": 0.5082,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 532.9,
+     "client_wall_s": 0.5462,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 655.8,
+     "client_wall_s": 0.6696,
+     "n_restored": 31801,
+     "n_read": 603775476
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 395.5,
+     "client_wall_s": 0.4096,
+     "n_restored": 31801,
+     "n_read": 603775476
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 536.65,
+    "min": 375.8,
+    "max": 655.8,
+    "mean": 511.5
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 0.55,
+    "min": 0.389,
+    "max": 0.67,
+    "mean": 0.525
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  },
+  {
+   "target_tokens": 62500,
+   "actual_tokens": 63026,
+   "first_answer": "velvet",
+   "prefill_prompt_ms": 44102.1,
+   "prefill_wall_s": 44.21,
+   "checkpoints_after_prefill": 4,
+   "save_file": "sr-bf16-62500.bin",
+   "save_file_bytes": 1080689500,
+   "save_file_version": 2,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 471.0,
+     "client_wall_s": 0.4723,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 448.7,
+     "client_wall_s": 0.45,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 733.2,
+     "client_wall_s": 0.7345,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 648.6,
+     "client_wall_s": 0.6497,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 651.2,
+     "client_wall_s": 0.6523,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 528.3,
+     "client_wall_s": 0.5294,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 478.2,
+     "client_wall_s": 0.4795,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 671.7,
+     "client_wall_s": 0.6727,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 604.7,
+     "client_wall_s": 0.6059,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 651.6,
+     "client_wall_s": 0.6527,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 501.6,
+     "client_wall_s": 0.5031,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 523.6,
+     "client_wall_s": 0.5248,
+     "n_saved": 63030,
+     "n_written": 1080689500,
+     "bytes_on_disk": 1080689500,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 626.65,
+    "min": 478.2,
+    "max": 733.2,
+    "mean": 599.27
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.628,
+    "min": 0.479,
+    "max": 0.735,
+    "mean": 0.6
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 751.4,
+     "client_wall_s": 0.7527,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 681.7,
+     "client_wall_s": 0.7098,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 922.6,
+     "client_wall_s": 0.9516,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 787.5,
+     "client_wall_s": 0.8167,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 838.4,
+     "client_wall_s": 0.8689,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 937.7,
+     "client_wall_s": 0.9671,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 700.7,
+     "client_wall_s": 0.7307,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 683.7,
+     "client_wall_s": 0.7126,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 978.7,
+     "client_wall_s": 1.0081,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 1036.6,
+     "client_wall_s": 1.0652,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 720.3,
+     "client_wall_s": 0.7501,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 975.5,
+     "client_wall_s": 1.0051,
+     "n_restored": 63030,
+     "n_read": 1080689500
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 880.5,
+    "min": 683.7,
+    "max": 1036.6,
+    "mean": 858.17
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 0.91,
+    "min": 0.713,
+    "max": 1.065,
+    "mean": 0.888
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  },
+  {
+   "target_tokens": 125000,
+   "actual_tokens": 121614,
+   "first_answer": "tundra",
+   "prefill_prompt_ms": 93008.8,
+   "prefill_wall_s": 93.23,
+   "checkpoints_after_prefill": 6,
+   "save_file": "sr-bf16-125000.bin",
+   "save_file_bytes": 1975445440,
+   "save_file_version": 2,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 851.3,
+     "client_wall_s": 0.8526,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 769.1,
+     "client_wall_s": 0.7703,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 737.2,
+     "client_wall_s": 0.7382,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 702.9,
+     "client_wall_s": 0.704,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 732.7,
+     "client_wall_s": 0.7338,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 736.1,
+     "client_wall_s": 0.7374,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 723.6,
+     "client_wall_s": 0.7248,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 763.8,
+     "client_wall_s": 0.7649,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 748.8,
+     "client_wall_s": 0.7501,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 733.8,
+     "client_wall_s": 0.7349,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 1132.0,
+     "client_wall_s": 1.1331,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 1523.3,
+     "client_wall_s": 1.5247,
+     "n_saved": 121619,
+     "n_written": 1975445440,
+     "bytes_on_disk": 1975445440,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 736.65,
+    "min": 702.9,
+    "max": 1523.3,
+    "mean": 853.42
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.738,
+    "min": 0.704,
+    "max": 1.525,
+    "mean": 0.855
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 1286.2,
+     "client_wall_s": 1.2877,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 1553.7,
+     "client_wall_s": 1.6103,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 1407.6,
+     "client_wall_s": 1.4627,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 1293.2,
+     "client_wall_s": 1.3484,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 1297.4,
+     "client_wall_s": 1.352,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 1286.6,
+     "client_wall_s": 1.3422,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 1319.2,
+     "client_wall_s": 1.3751,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 1338.6,
+     "client_wall_s": 1.395,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 1298.7,
+     "client_wall_s": 1.3553,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 1296.6,
+     "client_wall_s": 1.3532,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 1322.1,
+     "client_wall_s": 1.3786,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 1375.3,
+     "client_wall_s": 1.4324,
+     "n_restored": 121619,
+     "n_read": 1975445440
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 1308.95,
+    "min": 1286.6,
+    "max": 1407.6,
+    "mean": 1323.53
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 1.365,
+    "min": 1.342,
+    "max": 1.463,
+    "mean": 1.379
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  }
+ ]
+}

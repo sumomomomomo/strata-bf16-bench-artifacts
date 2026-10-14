@@ -1,0 +1,192 @@
+{
+ "phase": "cold_restore",
+ "codec": "bf16",
+ "method": "os.posix_fadvise(fd, POSIX_FADV_DONTNEED) on the one session file, then one restore, timed client-side; engine restore_ms reported alongside. No root, no global cache drop, no other file's pages touched.",
+ "drive": "Samsung SSD 990 EVO Plus 4TB",
+ "filesystem": "48%",
+ "sizes": [
+  {
+   "target_tokens": 31250,
+   "file": "sr-bf16-31250.bin",
+   "file_bytes": 603775476,
+   "reps": 3,
+   "cold": [
+    {
+     "engine_restore_ms": 319.7,
+     "client_wall_s": 0.3213,
+     "bytes": 603775476
+    },
+    {
+     "engine_restore_ms": 283.1,
+     "client_wall_s": 0.2844,
+     "bytes": 603775476
+    },
+    {
+     "engine_restore_ms": 322.6,
+     "client_wall_s": 0.324,
+     "bytes": 603775476
+    }
+   ],
+   "warm_after_eviction": [
+    {
+     "engine_restore_ms": 263.8,
+     "client_wall_s": 0.2696,
+     "bytes": 603775476
+    },
+    {
+     "engine_restore_ms": 321.6,
+     "client_wall_s": 0.323,
+     "bytes": 603775476
+    },
+    {
+     "engine_restore_ms": 263.5,
+     "client_wall_s": 0.2652,
+     "bytes": 603775476
+    }
+   ],
+   "cold_engine_ms": {
+    "n": 3,
+    "median": 319.7,
+    "min": 283.1,
+    "max": 322.6,
+    "mean": 308.467
+   },
+   "cold_client_s": {
+    "n": 3,
+    "median": 0.321,
+    "min": 0.284,
+    "max": 0.324,
+    "mean": 0.31
+   },
+   "warm_engine_ms": {
+    "n": 3,
+    "median": 263.8,
+    "min": 263.5,
+    "max": 321.6,
+    "mean": 282.967
+   }
+  },
+  {
+   "target_tokens": 62500,
+   "file": "sr-bf16-62500.bin",
+   "file_bytes": 1080689500,
+   "reps": 3,
+   "cold": [
+    {
+     "engine_restore_ms": 468.4,
+     "client_wall_s": 0.4698,
+     "bytes": 1080689500
+    },
+    {
+     "engine_restore_ms": 467.0,
+     "client_wall_s": 0.4683,
+     "bytes": 1080689500
+    },
+    {
+     "engine_restore_ms": 561.5,
+     "client_wall_s": 0.563,
+     "bytes": 1080689500
+    }
+   ],
+   "warm_after_eviction": [
+    {
+     "engine_restore_ms": 467.2,
+     "client_wall_s": 0.4684,
+     "bytes": 1080689500
+    },
+    {
+     "engine_restore_ms": 471.2,
+     "client_wall_s": 0.4727,
+     "bytes": 1080689500
+    },
+    {
+     "engine_restore_ms": 479.2,
+     "client_wall_s": 0.4804,
+     "bytes": 1080689500
+    }
+   ],
+   "cold_engine_ms": {
+    "n": 3,
+    "median": 468.4,
+    "min": 467.0,
+    "max": 561.5,
+    "mean": 498.967
+   },
+   "cold_client_s": {
+    "n": 3,
+    "median": 0.47,
+    "min": 0.468,
+    "max": 0.563,
+    "mean": 0.5
+   },
+   "warm_engine_ms": {
+    "n": 3,
+    "median": 471.2,
+    "min": 467.2,
+    "max": 479.2,
+    "mean": 472.533
+   }
+  },
+  {
+   "target_tokens": 125000,
+   "file": "sr-bf16-125000.bin",
+   "file_bytes": 1975445440,
+   "reps": 3,
+   "cold": [
+    {
+     "engine_restore_ms": 986.8,
+     "client_wall_s": 0.9884,
+     "bytes": 1975445440
+    },
+    {
+     "engine_restore_ms": 982.3,
+     "client_wall_s": 0.9921,
+     "bytes": 1975445440
+    },
+    {
+     "engine_restore_ms": 986.1,
+     "client_wall_s": 0.9956,
+     "bytes": 1975445440
+    }
+   ],
+   "warm_after_eviction": [
+    {
+     "engine_restore_ms": 978.1,
+     "client_wall_s": 0.9876,
+     "bytes": 1975445440
+    },
+    {
+     "engine_restore_ms": 985.1,
+     "client_wall_s": 0.9948,
+     "bytes": 1975445440
+    },
+    {
+     "engine_restore_ms": 989.1,
+     "client_wall_s": 0.9989,
+     "bytes": 1975445440
+    }
+   ],
+   "cold_engine_ms": {
+    "n": 3,
+    "median": 986.1,
+    "min": 982.3,
+    "max": 986.8,
+    "mean": 985.067
+   },
+   "cold_client_s": {
+    "n": 3,
+    "median": 0.992,
+    "min": 0.988,
+    "max": 0.996,
+    "mean": 0.992
+   },
+   "warm_engine_ms": {
+    "n": 3,
+    "median": 985.1,
+    "min": 978.1,
+    "max": 989.1,
+    "mean": 984.1
+   }
+  }
+ ]
+}

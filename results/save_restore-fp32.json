@@ -1,0 +1,1138 @@
+{
+ "phase": "save_restore",
+ "codec": "fp32",
+ "env": {
+  "commit": "d178753d117579ae2824d7db7fcc983513196dfb",
+  "engine_version": "0.1.43.1",
+  "codec_under_test": "fp32",
+  "codec_log_line": null,
+  "engine_args": [
+   "<USER>/Desktop/Strata/engine-cuda12/strata",
+   "--serve",
+   "--pack",
+   "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+   "--native",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+   "--ple-gguf",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+   "--expert-profile",
+   "<USER>/Desktop/Strata/data/expert-profile.bin",
+   "--expert-cache",
+   "auto",
+   "--prefill",
+   "auto",
+   "--spec",
+   "4",
+   "--spec-min-p",
+   "0.5",
+   "--mtp",
+   "<USER>/Desktop/Strata-data/mtp/rt",
+   "--max-context",
+   "262144",
+   "--kv",
+   "int8",
+   "--kv-resident",
+   "32768",
+   "--vision",
+   "--vram-reserve-mib",
+   "722",
+   "--pool-workers",
+   "15",
+   "--conversation-cache-mib",
+   "16384",
+   "--conversation-cache-slots",
+   "12",
+   "--conversation-cache-min-free-mib",
+   "8192",
+   "--session-state-codec",
+   "fp32",
+   ""
+  ],
+  "model": "qwen3.8-flash-next-iq3_s",
+  "kv": "int8",
+  "max_context": 262144,
+  "cache": {
+   "model": "qwen3.8-flash-next-iq3_s",
+   "max_context": 262144,
+   "images": true,
+   "version": "0.1.43.1",
+   "logit_bias": 1,
+   "context": 262144,
+   "kv": "int8",
+   "kv_resident": 32768,
+   "expert_slots": 12064,
+   "expert_cache_mib": 23449,
+   "expert_slots_primary": 12064,
+   "expert_cache_primary_mib": 23449,
+   "spec": 6,
+   "mtp_max": 4,
+   "lookup": 3,
+   "vram_free_mib": 514,
+   "cvec": 0,
+   "arena_mib": 47962,
+   "pool_workers": 15,
+   "pcie_frac": "0.36",
+   "spec_min_p": "0.50",
+   "conversation_cache_mib": 16384,
+   "conversation_cache_slots": 12,
+   "conversation_cache_min_free_mib": 8192,
+   "conversation_cache_min_tokens": 0,
+   "tail_role_token": -1,
+   "vram_elastic": 0,
+   "engine": "0.1.43.1"
+  },
+  "hardware_static": {
+   "gpu_name": "Tesla V100-PCIE-32GB",
+   "gpu_count": 1,
+   "gpu_note": null,
+   "cpu_name": "Genuine Intel(R) 0000",
+   "cores": 24,
+   "threads": 32,
+   "psutil": true
+  },
+  "server_url": "http://127.0.0.1:8080",
+  "log": "<USER>/Desktop/Strata/bench-fp32.log"
+ },
+ "sizes": [
+  {
+   "target_tokens": 4800,
+   "actual_tokens": 4223,
+   "first_answer": "copper",
+   "prefill_prompt_ms": 892.0,
+   "prefill_wall_s": 1.0,
+   "checkpoints_after_prefill": 1,
+   "save_file": "sr-fp32-4800.bin",
+   "save_file_bytes": 300697908,
+   "save_file_version": 1,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 361.7,
+     "client_wall_s": 0.363,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 346.5,
+     "client_wall_s": 0.3478,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 380.5,
+     "client_wall_s": 0.3819,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 365.2,
+     "client_wall_s": 0.3667,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 346.3,
+     "client_wall_s": 0.3477,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 339.9,
+     "client_wall_s": 0.3413,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 342.0,
+     "client_wall_s": 0.3432,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 334.8,
+     "client_wall_s": 0.3362,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 303.0,
+     "client_wall_s": 0.3049,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 293.7,
+     "client_wall_s": 0.295,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 315.7,
+     "client_wall_s": 0.317,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 374.4,
+     "client_wall_s": 0.3757,
+     "n_saved": 4227,
+     "n_written": 300697908,
+     "bytes_on_disk": 300697908,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 340.95,
+    "min": 293.7,
+    "max": 380.5,
+    "mean": 339.55
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.342,
+    "min": 0.295,
+    "max": 0.382,
+    "mean": 0.341
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 321.7,
+     "client_wall_s": 0.3231,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 274.6,
+     "client_wall_s": 0.2786,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 241.2,
+     "client_wall_s": 0.2445,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 239.9,
+     "client_wall_s": 0.2427,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 321.2,
+     "client_wall_s": 0.3241,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 285.8,
+     "client_wall_s": 0.289,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 298.6,
+     "client_wall_s": 0.3015,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 396.7,
+     "client_wall_s": 0.4001,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 402.9,
+     "client_wall_s": 0.4062,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 372.7,
+     "client_wall_s": 0.3755,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 417.1,
+     "client_wall_s": 0.4197,
+     "n_restored": 4227,
+     "n_read": 300697908
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 389.6,
+     "client_wall_s": 0.3927,
+     "n_restored": 4227,
+     "n_read": 300697908
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 346.95,
+    "min": 239.9,
+    "max": 417.1,
+    "mean": 336.57
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 0.35,
+    "min": 0.243,
+    "max": 0.42,
+    "mean": 0.34
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  },
+  {
+   "target_tokens": 31250,
+   "actual_tokens": 31797,
+   "first_answer": "ember",
+   "prefill_prompt_ms": 21670.4,
+   "prefill_wall_s": 21.78,
+   "checkpoints_after_prefill": 2,
+   "save_file": "sr-fp32-31250.bin",
+   "save_file_bytes": 721838564,
+   "save_file_version": 1,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 632.1,
+     "client_wall_s": 0.6332,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 711.9,
+     "client_wall_s": 0.7131,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 587.8,
+     "client_wall_s": 0.5892,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 678.6,
+     "client_wall_s": 0.6798,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 646.5,
+     "client_wall_s": 0.6481,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 602.2,
+     "client_wall_s": 0.6038,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 642.4,
+     "client_wall_s": 0.6438,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 382.6,
+     "client_wall_s": 0.3839,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 489.9,
+     "client_wall_s": 0.4909,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 437.8,
+     "client_wall_s": 0.4389,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 463.3,
+     "client_wall_s": 0.4643,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 353.2,
+     "client_wall_s": 0.3572,
+     "n_saved": 31801,
+     "n_written": 721838564,
+     "bytes_on_disk": 721838564,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 538.85,
+    "min": 353.2,
+    "max": 678.6,
+    "mean": 528.43
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.54,
+    "min": 0.357,
+    "max": 0.68,
+    "mean": 0.53
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 595.8,
+     "client_wall_s": 0.5973,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 668.2,
+     "client_wall_s": 0.6847,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 802.2,
+     "client_wall_s": 0.8212,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 749.8,
+     "client_wall_s": 0.7691,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 642.7,
+     "client_wall_s": 0.6647,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 732.5,
+     "client_wall_s": 0.7522,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 658.4,
+     "client_wall_s": 0.6785,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 750.6,
+     "client_wall_s": 0.7718,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 679.9,
+     "client_wall_s": 0.6997,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 685.8,
+     "client_wall_s": 0.7055,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 775.0,
+     "client_wall_s": 0.795,
+     "n_restored": 31801,
+     "n_read": 721838564
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 741.4,
+     "client_wall_s": 0.7606,
+     "n_restored": 31801,
+     "n_read": 721838564
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 736.95,
+    "min": 642.7,
+    "max": 802.2,
+    "mean": 721.83
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 0.756,
+    "min": 0.665,
+    "max": 0.821,
+    "mean": 0.742
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  },
+  {
+   "target_tokens": 62500,
+   "actual_tokens": 63026,
+   "first_answer": "velvet",
+   "prefill_prompt_ms": 44201.1,
+   "prefill_wall_s": 44.31,
+   "checkpoints_after_prefill": 4,
+   "save_file": "sr-fp32-62500.bin",
+   "save_file_bytes": 1198752588,
+   "save_file_version": 1,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 465.5,
+     "client_wall_s": 0.4669,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 627.1,
+     "client_wall_s": 0.6285,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 463.9,
+     "client_wall_s": 0.4651,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 477.7,
+     "client_wall_s": 0.4791,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 608.7,
+     "client_wall_s": 0.6099,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 480.0,
+     "client_wall_s": 0.481,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 636.6,
+     "client_wall_s": 0.6379,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 544.8,
+     "client_wall_s": 0.5459,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 588.1,
+     "client_wall_s": 0.5893,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 541.7,
+     "client_wall_s": 0.543,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 549.4,
+     "client_wall_s": 0.5505,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 605.6,
+     "client_wall_s": 0.6069,
+     "n_saved": 63030,
+     "n_written": 1198752588,
+     "bytes_on_disk": 1198752588,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 547.1,
+    "min": 463.9,
+    "max": 636.6,
+    "mean": 549.65
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.548,
+    "min": 0.465,
+    "max": 0.638,
+    "mean": 0.551
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 937.0,
+     "client_wall_s": 0.9382,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 953.3,
+     "client_wall_s": 0.9842,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 883.5,
+     "client_wall_s": 0.9161,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 969.2,
+     "client_wall_s": 1.0018,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 855.3,
+     "client_wall_s": 0.8883,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 938.3,
+     "client_wall_s": 0.9708,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 859.3,
+     "client_wall_s": 0.8936,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 846.5,
+     "client_wall_s": 0.8792,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 935.6,
+     "client_wall_s": 0.968,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 905.5,
+     "client_wall_s": 0.9385,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 931.9,
+     "client_wall_s": 0.9651,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 925.0,
+     "client_wall_s": 0.9583,
+     "n_restored": 63030,
+     "n_read": 1198752588
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 915.25,
+    "min": 846.5,
+    "max": 969.2,
+    "mean": 905.01
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 0.948,
+    "min": 0.879,
+    "max": 1.002,
+    "mean": 0.938
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  },
+  {
+   "target_tokens": 125000,
+   "actual_tokens": 121614,
+   "first_answer": "tundra",
+   "prefill_prompt_ms": 96081.0,
+   "prefill_wall_s": 96.44,
+   "checkpoints_after_prefill": 6,
+   "save_file": "sr-fp32-125000.bin",
+   "save_file_bytes": 2093508528,
+   "save_file_version": 1,
+   "saves": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_save_ms": 716.5,
+     "client_wall_s": 0.7179,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_save_ms": 855.6,
+     "client_wall_s": 0.8571,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_save_ms": 867.9,
+     "client_wall_s": 0.8691,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_save_ms": 822.9,
+     "client_wall_s": 0.8243,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_save_ms": 747.5,
+     "client_wall_s": 0.75,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_save_ms": 905.7,
+     "client_wall_s": 0.9068,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_save_ms": 927.2,
+     "client_wall_s": 0.9284,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_save_ms": 880.8,
+     "client_wall_s": 0.8821,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_save_ms": 1438.4,
+     "client_wall_s": 1.4396,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_save_ms": 1385.7,
+     "client_wall_s": 1.3869,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_save_ms": 1306.0,
+     "client_wall_s": 1.3071,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_save_ms": 5834.5,
+     "client_wall_s": 5.8367,
+     "n_saved": 121619,
+     "n_written": 2093508528,
+     "bytes_on_disk": 2093508528,
+     "file_version": null
+    }
+   ],
+   "save_engine_ms": {
+    "n": 10,
+    "median": 916.45,
+    "min": 747.5,
+    "max": 5834.5,
+    "mean": 1511.66
+   },
+   "save_client_s": {
+    "n": 10,
+    "median": 0.918,
+    "min": 0.75,
+    "max": 5.837,
+    "mean": 1.513
+   },
+   "restores": [
+    {
+     "rep": 0,
+     "warm": true,
+     "engine_restore_ms": 1488.7,
+     "client_wall_s": 1.4901,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 1,
+     "warm": true,
+     "engine_restore_ms": 1496.2,
+     "client_wall_s": 1.5456,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 2,
+     "warm": false,
+     "engine_restore_ms": 1748.9,
+     "client_wall_s": 1.801,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 3,
+     "warm": false,
+     "engine_restore_ms": 1591.0,
+     "client_wall_s": 1.6424,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 4,
+     "warm": false,
+     "engine_restore_ms": 1820.5,
+     "client_wall_s": 1.8723,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 5,
+     "warm": false,
+     "engine_restore_ms": 1593.0,
+     "client_wall_s": 1.6447,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 6,
+     "warm": false,
+     "engine_restore_ms": 1538.4,
+     "client_wall_s": 1.5903,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 7,
+     "warm": false,
+     "engine_restore_ms": 1523.5,
+     "client_wall_s": 1.5751,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 8,
+     "warm": false,
+     "engine_restore_ms": 1482.9,
+     "client_wall_s": 1.5344,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 9,
+     "warm": false,
+     "engine_restore_ms": 1478.8,
+     "client_wall_s": 1.5307,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 10,
+     "warm": false,
+     "engine_restore_ms": 1757.3,
+     "client_wall_s": 1.8092,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    },
+    {
+     "rep": 11,
+     "warm": false,
+     "engine_restore_ms": 1617.7,
+     "client_wall_s": 1.6699,
+     "n_restored": 121619,
+     "n_read": 2093508528
+    }
+   ],
+   "restore_engine_ms": {
+    "n": 10,
+    "median": 1592.0,
+    "min": 1478.8,
+    "max": 1820.5,
+    "mean": 1615.2
+   },
+   "restore_client_s": {
+    "n": 10,
+    "median": 1.644,
+    "min": 1.531,
+    "max": 1.872,
+    "mean": 1.667
+   },
+   "cache_state": "warm page cache (the file was written and re-read within the same run)"
+  }
+ ]
+}

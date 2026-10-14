@@ -1,0 +1,192 @@
+{
+ "phase": "cold_restore",
+ "codec": "fp32",
+ "method": "os.posix_fadvise(fd, POSIX_FADV_DONTNEED) on the one session file, then one restore, timed client-side; engine restore_ms reported alongside. No root, no global cache drop, no other file's pages touched.",
+ "drive": "Samsung SSD 990 EVO Plus 4TB",
+ "filesystem": "48%",
+ "sizes": [
+  {
+   "target_tokens": 31250,
+   "file": "sr-fp32-31250.bin",
+   "file_bytes": 721838564,
+   "reps": 3,
+   "cold": [
+    {
+     "engine_restore_ms": 464.5,
+     "client_wall_s": 0.466,
+     "bytes": 721838564
+    },
+    {
+     "engine_restore_ms": 443.4,
+     "client_wall_s": 0.4548,
+     "bytes": 721838564
+    },
+    {
+     "engine_restore_ms": 442.0,
+     "client_wall_s": 0.4535,
+     "bytes": 721838564
+    }
+   ],
+   "warm_after_eviction": [
+    {
+     "engine_restore_ms": 448.1,
+     "client_wall_s": 0.4601,
+     "bytes": 721838564
+    },
+    {
+     "engine_restore_ms": 459.4,
+     "client_wall_s": 0.4709,
+     "bytes": 721838564
+    },
+    {
+     "engine_restore_ms": 447.5,
+     "client_wall_s": 0.459,
+     "bytes": 721838564
+    }
+   ],
+   "cold_engine_ms": {
+    "n": 3,
+    "median": 443.4,
+    "min": 442.0,
+    "max": 464.5,
+    "mean": 449.967
+   },
+   "cold_client_s": {
+    "n": 3,
+    "median": 0.455,
+    "min": 0.454,
+    "max": 0.466,
+    "mean": 0.458
+   },
+   "warm_engine_ms": {
+    "n": 3,
+    "median": 448.1,
+    "min": 447.5,
+    "max": 459.4,
+    "mean": 451.667
+   }
+  },
+  {
+   "target_tokens": 62500,
+   "file": "sr-fp32-62500.bin",
+   "file_bytes": 1198752588,
+   "reps": 3,
+   "cold": [
+    {
+     "engine_restore_ms": 841.7,
+     "client_wall_s": 0.8529,
+     "bytes": 1198752588
+    },
+    {
+     "engine_restore_ms": 785.6,
+     "client_wall_s": 0.8066,
+     "bytes": 1198752588
+    },
+    {
+     "engine_restore_ms": 730.6,
+     "client_wall_s": 0.7513,
+     "bytes": 1198752588
+    }
+   ],
+   "warm_after_eviction": [
+    {
+     "engine_restore_ms": 744.5,
+     "client_wall_s": 0.7652,
+     "bytes": 1198752588
+    },
+    {
+     "engine_restore_ms": 743.1,
+     "client_wall_s": 0.7642,
+     "bytes": 1198752588
+    },
+    {
+     "engine_restore_ms": 745.9,
+     "client_wall_s": 0.7668,
+     "bytes": 1198752588
+    }
+   ],
+   "cold_engine_ms": {
+    "n": 3,
+    "median": 785.6,
+    "min": 730.6,
+    "max": 841.7,
+    "mean": 785.967
+   },
+   "cold_client_s": {
+    "n": 3,
+    "median": 0.807,
+    "min": 0.751,
+    "max": 0.853,
+    "mean": 0.804
+   },
+   "warm_engine_ms": {
+    "n": 3,
+    "median": 744.5,
+    "min": 743.1,
+    "max": 745.9,
+    "mean": 744.5
+   }
+  },
+  {
+   "target_tokens": 125000,
+   "file": "sr-fp32-125000.bin",
+   "file_bytes": 2093508528,
+   "reps": 3,
+   "cold": [
+    {
+     "engine_restore_ms": 1423.5,
+     "client_wall_s": 1.4443,
+     "bytes": 2093508528
+    },
+    {
+     "engine_restore_ms": 1400.8,
+     "client_wall_s": 1.4402,
+     "bytes": 2093508528
+    },
+    {
+     "engine_restore_ms": 1432.5,
+     "client_wall_s": 1.4721,
+     "bytes": 2093508528
+    }
+   ],
+   "warm_after_eviction": [
+    {
+     "engine_restore_ms": 1421.5,
+     "client_wall_s": 1.4608,
+     "bytes": 2093508528
+    },
+    {
+     "engine_restore_ms": 1460.0,
+     "client_wall_s": 1.4997,
+     "bytes": 2093508528
+    },
+    {
+     "engine_restore_ms": 1395.8,
+     "client_wall_s": 1.4362,
+     "bytes": 2093508528
+    }
+   ],
+   "cold_engine_ms": {
+    "n": 3,
+    "median": 1423.5,
+    "min": 1400.8,
+    "max": 1432.5,
+    "mean": 1418.933
+   },
+   "cold_client_s": {
+    "n": 3,
+    "median": 1.444,
+    "min": 1.44,
+    "max": 1.472,
+    "mean": 1.452
+   },
+   "warm_engine_ms": {
+    "n": 3,
+    "median": 1421.5,
+    "min": 1395.8,
+    "max": 1460.0,
+    "mean": 1425.767
+   }
+  }
+ ]
+}

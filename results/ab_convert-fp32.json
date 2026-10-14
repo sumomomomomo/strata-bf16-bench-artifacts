@@ -1,0 +1,1730 @@
+{
+ "phase": "ab_convert",
+ "env": {
+  "base_config": "<USER>/Desktop/Strata/bench-state-codec/bench-fp32.json",
+  "extra_args": [
+   "--adapt-swaps",
+   "0",
+   "--pcie-frac",
+   "0"
+  ],
+  "port": "8091",
+  "arms": {
+   "pre-change": "<USER>/Desktop/Strata/engine-cuda12/strata.pre-change",
+   "transcode": "<USER>/Desktop/Strata/engine-cuda12/strata"
+  },
+  "log": "bench-ab-convert.log"
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "order": [
+    "pre-change",
+    "transcode"
+   ],
+   "arms": {
+    "pre-change": {
+     "arm": "pre-change",
+     "engine": "<USER>/Desktop/Strata/engine-cuda12/strata.pre-change",
+     "tokens": {
+      "long": 63024,
+      "short": 31793
+     },
+     "save_ms": {
+      "n": 6,
+      "median": 387.15,
+      "min": 338.2,
+      "max": 509.1,
+      "mean": 409.117
+     },
+     "restore_ms": {
+      "n": 6,
+      "median": 533.5,
+      "min": 446.3,
+      "max": 590.5,
+      "mean": 528.8
+     },
+     "saves": [
+      {
+       "engine_ms": 365.7,
+       "bytes": 721777476,
+       "client_wall_s": 0.3684
+      },
+      {
+       "engine_ms": 509.1,
+       "bytes": 721777476,
+       "client_wall_s": 0.5227
+      },
+      {
+       "engine_ms": 338.2,
+       "bytes": 721777476,
+       "client_wall_s": 0.3537
+      },
+      {
+       "engine_ms": 408.6,
+       "bytes": 721777476,
+       "client_wall_s": 0.4245
+      },
+      {
+       "engine_ms": 365.6,
+       "bytes": 721777476,
+       "client_wall_s": 0.3812
+      },
+      {
+       "engine_ms": 467.5,
+       "bytes": 721777476,
+       "client_wall_s": 0.4828
+      }
+     ],
+     "restores": [
+      {
+       "engine_ms": 522.1,
+       "bytes": 721777476,
+       "client_wall_s": 0.5235
+      },
+      {
+       "engine_ms": 446.3,
+       "bytes": 721777476,
+       "client_wall_s": 0.4478
+      },
+      {
+       "engine_ms": 546.9,
+       "bytes": 721777476,
+       "client_wall_s": 0.5482
+      },
+      {
+       "engine_ms": 590.5,
+       "bytes": 721777476,
+       "client_wall_s": 0.5919
+      },
+      {
+       "engine_ms": 534.4,
+       "bytes": 721777476,
+       "client_wall_s": 0.5358
+      },
+      {
+       "engine_ms": 532.6,
+       "bytes": 721777476,
+       "client_wall_s": 0.5339
+      }
+     ],
+     "file_bytes": 721777476,
+     "file_sha": "2f92a766f002ba9be0dccfe1041712cb3e66b7b377084fceb09fd78328ff3681",
+     "switches": [
+      {
+       "switch": 0,
+       "into": "A",
+       "prompt_ms": 513.5,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 63028,
+         "kind": "live",
+         "resume_ms": 74.8,
+         "parked": 1,
+         "cache_bytes": 1683850900
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31797,
+         "park_ms": 230.6,
+         "parked": 1,
+         "cache_bytes": 721780396,
+         "image_bytes": 721780396
+        }
+       ]
+      },
+      {
+       "switch": 1,
+       "into": "B",
+       "prompt_ms": 453.2,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31797,
+         "kind": "live",
+         "resume_ms": 57.3,
+         "parked": 1,
+         "cache_bytes": 2839282468
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63058,
+         "park_ms": 217.0,
+         "parked": 1,
+         "cache_bytes": 2353882924,
+         "image_bytes": 2353882924
+        }
+       ]
+      },
+      {
+       "switch": 2,
+       "into": "A",
+       "prompt_ms": 408.6,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 63058,
+         "kind": "live",
+         "resume_ms": 76.5,
+         "parked": 1,
+         "cache_bytes": 3044680724
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31826,
+         "park_ms": 109.2,
+         "parked": 1,
+         "cache_bytes": 1400327468,
+         "image_bytes": 1400327468
+        }
+       ]
+      },
+      {
+       "switch": 3,
+       "into": "B",
+       "prompt_ms": 529.1,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31826,
+         "kind": "live",
+         "resume_ms": 67.4,
+         "parked": 1,
+         "cache_bytes": 3517954604
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63090,
+         "park_ms": 247.9,
+         "parked": 1,
+         "cache_bytes": 2472198708,
+         "image_bytes": 2472198708
+        }
+       ]
+      },
+      {
+       "switch": 4,
+       "into": "A",
+       "prompt_ms": 456.6,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 63090,
+         "kind": "live",
+         "resume_ms": 81.2,
+         "parked": 1,
+         "cache_bytes": 3162871588
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31860,
+         "park_ms": 145.8,
+         "parked": 1,
+         "cache_bytes": 1518518332,
+         "image_bytes": 1518518332
+        }
+       ]
+      },
+      {
+       "switch": 5,
+       "into": "B",
+       "prompt_ms": 506.1,
+       "read": 18,
+       "resume": [
+        {
+         "tokens": 31860,
+         "kind": "live",
+         "resume_ms": 64.5,
+         "parked": 1,
+         "cache_bytes": 3518076092
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63126,
+         "park_ms": 247.1,
+         "parked": 1,
+         "cache_bytes": 2472320196,
+         "image_bytes": 2472320196
+        }
+       ]
+      },
+      {
+       "switch": 6,
+       "into": "A",
+       "prompt_ms": 463.5,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63126,
+         "kind": "live",
+         "resume_ms": 85.4,
+         "parked": 1,
+         "cache_bytes": 3281062560
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31890,
+         "park_ms": 179.1,
+         "parked": 1,
+         "cache_bytes": 1636709304,
+         "image_bytes": 1636709304
+        }
+       ]
+      },
+      {
+       "switch": 7,
+       "into": "B",
+       "prompt_ms": 519.4,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31890,
+         "kind": "live",
+         "resume_ms": 63.4,
+         "parked": 1,
+         "cache_bytes": 3518132156
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63158,
+         "park_ms": 245.2,
+         "parked": 1,
+         "cache_bytes": 2472376260,
+         "image_bytes": 2472376260
+        }
+       ]
+      },
+      {
+       "switch": 8,
+       "into": "A",
+       "prompt_ms": 506.8,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63158,
+         "kind": "live",
+         "resume_ms": 89.1,
+         "parked": 1,
+         "cache_bytes": 3399253652
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31919,
+         "park_ms": 211.9,
+         "parked": 1,
+         "cache_bytes": 1754900396,
+         "image_bytes": 1754900396
+        }
+       ]
+      },
+      {
+       "switch": 9,
+       "into": "B",
+       "prompt_ms": 560.0,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31919,
+         "kind": "live",
+         "resume_ms": 66.9,
+         "parked": 1,
+         "cache_bytes": 3518132884
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63189,
+         "park_ms": 247.1,
+         "parked": 1,
+         "cache_bytes": 2472376988,
+         "image_bytes": 2472376988
+        }
+       ]
+      },
+      {
+       "switch": 10,
+       "into": "A",
+       "prompt_ms": 565.6,
+       "read": 18,
+       "resume": [
+        {
+         "tokens": 63189,
+         "kind": "live",
+         "resume_ms": 90.2,
+         "parked": 1,
+         "cache_bytes": 3517444892
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31954,
+         "park_ms": 252.8,
+         "parked": 1,
+         "cache_bytes": 1873091636,
+         "image_bytes": 1873091636
+        }
+       ]
+      },
+      {
+       "switch": 11,
+       "into": "B",
+       "prompt_ms": 525.2,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 31954,
+         "kind": "live",
+         "resume_ms": 66.7,
+         "parked": 1,
+         "cache_bytes": 3518133652
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63221,
+         "park_ms": 246.8,
+         "parked": 1,
+         "cache_bytes": 2472377756,
+         "image_bytes": 2472377756
+        }
+       ]
+      }
+     ],
+     "park_ms": {
+      "n": 12,
+      "median": 237.9,
+      "min": 109.2,
+      "max": 252.8,
+      "mean": 215.042
+     },
+     "resume_ms": {
+      "n": 12,
+      "median": 71.1,
+      "min": 57.3,
+      "max": 90.2,
+      "mean": 73.617
+     },
+     "park_image_bytes": [
+      721780396,
+      1400327468,
+      1518518332,
+      1636709304,
+      1754900396,
+      1873091636,
+      2353882924,
+      2472198708,
+      2472320196,
+      2472376260,
+      2472376988,
+      2472377756
+     ],
+     "ttft_prompt_ms": {
+      "n": 12,
+      "median": 510.15,
+      "min": 408.6,
+      "max": 565.6,
+      "mean": 500.633
+     },
+     "cache": {
+      "parked": 1,
+      "bytes": 3518133652,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 12,
+      "last_event": "restored",
+      "last_tokens": 31954
+     }
+    },
+    "transcode": {
+     "arm": "transcode",
+     "engine": "<USER>/Desktop/Strata/engine-cuda12/strata",
+     "tokens": {
+      "long": 63024,
+      "short": 31793
+     },
+     "save_ms": {
+      "n": 6,
+      "median": 395.65,
+      "min": 337.4,
+      "max": 474.1,
+      "mean": 402.667
+     },
+     "restore_ms": {
+      "n": 6,
+      "median": 568.8,
+      "min": 508.7,
+      "max": 611.2,
+      "mean": 562.45
+     },
+     "saves": [
+      {
+       "engine_ms": 356.0,
+       "bytes": 721777476,
+       "client_wall_s": 0.3575
+      },
+      {
+       "engine_ms": 430.3,
+       "bytes": 721777476,
+       "client_wall_s": 0.4447
+      },
+      {
+       "engine_ms": 457.2,
+       "bytes": 721777476,
+       "client_wall_s": 0.471
+      },
+      {
+       "engine_ms": 361.0,
+       "bytes": 721777476,
+       "client_wall_s": 0.3743
+      },
+      {
+       "engine_ms": 337.4,
+       "bytes": 721777476,
+       "client_wall_s": 0.3508
+      },
+      {
+       "engine_ms": 474.1,
+       "bytes": 721777476,
+       "client_wall_s": 0.4872
+      }
+     ],
+     "restores": [
+      {
+       "engine_ms": 551.3,
+       "bytes": 721777476,
+       "client_wall_s": 0.555
+      },
+      {
+       "engine_ms": 586.3,
+       "bytes": 721777476,
+       "client_wall_s": 0.5878
+      },
+      {
+       "engine_ms": 508.7,
+       "bytes": 721777476,
+       "client_wall_s": 0.5101
+      },
+      {
+       "engine_ms": 530.3,
+       "bytes": 721777476,
+       "client_wall_s": 0.5316
+      },
+      {
+       "engine_ms": 586.9,
+       "bytes": 721777476,
+       "client_wall_s": 0.5881
+      },
+      {
+       "engine_ms": 611.2,
+       "bytes": 721777476,
+       "client_wall_s": 0.6126
+      }
+     ],
+     "file_bytes": 721777476,
+     "file_sha": "2f92a766f002ba9be0dccfe1041712cb3e66b7b377084fceb09fd78328ff3681",
+     "switches": [
+      {
+       "switch": 0,
+       "into": "A",
+       "prompt_ms": 534.7,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 63028,
+         "kind": "live",
+         "resume_ms": 75.1,
+         "parked": 1,
+         "cache_bytes": 1683850900
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31797,
+         "park_ms": 224.2,
+         "parked": 1,
+         "cache_bytes": 721780396,
+         "image_bytes": 721780396
+        }
+       ]
+      },
+      {
+       "switch": 1,
+       "into": "B",
+       "prompt_ms": 479.6,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31797,
+         "kind": "live",
+         "resume_ms": 63.7,
+         "parked": 1,
+         "cache_bytes": 2839282468
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63058,
+         "park_ms": 211.1,
+         "parked": 1,
+         "cache_bytes": 2353882924,
+         "image_bytes": 2353882924
+        }
+       ]
+      },
+      {
+       "switch": 2,
+       "into": "A",
+       "prompt_ms": 411.5,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 63058,
+         "kind": "live",
+         "resume_ms": 78.0,
+         "parked": 1,
+         "cache_bytes": 3044680724
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31826,
+         "park_ms": 110.1,
+         "parked": 1,
+         "cache_bytes": 1400327468,
+         "image_bytes": 1400327468
+        }
+       ]
+      },
+      {
+       "switch": 3,
+       "into": "B",
+       "prompt_ms": 521.9,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31826,
+         "kind": "live",
+         "resume_ms": 61.6,
+         "parked": 1,
+         "cache_bytes": 3517954604
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63090,
+         "park_ms": 246.1,
+         "parked": 1,
+         "cache_bytes": 2472198708,
+         "image_bytes": 2472198708
+        }
+       ]
+      },
+      {
+       "switch": 4,
+       "into": "A",
+       "prompt_ms": 457.4,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 63090,
+         "kind": "live",
+         "resume_ms": 83.9,
+         "parked": 1,
+         "cache_bytes": 3162871588
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31860,
+         "park_ms": 142.3,
+         "parked": 1,
+         "cache_bytes": 1518518332,
+         "image_bytes": 1518518332
+        }
+       ]
+      },
+      {
+       "switch": 5,
+       "into": "B",
+       "prompt_ms": 529.5,
+       "read": 18,
+       "resume": [
+        {
+         "tokens": 31860,
+         "kind": "live",
+         "resume_ms": 62.5,
+         "parked": 1,
+         "cache_bytes": 3518076092
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63126,
+         "park_ms": 246.7,
+         "parked": 1,
+         "cache_bytes": 2472320196,
+         "image_bytes": 2472320196
+        }
+       ]
+      },
+      {
+       "switch": 6,
+       "into": "A",
+       "prompt_ms": 458.7,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63126,
+         "kind": "live",
+         "resume_ms": 82.4,
+         "parked": 1,
+         "cache_bytes": 3281062560
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31890,
+         "park_ms": 176.7,
+         "parked": 1,
+         "cache_bytes": 1636709304,
+         "image_bytes": 1636709304
+        }
+       ]
+      },
+      {
+       "switch": 7,
+       "into": "B",
+       "prompt_ms": 520.2,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31890,
+         "kind": "live",
+         "resume_ms": 62.3,
+         "parked": 1,
+         "cache_bytes": 3518132156
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63158,
+         "park_ms": 243.1,
+         "parked": 1,
+         "cache_bytes": 2472376260,
+         "image_bytes": 2472376260
+        }
+       ]
+      },
+      {
+       "switch": 8,
+       "into": "A",
+       "prompt_ms": 539.6,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63158,
+         "kind": "live",
+         "resume_ms": 105.9,
+         "parked": 1,
+         "cache_bytes": 3399253652
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31919,
+         "park_ms": 220.3,
+         "parked": 1,
+         "cache_bytes": 1754900396,
+         "image_bytes": 1754900396
+        }
+       ]
+      },
+      {
+       "switch": 9,
+       "into": "B",
+       "prompt_ms": 590.7,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31919,
+         "kind": "live",
+         "resume_ms": 70.6,
+         "parked": 1,
+         "cache_bytes": 3518132888
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63190,
+         "park_ms": 264.7,
+         "parked": 1,
+         "cache_bytes": 2472376992,
+         "image_bytes": 2472376992
+        }
+       ]
+      },
+      {
+       "switch": 10,
+       "into": "A",
+       "prompt_ms": 569.3,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63190,
+         "kind": "live",
+         "resume_ms": 99.1,
+         "parked": 1,
+         "cache_bytes": 3517444880
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31951,
+         "park_ms": 253.3,
+         "parked": 1,
+         "cache_bytes": 1873091624,
+         "image_bytes": 1873091624
+        }
+       ]
+      },
+      {
+       "switch": 11,
+       "into": "B",
+       "prompt_ms": 563.8,
+       "read": 20,
+       "resume": [
+        {
+         "tokens": 31951,
+         "kind": "live",
+         "resume_ms": 64.4,
+         "parked": 1,
+         "cache_bytes": 3518133644
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63219,
+         "park_ms": 249.9,
+         "parked": 1,
+         "cache_bytes": 2472377748,
+         "image_bytes": 2472377748
+        }
+       ]
+      }
+     ],
+     "park_ms": {
+      "n": 12,
+      "median": 233.65,
+      "min": 110.1,
+      "max": 264.7,
+      "mean": 215.708
+     },
+     "resume_ms": {
+      "n": 12,
+      "median": 72.85,
+      "min": 61.6,
+      "max": 105.9,
+      "mean": 75.792
+     },
+     "park_image_bytes": [
+      721780396,
+      1400327468,
+      1518518332,
+      1636709304,
+      1754900396,
+      1873091624,
+      2353882924,
+      2472198708,
+      2472320196,
+      2472376260,
+      2472376992,
+      2472377748
+     ],
+     "ttft_prompt_ms": {
+      "n": 12,
+      "median": 525.7,
+      "min": 411.5,
+      "max": 590.7,
+      "mean": 514.742
+     },
+     "cache": {
+      "parked": 1,
+      "bytes": 3518133644,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 12,
+      "last_event": "restored",
+      "last_tokens": 31951
+     }
+    }
+   },
+   "files_identical": true,
+   "files_differ_at": null
+  },
+  {
+   "round": 1,
+   "order": [
+    "transcode",
+    "pre-change"
+   ],
+   "arms": {
+    "transcode": {
+     "arm": "transcode",
+     "engine": "<USER>/Desktop/Strata/engine-cuda12/strata",
+     "tokens": {
+      "long": 63024,
+      "short": 31793
+     },
+     "save_ms": {
+      "n": 6,
+      "median": 381.1,
+      "min": 327.8,
+      "max": 465.4,
+      "mean": 396.633
+     },
+     "restore_ms": {
+      "n": 6,
+      "median": 540.65,
+      "min": 449.6,
+      "max": 586.7,
+      "mean": 534.5
+     },
+     "saves": [
+      {
+       "engine_ms": 370.1,
+       "bytes": 721777476,
+       "client_wall_s": 0.3731
+      },
+      {
+       "engine_ms": 327.8,
+       "bytes": 721777476,
+       "client_wall_s": 0.3463
+      },
+      {
+       "engine_ms": 464.3,
+       "bytes": 721777476,
+       "client_wall_s": 0.4876
+      },
+      {
+       "engine_ms": 392.1,
+       "bytes": 721777476,
+       "client_wall_s": 0.4148
+      },
+      {
+       "engine_ms": 360.1,
+       "bytes": 721777476,
+       "client_wall_s": 0.3824
+      },
+      {
+       "engine_ms": 465.4,
+       "bytes": 721777476,
+       "client_wall_s": 0.487
+      }
+     ],
+     "restores": [
+      {
+       "engine_ms": 545.8,
+       "bytes": 721777476,
+       "client_wall_s": 0.5472
+      },
+      {
+       "engine_ms": 524.0,
+       "bytes": 721777476,
+       "client_wall_s": 0.5254
+      },
+      {
+       "engine_ms": 449.6,
+       "bytes": 721777476,
+       "client_wall_s": 0.4512
+      },
+      {
+       "engine_ms": 535.5,
+       "bytes": 721777476,
+       "client_wall_s": 0.5368
+      },
+      {
+       "engine_ms": 565.4,
+       "bytes": 721777476,
+       "client_wall_s": 0.5667
+      },
+      {
+       "engine_ms": 586.7,
+       "bytes": 721777476,
+       "client_wall_s": 0.588
+      }
+     ],
+     "file_bytes": 721777476,
+     "file_sha": "2f92a766f002ba9be0dccfe1041712cb3e66b7b377084fceb09fd78328ff3681",
+     "switches": [
+      {
+       "switch": 0,
+       "into": "A",
+       "prompt_ms": 500.3,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 63028,
+         "kind": "live",
+         "resume_ms": 75.6,
+         "parked": 1,
+         "cache_bytes": 1683850900
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31797,
+         "park_ms": 230.5,
+         "parked": 1,
+         "cache_bytes": 721780396,
+         "image_bytes": 721780396
+        }
+       ]
+      },
+      {
+       "switch": 1,
+       "into": "B",
+       "prompt_ms": 487.5,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31797,
+         "kind": "live",
+         "resume_ms": 59.8,
+         "parked": 1,
+         "cache_bytes": 2839282468
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63058,
+         "park_ms": 217.3,
+         "parked": 1,
+         "cache_bytes": 2353882924,
+         "image_bytes": 2353882924
+        }
+       ]
+      },
+      {
+       "switch": 2,
+       "into": "A",
+       "prompt_ms": 411.9,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 63058,
+         "kind": "live",
+         "resume_ms": 77.7,
+         "parked": 1,
+         "cache_bytes": 3044680724
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31826,
+         "park_ms": 109.1,
+         "parked": 1,
+         "cache_bytes": 1400327468,
+         "image_bytes": 1400327468
+        }
+       ]
+      },
+      {
+       "switch": 3,
+       "into": "B",
+       "prompt_ms": 528.5,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31826,
+         "kind": "live",
+         "resume_ms": 68.9,
+         "parked": 1,
+         "cache_bytes": 3517954620
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63094,
+         "park_ms": 247.5,
+         "parked": 1,
+         "cache_bytes": 2472198724,
+         "image_bytes": 2472198724
+        }
+       ]
+      },
+      {
+       "switch": 4,
+       "into": "A",
+       "prompt_ms": 414.8,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63094,
+         "kind": "live",
+         "resume_ms": 79.7,
+         "parked": 1,
+         "cache_bytes": 3162871588
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31860,
+         "park_ms": 144.3,
+         "parked": 1,
+         "cache_bytes": 1518518332,
+         "image_bytes": 1518518332
+        }
+       ]
+      },
+      {
+       "switch": 5,
+       "into": "B",
+       "prompt_ms": 505.7,
+       "read": 18,
+       "resume": [
+        {
+         "tokens": 31860,
+         "kind": "live",
+         "resume_ms": 64.4,
+         "parked": 1,
+         "cache_bytes": 3518076092
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63126,
+         "park_ms": 247.2,
+         "parked": 1,
+         "cache_bytes": 2472320196,
+         "image_bytes": 2472320196
+        }
+       ]
+      },
+      {
+       "switch": 6,
+       "into": "A",
+       "prompt_ms": 462.4,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63126,
+         "kind": "live",
+         "resume_ms": 86.5,
+         "parked": 1,
+         "cache_bytes": 3281062560
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31890,
+         "park_ms": 177.6,
+         "parked": 1,
+         "cache_bytes": 1636709304,
+         "image_bytes": 1636709304
+        }
+       ]
+      },
+      {
+       "switch": 7,
+       "into": "B",
+       "prompt_ms": 521.1,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31890,
+         "kind": "live",
+         "resume_ms": 65.5,
+         "parked": 1,
+         "cache_bytes": 3518132156
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63158,
+         "park_ms": 245.8,
+         "parked": 1,
+         "cache_bytes": 2472376260,
+         "image_bytes": 2472376260
+        }
+       ]
+      },
+      {
+       "switch": 8,
+       "into": "A",
+       "prompt_ms": 507.7,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63158,
+         "kind": "live",
+         "resume_ms": 86.6,
+         "parked": 1,
+         "cache_bytes": 3399253652
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31919,
+         "park_ms": 213.4,
+         "parked": 1,
+         "cache_bytes": 1754900396,
+         "image_bytes": 1754900396
+        }
+       ]
+      },
+      {
+       "switch": 9,
+       "into": "B",
+       "prompt_ms": 560.1,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31919,
+         "kind": "live",
+         "resume_ms": 67.6,
+         "parked": 1,
+         "cache_bytes": 3518132888
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63190,
+         "park_ms": 248.1,
+         "parked": 1,
+         "cache_bytes": 2472376992,
+         "image_bytes": 2472376992
+        }
+       ]
+      },
+      {
+       "switch": 10,
+       "into": "A",
+       "prompt_ms": 552.5,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63190,
+         "kind": "live",
+         "resume_ms": 92.1,
+         "parked": 1,
+         "cache_bytes": 3517444876
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31950,
+         "park_ms": 247.9,
+         "parked": 1,
+         "cache_bytes": 1873091620,
+         "image_bytes": 1873091620
+        }
+       ]
+      },
+      {
+       "switch": 11,
+       "into": "B",
+       "prompt_ms": 569.0,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31950,
+         "kind": "live",
+         "resume_ms": 67.2,
+         "parked": 1,
+         "cache_bytes": 3518133656
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63222,
+         "park_ms": 247.4,
+         "parked": 1,
+         "cache_bytes": 2472377760,
+         "image_bytes": 2472377760
+        }
+       ]
+      }
+     ],
+     "park_ms": {
+      "n": 12,
+      "median": 238.15,
+      "min": 109.1,
+      "max": 248.1,
+      "mean": 214.675
+     },
+     "resume_ms": {
+      "n": 12,
+      "median": 72.25,
+      "min": 59.8,
+      "max": 92.1,
+      "mean": 74.3
+     },
+     "park_image_bytes": [
+      721780396,
+      1400327468,
+      1518518332,
+      1636709304,
+      1754900396,
+      1873091620,
+      2353882924,
+      2472198724,
+      2472320196,
+      2472376260,
+      2472376992,
+      2472377760
+     ],
+     "ttft_prompt_ms": {
+      "n": 12,
+      "median": 506.7,
+      "min": 411.9,
+      "max": 569.0,
+      "mean": 501.792
+     },
+     "cache": {
+      "parked": 1,
+      "bytes": 3518133656,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 12,
+      "last_event": "restored",
+      "last_tokens": 31950
+     }
+    },
+    "pre-change": {
+     "arm": "pre-change",
+     "engine": "<USER>/Desktop/Strata/engine-cuda12/strata.pre-change",
+     "tokens": {
+      "long": 63024,
+      "short": 31793
+     },
+     "save_ms": {
+      "n": 6,
+      "median": 505.15,
+      "min": 368.6,
+      "max": 548.6,
+      "mean": 476.433
+     },
+     "restore_ms": {
+      "n": 6,
+      "median": 568.7,
+      "min": 444.8,
+      "max": 636.3,
+      "mean": 558.6
+     },
+     "saves": [
+      {
+       "engine_ms": 548.6,
+       "bytes": 721777476,
+       "client_wall_s": 0.5504
+      },
+      {
+       "engine_ms": 521.7,
+       "bytes": 721777476,
+       "client_wall_s": 0.5359
+      },
+      {
+       "engine_ms": 368.6,
+       "bytes": 721777476,
+       "client_wall_s": 0.3826
+      },
+      {
+       "engine_ms": 531.7,
+       "bytes": 721777476,
+       "client_wall_s": 0.5456
+      },
+      {
+       "engine_ms": 488.6,
+       "bytes": 721777476,
+       "client_wall_s": 0.5023
+      },
+      {
+       "engine_ms": 399.4,
+       "bytes": 721777476,
+       "client_wall_s": 0.4134
+      }
+     ],
+     "restores": [
+      {
+       "engine_ms": 444.8,
+       "bytes": 721777476,
+       "client_wall_s": 0.4461
+      },
+      {
+       "engine_ms": 570.2,
+       "bytes": 721777476,
+       "client_wall_s": 0.5717
+      },
+      {
+       "engine_ms": 567.2,
+       "bytes": 721777476,
+       "client_wall_s": 0.5685
+      },
+      {
+       "engine_ms": 636.3,
+       "bytes": 721777476,
+       "client_wall_s": 0.6376
+      },
+      {
+       "engine_ms": 581.1,
+       "bytes": 721777476,
+       "client_wall_s": 0.5822
+      },
+      {
+       "engine_ms": 552.0,
+       "bytes": 721777476,
+       "client_wall_s": 0.5533
+      }
+     ],
+     "file_bytes": 721777476,
+     "file_sha": "2f92a766f002ba9be0dccfe1041712cb3e66b7b377084fceb09fd78328ff3681",
+     "switches": [
+      {
+       "switch": 0,
+       "into": "A",
+       "prompt_ms": 588.2,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 63028,
+         "kind": "live",
+         "resume_ms": 74.0,
+         "parked": 1,
+         "cache_bytes": 1683850900
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31797,
+         "park_ms": 228.9,
+         "parked": 1,
+         "cache_bytes": 721780396,
+         "image_bytes": 721780396
+        }
+       ]
+      },
+      {
+       "switch": 1,
+       "into": "B",
+       "prompt_ms": 452.3,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31797,
+         "kind": "live",
+         "resume_ms": 59.0,
+         "parked": 1,
+         "cache_bytes": 2839282468
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63058,
+         "park_ms": 215.1,
+         "parked": 1,
+         "cache_bytes": 2353882924,
+         "image_bytes": 2353882924
+        }
+       ]
+      },
+      {
+       "switch": 2,
+       "into": "A",
+       "prompt_ms": 408.1,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 63058,
+         "kind": "live",
+         "resume_ms": 76.0,
+         "parked": 1,
+         "cache_bytes": 3044680724
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31826,
+         "park_ms": 109.2,
+         "parked": 1,
+         "cache_bytes": 1400327468,
+         "image_bytes": 1400327468
+        }
+       ]
+      },
+      {
+       "switch": 3,
+       "into": "B",
+       "prompt_ms": 524.4,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31826,
+         "kind": "live",
+         "resume_ms": 65.1,
+         "parked": 1,
+         "cache_bytes": 3517954604
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63090,
+         "park_ms": 246.7,
+         "parked": 1,
+         "cache_bytes": 2472198708,
+         "image_bytes": 2472198708
+        }
+       ]
+      },
+      {
+       "switch": 4,
+       "into": "A",
+       "prompt_ms": 453.7,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 63090,
+         "kind": "live",
+         "resume_ms": 80.7,
+         "parked": 1,
+         "cache_bytes": 3162871588
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31860,
+         "park_ms": 143.7,
+         "parked": 1,
+         "cache_bytes": 1518518332,
+         "image_bytes": 1518518332
+        }
+       ]
+      },
+      {
+       "switch": 5,
+       "into": "B",
+       "prompt_ms": 508.8,
+       "read": 18,
+       "resume": [
+        {
+         "tokens": 31860,
+         "kind": "live",
+         "resume_ms": 62.0,
+         "parked": 1,
+         "cache_bytes": 3518076092
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63126,
+         "park_ms": 253.2,
+         "parked": 1,
+         "cache_bytes": 2472320196,
+         "image_bytes": 2472320196
+        }
+       ]
+      },
+      {
+       "switch": 6,
+       "into": "A",
+       "prompt_ms": 464.7,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63126,
+         "kind": "live",
+         "resume_ms": 86.8,
+         "parked": 1,
+         "cache_bytes": 3281062560
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31890,
+         "park_ms": 179.0,
+         "parked": 1,
+         "cache_bytes": 1636709304,
+         "image_bytes": 1636709304
+        }
+       ]
+      },
+      {
+       "switch": 7,
+       "into": "B",
+       "prompt_ms": 515.7,
+       "read": 19,
+       "resume": [
+        {
+         "tokens": 31890,
+         "kind": "live",
+         "resume_ms": 61.3,
+         "parked": 1,
+         "cache_bytes": 3518132156
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63158,
+         "park_ms": 245.3,
+         "parked": 1,
+         "cache_bytes": 2472376260,
+         "image_bytes": 2472376260
+        }
+       ]
+      },
+      {
+       "switch": 8,
+       "into": "A",
+       "prompt_ms": 505.7,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63158,
+         "kind": "live",
+         "resume_ms": 88.2,
+         "parked": 1,
+         "cache_bytes": 3399253652
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31919,
+         "park_ms": 211.5,
+         "parked": 1,
+         "cache_bytes": 1754900396,
+         "image_bytes": 1754900396
+        }
+       ]
+      },
+      {
+       "switch": 9,
+       "into": "B",
+       "prompt_ms": 558.5,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31919,
+         "kind": "live",
+         "resume_ms": 66.1,
+         "parked": 1,
+         "cache_bytes": 3518132888
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63190,
+         "park_ms": 246.8,
+         "parked": 1,
+         "cache_bytes": 2472376992,
+         "image_bytes": 2472376992
+        }
+       ]
+      },
+      {
+       "switch": 10,
+       "into": "A",
+       "prompt_ms": 550.6,
+       "read": 17,
+       "resume": [
+        {
+         "tokens": 63190,
+         "kind": "live",
+         "resume_ms": 88.9,
+         "parked": 1,
+         "cache_bytes": 3517444876
+        }
+       ],
+       "park": [
+        {
+         "tokens": 31950,
+         "park_ms": 248.6,
+         "parked": 1,
+         "cache_bytes": 1873091620,
+         "image_bytes": 1873091620
+        }
+       ]
+      },
+      {
+       "switch": 11,
+       "into": "B",
+       "prompt_ms": 567.9,
+       "read": 21,
+       "resume": [
+        {
+         "tokens": 31950,
+         "kind": "live",
+         "resume_ms": 66.6,
+         "parked": 1,
+         "cache_bytes": 3518133656
+        }
+       ],
+       "park": [
+        {
+         "tokens": 63222,
+         "park_ms": 247.0,
+         "parked": 1,
+         "cache_bytes": 2472377760,
+         "image_bytes": 2472377760
+        }
+       ]
+      }
+     ],
+     "park_ms": {
+      "n": 12,
+      "median": 237.1,
+      "min": 109.2,
+      "max": 253.2,
+      "mean": 214.583
+     },
+     "resume_ms": {
+      "n": 12,
+      "median": 70.3,
+      "min": 59.0,
+      "max": 88.9,
+      "mean": 72.892
+     },
+     "park_image_bytes": [
+      721780396,
+      1400327468,
+      1518518332,
+      1636709304,
+      1754900396,
+      1873091620,
+      2353882924,
+      2472198708,
+      2472320196,
+      2472376260,
+      2472376992,
+      2472377760
+     ],
+     "ttft_prompt_ms": {
+      "n": 12,
+      "median": 512.25,
+      "min": 408.1,
+      "max": 588.2,
+      "mean": 508.217
+     },
+     "cache": {
+      "parked": 1,
+      "bytes": 3518133656,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 12,
+      "last_event": "restored",
+      "last_tokens": 31950
+     }
+    }
+   },
+   "files_identical": true,
+   "files_differ_at": null
+  }
+ ]
+}

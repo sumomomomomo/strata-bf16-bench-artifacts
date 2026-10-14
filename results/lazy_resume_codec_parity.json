@@ -1,0 +1,7369 @@
+{
+ "harness": "bench_lazy_resume.py",
+ "config": [
+  "--pack",
+  "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+  "--native",
+  "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+  "--ple-gguf",
+  "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+  "--expert-profile",
+  "<USER>/Desktop/Strata/data/expert-profile.bin",
+  "--expert-cache",
+  "auto",
+  "--prefill",
+  "auto",
+  "--spec",
+  "4",
+  "--spec-min-p",
+  "0.5",
+  "--mtp",
+  "<USER>/Desktop/Strata-data/mtp/rt",
+  "--max-context",
+  "262144",
+  "--kv",
+  "int8",
+  "--kv-resident",
+  "32768",
+  "--vision",
+  "--vram-reserve-mib",
+  "722",
+  "--pool-workers",
+  "15",
+  "--conversation-cache-mib",
+  "16384",
+  "--conversation-cache-slots",
+  "12",
+  "--conversation-cache-min-free-mib",
+  "8192",
+  "--session-state-codec",
+  "bf16"
+ ],
+ "base_configs": {
+  "fp32": "<USER>/Desktop/Strata/bench-state-codec/bench-fp32.json",
+  "bf16": "<USER>/Desktop/Strata/bench-state-codec/bench-bf16.json"
+ },
+ "extra_args": [
+  "--adapt-swaps",
+  "0",
+  "--pcie-frac",
+  "0"
+ ],
+ "warm_ups": 2,
+ "measured_reps": 10,
+ "sampling_interval_s": 0.02,
+ "sampling_note": "VmRSS polled every 20 ms from outside the process; the figure is the observed peak above the steady baseline of the last 5 samples, not a high-water mark. Pages the kernel has written out are not in VmRSS and most parked state is pageable.",
+ "edit_tokens_target": 20000,
+ "engines": {
+  "eager": "<USER>/Desktop/Strata/engine-cuda12/strata.eager-2274c1c",
+  "lazy": "<USER>/Desktop/Strata/engine-cuda12/strata.lazy",
+  "fp32": "<USER>/Desktop/Strata/engine-cuda12/strata.lazy2",
+  "bf16": "<USER>/Desktop/Strata/engine-cuda12/strata.lazy2"
+ },
+ "runs": [
+  {
+   "round": 0,
+   "order_position": 0,
+   "arm": "fp32",
+   "engine": "strata.lazy2",
+   "engine_commit": "bbb167c6b43d54a39199d4e2b0e76aadf7b8abaf",
+   "base_config": "<USER>/Desktop/Strata/bench-state-codec/bench-fp32.json",
+   "codec": "fp32",
+   "codec_log_line": null,
+   "engine_args": [
+    "<USER>/Desktop/Strata/engine-cuda12/strata.lazy2",
+    "--serve",
+    "--pack",
+    "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+    "--native",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+    "--ple-gguf",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+    "--expert-profile",
+    "<USER>/Desktop/Strata/data/expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "auto",
+    "--spec",
+    "4",
+    "--spec-min-p",
+    "0.5",
+    "--mtp",
+    "<USER>/Desktop/Strata-data/mtp/rt",
+    "--max-context",
+    "262144",
+    "--kv",
+    "int8",
+    "--kv-resident",
+    "32768",
+    "--vision",
+    "--vram-reserve-mib",
+    "722",
+    "--pool-workers",
+    "15",
+    "--conversation-cache-mib",
+    "16384",
+    "--conversation-cache-slots",
+    "12",
+    "--conversation-cache-min-free-mib",
+    "8192",
+    "--session-state-codec",
+    "fp32",
+    "--adapt-swaps",
+    "0",
+    "--pcie-frac",
+    "0",
+    ""
+   ],
+   "metrics": {
+    "model": "qwen3.8-flash-next-iq3_s",
+    "max_context": 262144,
+    "images": true,
+    "version": "0.1.43.1",
+    "logit_bias": 1,
+    "context": 262144,
+    "kv": "int8",
+    "kv_resident": 32768,
+    "expert_slots": 12064,
+    "expert_cache_mib": 23449,
+    "expert_slots_primary": 12064,
+    "expert_cache_primary_mib": 23449,
+    "spec": 6,
+    "mtp_max": 4,
+    "lookup": 3,
+    "vram_free_mib": 514,
+    "cvec": 0,
+    "arena_mib": 47962,
+    "pool_workers": 15,
+    "pcie_frac": "0.00",
+    "spec_min_p": "0.50",
+    "conversation_cache_mib": 16384,
+    "conversation_cache_slots": 12,
+    "conversation_cache_min_free_mib": 8192,
+    "conversation_cache_min_tokens": 0,
+    "tail_role_token": -1,
+    "vram_elastic": 0,
+    "engine": "0.1.43.1"
+   },
+   "cache": {
+    "enabled": true,
+    "budget_mib": 16384,
+    "slots": 12,
+    "parked": 0,
+    "bytes": 0,
+    "evictions": 0,
+    "parks": 0,
+    "restores": 0,
+    "last_event": null,
+    "last_tokens": null,
+    "last_at": null,
+    "requests": 0,
+    "requests_reused": 0,
+    "reused_tokens": 0,
+    "prompt_tokens": 0,
+    "last_reused": null,
+    "last_prompt": null
+   },
+   "target_tokens": 31250,
+   "code_word": "ember",
+   "prefill_tokens": 31801,
+   "prefill_prompt_ms": 21727.1,
+   "prefill_answer": "ember",
+   "prefill_ok": true,
+   "edit_tokens": 19090,
+   "checkpoints_after_prefill": 2,
+   "turns": [
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 517.4,
+     "engine_prompt_read": 34,
+     "engine_reused": 31794,
+     "client_wall_s": 0.9995,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31794,
+       "kind": "checkpoint",
+       "resume_ms": 48.6,
+       "parked": 1,
+       "cache_bytes": 1131415476
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 202.0,
+       "parked": 2,
+       "cache_bytes": 1485925296,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 140.2,
+       "parked": 1,
+       "cache_bytes": 645893820,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 202.0,
+     "resume_ms": 48.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 645893820,
+     "cache_bytes_after": 1485925296,
+     "rss_increment_mib": 615.6,
+     "rss_samples": 1322,
+     "ok": false,
+     "rep": 0,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 313.8,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.7432,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 40.5,
+       "parked": 1,
+       "cache_bytes": 1250196400
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 143.4,
+       "parked": 2,
+       "cache_bytes": 2164503668,
+       "image_bytes": 1518609848
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 201.0,
+       "parked": 1,
+       "cache_bytes": 958710712,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 143.4,
+     "resume_ms": 40.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1518609848,
+     "cache_bytes_after": 2164503668,
+     "rss_increment_mib": 502.1,
+     "rss_samples": 1359,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1421.6,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.7343,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 110.0,
+       "parked": 2,
+       "cache_bytes": 1604604532,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 140.1,
+       "parked": 2,
+       "cache_bytes": 1604604532,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 110.0,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 1604604532,
+     "rss_increment_mib": 233.7,
+     "rss_samples": 1445,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 248.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.7403,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 41.9,
+       "parked": 2,
+       "cache_bytes": 1747437016
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 205.1,
+       "parked": 3,
+       "cache_bytes": 2220137624,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 136.8,
+       "parked": 2,
+       "cache_bytes": 1261426912,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 205.1,
+     "resume_ms": 41.9,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 2220137624,
+     "rss_increment_mib": 587.0,
+     "rss_samples": 1482,
+     "ok": false,
+     "rep": 1,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 293.7,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.679,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 44.7,
+       "parked": 2,
+       "cache_bytes": 1865729492
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 95.2,
+       "parked": 3,
+       "cache_bytes": 2220137624,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 179.6,
+       "parked": 2,
+       "cache_bytes": 1574243804,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 95.2,
+     "resume_ms": 44.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 2220137624,
+     "rss_increment_mib": 112.8,
+     "rss_samples": 1515,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1345.3,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6027,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 50.0,
+       "parked": 3,
+       "cache_bytes": 2220137624,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 99.5,
+       "parked": 3,
+       "cache_bytes": 2220137624,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 50.0,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 2220137624,
+     "rss_increment_mib": 0.2,
+     "rss_samples": 1595,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 306.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.7839,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 41.7,
+       "parked": 3,
+       "cache_bytes": 2362970108
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 191.8,
+       "parked": 4,
+       "cache_bytes": 2835670716,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 189.1,
+       "parked": 3,
+       "cache_bytes": 1876960004,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 191.8,
+     "resume_ms": 41.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 2835670716,
+     "rss_increment_mib": 586.5,
+     "rss_samples": 1633,
+     "ok": false,
+     "rep": 2,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 221.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5749,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 29.6,
+       "parked": 3,
+       "cache_bytes": 2481262584
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.4,
+       "parked": 4,
+       "cache_bytes": 2835670716,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 128.0,
+       "parked": 3,
+       "cache_bytes": 2189776896,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.4,
+     "resume_ms": 29.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 2835670716,
+     "rss_increment_mib": 113.3,
+     "rss_samples": 1662,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1317.0,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5583,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 40.1,
+       "parked": 4,
+       "cache_bytes": 2835670716,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 72.0,
+       "parked": 4,
+       "cache_bytes": 2835670716,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 40.1,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 2835670716,
+     "rss_increment_mib": 0.5,
+     "rss_samples": 1739,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 223.8,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.6759,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 41.5,
+       "parked": 4,
+       "cache_bytes": 2978503200
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 166.6,
+       "parked": 5,
+       "cache_bytes": 3451203808,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 115.7,
+       "parked": 4,
+       "cache_bytes": 2492493096,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 166.6,
+     "resume_ms": 41.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 3451203808,
+     "rss_increment_mib": 473.7,
+     "rss_samples": 1772,
+     "ok": false,
+     "rep": 3,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 222.9,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.577,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 30.0,
+       "parked": 4,
+       "cache_bytes": 3096795676
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.7,
+       "parked": 5,
+       "cache_bytes": 3451203808,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 129.1,
+       "parked": 4,
+       "cache_bytes": 2805309988,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.7,
+     "resume_ms": 30.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 3451203808,
+     "rss_increment_mib": 113.2,
+     "rss_samples": 1801,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1330.0,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5711,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.6,
+       "parked": 5,
+       "cache_bytes": 3451203808,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 71.6,
+       "parked": 5,
+       "cache_bytes": 3451203808,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.6,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 3451203808,
+     "rss_increment_mib": 0.5,
+     "rss_samples": 1878,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 223.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.6803,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 42.1,
+       "parked": 5,
+       "cache_bytes": 3594036292
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 170.4,
+       "parked": 6,
+       "cache_bytes": 4066736900,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 114.5,
+       "parked": 5,
+       "cache_bytes": 3108026188,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 170.4,
+     "resume_ms": 42.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 4066736900,
+     "rss_increment_mib": 473.8,
+     "rss_samples": 1912,
+     "ok": false,
+     "rep": 4,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 222.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5778,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 29.7,
+       "parked": 5,
+       "cache_bytes": 3712328768
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 74.0,
+       "parked": 6,
+       "cache_bytes": 4066736900,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 128.7,
+       "parked": 5,
+       "cache_bytes": 3420843080,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 74.0,
+     "resume_ms": 29.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 4066736900,
+     "rss_increment_mib": 113.2,
+     "rss_samples": 1940,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1337.1,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5772,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.4,
+       "parked": 6,
+       "cache_bytes": 4066736900,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 71.1,
+       "parked": 6,
+       "cache_bytes": 4066736900,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.4,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 4066736900,
+     "rss_increment_mib": 0.4,
+     "rss_samples": 2018,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 224.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.676,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 42.0,
+       "parked": 6,
+       "cache_bytes": 4209569384
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 165.8,
+       "parked": 7,
+       "cache_bytes": 4682269992,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 115.4,
+       "parked": 6,
+       "cache_bytes": 3723559280,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 165.8,
+     "resume_ms": 42.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 4682269992,
+     "rss_increment_mib": 474.0,
+     "rss_samples": 2051,
+     "ok": false,
+     "rep": 5,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 222.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5736,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 29.8,
+       "parked": 6,
+       "cache_bytes": 4327861860
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.6,
+       "parked": 7,
+       "cache_bytes": 4682269992,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 128.7,
+       "parked": 6,
+       "cache_bytes": 4036376172,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.6,
+     "resume_ms": 29.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 4682269992,
+     "rss_increment_mib": 113.1,
+     "rss_samples": 2080,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1321.0,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5611,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.3,
+       "parked": 7,
+       "cache_bytes": 4682269992,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 72.1,
+       "parked": 7,
+       "cache_bytes": 4682269992,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.3,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 4682269992,
+     "rss_increment_mib": 0.1,
+     "rss_samples": 2157,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 279.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.7364,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 41.8,
+       "parked": 7,
+       "cache_bytes": 4825102476
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 167.5,
+       "parked": 8,
+       "cache_bytes": 5297803084,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 165.5,
+       "parked": 7,
+       "cache_bytes": 4339092372,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 167.5,
+     "resume_ms": 41.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 5297803084,
+     "rss_increment_mib": 474.2,
+     "rss_samples": 2194,
+     "ok": false,
+     "rep": 6,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 222.0,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5764,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 29.6,
+       "parked": 7,
+       "cache_bytes": 4943394952
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.1,
+       "parked": 8,
+       "cache_bytes": 5297803084,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 128.6,
+       "parked": 7,
+       "cache_bytes": 4651909264,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.1,
+     "resume_ms": 29.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 5297803084,
+     "rss_increment_mib": 113.1,
+     "rss_samples": 2222,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1336.9,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5768,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.0,
+       "parked": 8,
+       "cache_bytes": 5297803084,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 72.1,
+       "parked": 8,
+       "cache_bytes": 5297803084,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.0,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 5297803084,
+     "rss_increment_mib": 0.6,
+     "rss_samples": 2300,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 278.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.7323,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 42.1,
+       "parked": 8,
+       "cache_bytes": 5440635568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 168.0,
+       "parked": 9,
+       "cache_bytes": 5913336176,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 164.4,
+       "parked": 8,
+       "cache_bytes": 4954625464,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 168.0,
+     "resume_ms": 42.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 5913336176,
+     "rss_increment_mib": 474.1,
+     "rss_samples": 2336,
+     "ok": false,
+     "rep": 7,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 223.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5779,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 29.8,
+       "parked": 8,
+       "cache_bytes": 5558928044
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.7,
+       "parked": 9,
+       "cache_bytes": 5913336176,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 129.3,
+       "parked": 8,
+       "cache_bytes": 5267442356,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.7,
+     "resume_ms": 29.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 5913336176,
+     "rss_increment_mib": 112.8,
+     "rss_samples": 2365,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1324.0,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5657,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.3,
+       "parked": 9,
+       "cache_bytes": 5913336176,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 71.5,
+       "parked": 9,
+       "cache_bytes": 5913336176,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.3,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 5913336176,
+     "rss_increment_mib": 0.2,
+     "rss_samples": 2443,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 224.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.6774,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 42.6,
+       "parked": 9,
+       "cache_bytes": 6056168660
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 167.0,
+       "parked": 10,
+       "cache_bytes": 6528869268,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 114.6,
+       "parked": 9,
+       "cache_bytes": 5570158556,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 167.0,
+     "resume_ms": 42.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 6528869268,
+     "rss_increment_mib": 474.0,
+     "rss_samples": 2476,
+     "ok": false,
+     "rep": 8,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 222.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5743,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 29.8,
+       "parked": 9,
+       "cache_bytes": 6174461136
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.7,
+       "parked": 10,
+       "cache_bytes": 6528869268,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 128.8,
+       "parked": 9,
+       "cache_bytes": 5882975448,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.7,
+     "resume_ms": 29.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 6528869268,
+     "rss_increment_mib": 113.0,
+     "rss_samples": 2505,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1314.3,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5561,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.0,
+       "parked": 10,
+       "cache_bytes": 6528869268,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 71.6,
+       "parked": 10,
+       "cache_bytes": 6528869268,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.0,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 6528869268,
+     "rss_increment_mib": 0.8,
+     "rss_samples": 2582,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 279.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.7302,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 42.2,
+       "parked": 10,
+       "cache_bytes": 6671701752
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 166.3,
+       "parked": 11,
+       "cache_bytes": 7144402360,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 165.5,
+       "parked": 10,
+       "cache_bytes": 6185691648,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 166.3,
+     "resume_ms": 42.2,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 7144402360,
+     "rss_increment_mib": 473.8,
+     "rss_samples": 2618,
+     "ok": false,
+     "rep": 9,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 223.0,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5831,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 30.0,
+       "parked": 10,
+       "cache_bytes": 6789994228
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 73.1,
+       "parked": 11,
+       "cache_bytes": 7144402360,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 129.4,
+       "parked": 10,
+       "cache_bytes": 6498508540,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 73.1,
+     "resume_ms": 30.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 7144402360,
+     "rss_increment_mib": 112.7,
+     "rss_samples": 2647,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1338.8,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5799,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.8,
+       "parked": 11,
+       "cache_bytes": 7144402360,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 71.3,
+       "parked": 11,
+       "cache_bytes": 7144402360,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.8,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 7144402360,
+     "rss_increment_mib": 0.2,
+     "rss_samples": 2725,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 225.7,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.6786,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 41.7,
+       "parked": 11,
+       "cache_bytes": 7287234844
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 166.7,
+       "parked": 12,
+       "cache_bytes": 7759935452,
+       "image_bytes": 615533092
+      },
+      {
+       "tokens": 17107,
+       "park_ms": 115.8,
+       "parked": 11,
+       "cache_bytes": 6801224740,
+       "image_bytes": 615533092
+      }
+     ],
+     "park_ms": 166.7,
+     "resume_ms": 41.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615533092,
+     "cache_bytes_after": 7759935452,
+     "rss_increment_mib": 474.7,
+     "rss_samples": 2759,
+     "ok": false,
+     "rep": 10,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 222.7,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.5743,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 29.4,
+       "parked": 11,
+       "cache_bytes": 7405527320
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.3,
+       "parked": 12,
+       "cache_bytes": 7759935452,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 129.3,
+       "parked": 11,
+       "cache_bytes": 7114041632,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.3,
+     "resume_ms": 29.4,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 7759935452,
+     "rss_increment_mib": 112.6,
+     "rss_samples": 2788,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1321.5,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5619,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.5,
+       "parked": 12,
+       "cache_bytes": 7759935452,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 72.3,
+       "parked": 12,
+       "cache_bytes": 7759935452,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 39.5,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 7759935452,
+     "rss_increment_mib": 0.1,
+     "rss_samples": 2865,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 172.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5321,
+     "answer": "The document is a detailed technical spe",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 41.5,
+       "parked": 11,
+       "cache_bytes": 7287240996
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 68.0,
+       "parked": 12,
+       "cache_bytes": 7759941604,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 68.5,
+       "parked": 11,
+       "cache_bytes": 6801230892,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 68.0,
+     "resume_ms": 41.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 7759941604,
+     "rss_increment_mib": -112.0,
+     "rss_samples": 2891,
+     "ok": false,
+     "rep": 11,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 249.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.6038,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 30.2,
+       "parked": 11,
+       "cache_bytes": 7405533472
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31839,
+       "park_ms": 72.5,
+       "parked": 12,
+       "cache_bytes": 7759941604,
+       "image_bytes": 958710712
+      },
+      {
+       "tokens": 31839,
+       "park_ms": 152.5,
+       "parked": 11,
+       "cache_bytes": 7114047784,
+       "image_bytes": 958710712
+      }
+     ],
+     "park_ms": 72.5,
+     "resume_ms": 30.2,
+     "resume_kind": "checkpoint",
+     "image_bytes": 958710712,
+     "cache_bytes_after": 7759941604,
+     "rss_increment_mib": 112.7,
+     "rss_samples": 2921,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1319.9,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5569,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 38.8,
+       "parked": 12,
+       "cache_bytes": 7759941604,
+       "image_bytes": 645893820
+      },
+      {
+       "tokens": 19094,
+       "park_ms": 71.5,
+       "parked": 12,
+       "cache_bytes": 7759941604,
+       "image_bytes": 645893820
+      }
+     ],
+     "park_ms": 38.8,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893820,
+     "cache_bytes_after": 7759941604,
+     "rss_increment_mib": 0.2,
+     "rss_samples": 2998,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "deep_rewind"
+    }
+   ],
+   "append_only": {
+    "n": 10,
+    "answered_right": 0,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 225.0,
+     "min": 172.1,
+     "max": 306.6,
+     "mean": 243.77
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 0.679,
+     "min": 0.532,
+     "max": 0.784,
+     "mean": 0.69
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 166.85,
+     "min": 68.0,
+     "max": 191.8,
+     "mean": 159.81
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 41.9,
+     "min": 41.5,
+     "max": 42.6,
+     "mean": 41.92
+    },
+    "image_bytes": [
+     615533092,
+     615539244
+    ],
+    "reused_tokens": [
+     31821
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     3
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 474.0,
+     "min": -112.0,
+     "max": 586.5,
+     "mean": 426.68
+    }
+   },
+   "older_ckpt": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 222.45,
+     "min": 221.1,
+     "max": 249.3,
+     "mean": 225.06
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 0.577,
+     "min": 0.574,
+     "max": 0.604,
+     "mean": 0.579
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 72.65,
+     "min": 72.1,
+     "max": 74.0,
+     "mean": 72.71
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 29.8,
+     "min": 29.4,
+     "max": 30.2,
+     "mean": 29.79
+    },
+    "image_bytes": [
+     958710712
+    ],
+    "reused_tokens": [
+     19083
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 113.05,
+     "min": 112.6,
+     "max": 113.3,
+     "mean": 112.97
+    }
+   },
+   "deep_rewind": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 1322.75,
+     "min": 1314.3,
+     "max": 1338.8,
+     "mean": 1326.05
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 1.564,
+     "min": 1.556,
+     "max": 1.58,
+     "mean": 1.567
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 39.35,
+     "min": 38.8,
+     "max": 40.1,
+     "mean": 39.38
+    },
+    "resume_ms": {},
+    "image_bytes": [
+     645893820
+    ],
+    "reused_tokens": [
+     16384
+    ],
+    "prompt_read": [
+     719,
+     720
+    ],
+    "resume_kinds": [],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 0.3,
+     "min": 0.1,
+     "max": 0.8,
+     "mean": 0.36
+    }
+   },
+   "wall_s_for_size": 60.6
+  },
+  {
+   "round": 0,
+   "order_position": 0,
+   "arm": "fp32",
+   "engine": "strata.lazy2",
+   "engine_commit": "bbb167c6b43d54a39199d4e2b0e76aadf7b8abaf",
+   "base_config": "<USER>/Desktop/Strata/bench-state-codec/bench-fp32.json",
+   "codec": "fp32",
+   "codec_log_line": null,
+   "engine_args": [
+    "<USER>/Desktop/Strata/engine-cuda12/strata.lazy2",
+    "--serve",
+    "--pack",
+    "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+    "--native",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+    "--ple-gguf",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+    "--expert-profile",
+    "<USER>/Desktop/Strata/data/expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "auto",
+    "--spec",
+    "4",
+    "--spec-min-p",
+    "0.5",
+    "--mtp",
+    "<USER>/Desktop/Strata-data/mtp/rt",
+    "--max-context",
+    "262144",
+    "--kv",
+    "int8",
+    "--kv-resident",
+    "32768",
+    "--vision",
+    "--vram-reserve-mib",
+    "722",
+    "--pool-workers",
+    "15",
+    "--conversation-cache-mib",
+    "16384",
+    "--conversation-cache-slots",
+    "12",
+    "--conversation-cache-min-free-mib",
+    "8192",
+    "--session-state-codec",
+    "fp32",
+    "--adapt-swaps",
+    "0",
+    "--pcie-frac",
+    "0",
+    ""
+   ],
+   "metrics": {
+    "model": "qwen3.8-flash-next-iq3_s",
+    "max_context": 262144,
+    "images": true,
+    "version": "0.1.43.1",
+    "logit_bias": 1,
+    "context": 262144,
+    "kv": "int8",
+    "kv_resident": 32768,
+    "expert_slots": 12064,
+    "expert_cache_mib": 23449,
+    "expert_slots_primary": 12064,
+    "expert_cache_primary_mib": 23449,
+    "spec": 6,
+    "mtp_max": 4,
+    "lookup": 3,
+    "vram_free_mib": 514,
+    "cvec": 0,
+    "arena_mib": 47962,
+    "pool_workers": 15,
+    "pcie_frac": "0.00",
+    "spec_min_p": "0.50",
+    "conversation_cache_mib": 16384,
+    "conversation_cache_slots": 12,
+    "conversation_cache_min_free_mib": 8192,
+    "conversation_cache_min_tokens": 0,
+    "tail_role_token": -1,
+    "vram_elastic": 0,
+    "engine": "0.1.43.1"
+   },
+   "cache": {
+    "enabled": true,
+    "budget_mib": 16384,
+    "slots": 12,
+    "parked": 0,
+    "bytes": 0,
+    "evictions": 0,
+    "parks": 0,
+    "restores": 0,
+    "last_event": null,
+    "last_tokens": null,
+    "last_at": null,
+    "requests": 0,
+    "requests_reused": 0,
+    "reused_tokens": 0,
+    "prompt_tokens": 0,
+    "last_reused": null,
+    "last_prompt": null
+   },
+   "target_tokens": 62500,
+   "code_word": "velvet",
+   "prefill_tokens": 63029,
+   "prefill_prompt_ms": 43947.2,
+   "prefill_answer": "velvet",
+   "prefill_ok": true,
+   "edit_tokens": 19091,
+   "checkpoints_after_prefill": 2,
+   "turns": [
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 350.9,
+     "engine_prompt_read": 24,
+     "engine_reused": 63033,
+     "client_wall_s": 0.735,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63033,
+       "kind": "live",
+       "resume_ms": 72.0,
+       "parked": 11,
+       "cache_bytes": 8136961872
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 77.8,
+       "parked": 12,
+       "cache_bytes": 8728175932,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 73.1,
+       "parked": 11,
+       "cache_bytes": 7174775400,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 77.8,
+     "resume_ms": 72.0,
+     "resume_kind": "live",
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8728175932,
+     "rss_increment_mib": 28.8,
+     "rss_samples": 2426,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 414.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.9465,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 29.7,
+       "parked": 11,
+       "cache_bytes": 8492571940
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 215.4,
+       "parked": 12,
+       "cache_bytes": 9528793328,
+       "image_bytes": 2354017928
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 309.0,
+       "parked": 11,
+       "cache_bytes": 8201086252,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 215.4,
+     "resume_ms": 29.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2354017928,
+     "cache_bytes_after": 9528793328,
+     "rss_increment_mib": 674.0,
+     "rss_samples": 2473,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1335.0,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5704,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 41.2,
+       "parked": 12,
+       "cache_bytes": 8846980080,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 71.8,
+       "parked": 12,
+       "cache_bytes": 8846980080,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 41.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8846980080,
+     "rss_increment_mib": 194.2,
+     "rss_samples": 2550,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 205.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5715,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 72.1,
+       "parked": 11,
+       "cache_bytes": 8137456472
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 72.0,
+       "parked": 12,
+       "cache_bytes": 8846986232,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 69.8,
+       "parked": 11,
+       "cache_bytes": 7174781552,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 72.0,
+     "resume_ms": 72.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8846986232,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 2579,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 421.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.8155,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 31.3,
+       "parked": 11,
+       "cache_bytes": 8492578092
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 95.2,
+       "parked": 12,
+       "cache_bytes": 8846986232,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 311.2,
+       "parked": 11,
+       "cache_bytes": 8201092404,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 95.2,
+     "resume_ms": 31.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8846986232,
+     "rss_increment_mib": 112.2,
+     "rss_samples": 2619,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1350.5,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5893,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 40.4,
+       "parked": 12,
+       "cache_bytes": 8846986232,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 73.3,
+       "parked": 12,
+       "cache_bytes": 8846986232,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 40.4,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8846986232,
+     "rss_increment_mib": 213.5,
+     "rss_samples": 2698,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 209.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5803,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 74.8,
+       "parked": 11,
+       "cache_bytes": 8137462624
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 70.4,
+       "parked": 12,
+       "cache_bytes": 8846992384,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 70.1,
+       "parked": 11,
+       "cache_bytes": 7174787704,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 70.4,
+     "resume_ms": 74.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8846992384,
+     "rss_increment_mib": -224.2,
+     "rss_samples": 2726,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 469.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.9115,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 30.0,
+       "parked": 11,
+       "cache_bytes": 8492584244
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 142.2,
+       "parked": 12,
+       "cache_bytes": 8846992384,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 358.0,
+       "parked": 11,
+       "cache_bytes": 8201098556,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 142.2,
+     "resume_ms": 30.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8846992384,
+     "rss_increment_mib": 224.3,
+     "rss_samples": 2772,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1324.5,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5633,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 40.4,
+       "parked": 12,
+       "cache_bytes": 8846992384,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 73.7,
+       "parked": 12,
+       "cache_bytes": 8846992384,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 40.4,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8846992384,
+     "rss_increment_mib": 252.0,
+     "rss_samples": 2849,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 205.9,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5768,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 71.7,
+       "parked": 11,
+       "cache_bytes": 8137468776
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 68.4,
+       "parked": 12,
+       "cache_bytes": 8846998536,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 70.7,
+       "parked": 11,
+       "cache_bytes": 7174793856,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 68.4,
+     "resume_ms": 71.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8846998536,
+     "rss_increment_mib": -224.3,
+     "rss_samples": 2878,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 466.8,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.9044,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 33.7,
+       "parked": 11,
+       "cache_bytes": 8492590396
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 140.3,
+       "parked": 12,
+       "cache_bytes": 8846998536,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 352.3,
+       "parked": 11,
+       "cache_bytes": 8201104708,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 140.3,
+     "resume_ms": 33.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8846998536,
+     "rss_increment_mib": 224.3,
+     "rss_samples": 2923,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1331.0,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5646,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 39.1,
+       "parked": 12,
+       "cache_bytes": 8846998536,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 77.1,
+       "parked": 12,
+       "cache_bytes": 8846998536,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 39.1,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8846998536,
+     "rss_increment_mib": 10.7,
+     "rss_samples": 3000,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 204.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5731,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 72.1,
+       "parked": 11,
+       "cache_bytes": 8137474928
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 70.6,
+       "parked": 12,
+       "cache_bytes": 8847004688,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 68.4,
+       "parked": 11,
+       "cache_bytes": 7174800008,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 70.6,
+     "resume_ms": 72.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8847004688,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3029,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 470.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.9096,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 35.1,
+       "parked": 11,
+       "cache_bytes": 8492596548
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 142.3,
+       "parked": 12,
+       "cache_bytes": 8847004688,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 354.6,
+       "parked": 11,
+       "cache_bytes": 8201110860,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 142.3,
+     "resume_ms": 35.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8847004688,
+     "rss_increment_mib": 224.3,
+     "rss_samples": 3074,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1348.6,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5857,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 42.1,
+       "parked": 12,
+       "cache_bytes": 8847004688,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 73.1,
+       "parked": 12,
+       "cache_bytes": 8847004688,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 42.1,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8847004688,
+     "rss_increment_mib": 2.5,
+     "rss_samples": 3152,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 204.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.6012,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 71.9,
+       "parked": 11,
+       "cache_bytes": 8137481080
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 92.9,
+       "parked": 12,
+       "cache_bytes": 8847010840,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 68.7,
+       "parked": 11,
+       "cache_bytes": 7174806160,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 92.9,
+     "resume_ms": 71.9,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8847010840,
+     "rss_increment_mib": -113.7,
+     "rss_samples": 3182,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 388.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.8717,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 33.7,
+       "parked": 11,
+       "cache_bytes": 8492602700
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 187.3,
+       "parked": 12,
+       "cache_bytes": 8847010840,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 279.7,
+       "parked": 11,
+       "cache_bytes": 8201117012,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 187.3,
+     "resume_ms": 33.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8847010840,
+     "rss_increment_mib": 450.0,
+     "rss_samples": 3225,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1326.7,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5576,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 39.2,
+       "parked": 12,
+       "cache_bytes": 8847010840,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 72.6,
+       "parked": 12,
+       "cache_bytes": 8847010840,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 39.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8847010840,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3302,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 204.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5686,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 72.0,
+       "parked": 11,
+       "cache_bytes": 8137487232
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 68.4,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 68.4,
+       "parked": 11,
+       "cache_bytes": 7174812312,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 68.4,
+     "resume_ms": 72.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8847016992,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3330,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 437.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.8791,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 29.7,
+       "parked": 11,
+       "cache_bytes": 8492608852
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 142.2,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 329.7,
+       "parked": 11,
+       "cache_bytes": 8201123164,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 142.2,
+     "resume_ms": 29.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8847016992,
+     "rss_increment_mib": 224.3,
+     "rss_samples": 3374,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1335.4,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5739,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 40.3,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 74.6,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 40.3,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8847016992,
+     "rss_increment_mib": 278.2,
+     "rss_samples": 3452,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 208.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5783,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 72.6,
+       "parked": 11,
+       "cache_bytes": 8137487232
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 71.1,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 71.8,
+       "parked": 11,
+       "cache_bytes": 7174812312,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 71.1,
+     "resume_ms": 72.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8847016992,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3481,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 391.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.7832,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 34.1,
+       "parked": 11,
+       "cache_bytes": 8492608852
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 96.1,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 284.1,
+       "parked": 11,
+       "cache_bytes": 8201123164,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 96.1,
+     "resume_ms": 34.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8847016992,
+     "rss_increment_mib": 0.9,
+     "rss_samples": 3519,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1332.2,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5719,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 42.0,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 74.8,
+       "parked": 12,
+       "cache_bytes": 8847016992,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 42.0,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8847016992,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3597,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 208.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5805,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 72.6,
+       "parked": 11,
+       "cache_bytes": 7794315764
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 73.2,
+       "parked": 12,
+       "cache_bytes": 8503845524,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 72.1,
+       "parked": 11,
+       "cache_bytes": 6831640844,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 73.2,
+     "resume_ms": 72.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8503845524,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3626,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 370.8,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.7638,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 31.1,
+       "parked": 11,
+       "cache_bytes": 8149437384
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 95.2,
+       "parked": 12,
+       "cache_bytes": 8503845524,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 265.4,
+       "parked": 11,
+       "cache_bytes": 7857951696,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 95.2,
+     "resume_ms": 31.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8503845524,
+     "rss_increment_mib": -0.2,
+     "rss_samples": 3664,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1325.8,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5632,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 40.2,
+       "parked": 12,
+       "cache_bytes": 8503845524,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 73.0,
+       "parked": 12,
+       "cache_bytes": 8503845524,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 40.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8503845524,
+     "rss_increment_mib": 69.2,
+     "rss_samples": 3741,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 206.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5759,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 72.6,
+       "parked": 11,
+       "cache_bytes": 7763961188
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 69.5,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 69.9,
+       "parked": 11,
+       "cache_bytes": 6801286268,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 69.5,
+     "resume_ms": 72.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8473490948,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3770,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 358.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.7544,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 29.8,
+       "parked": 11,
+       "cache_bytes": 8119082808
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 97.6,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 258.3,
+       "parked": 11,
+       "cache_bytes": 7827597120,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 97.6,
+     "resume_ms": 29.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8473490948,
+     "rss_increment_mib": -0.1,
+     "rss_samples": 3807,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1319.6,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5558,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 40.8,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 74.8,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 40.8,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8473490948,
+     "rss_increment_mib": 28.8,
+     "rss_samples": 3884,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 203.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5671,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 71.1,
+       "parked": 11,
+       "cache_bytes": 7763961188
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 70.0,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 615539244
+      },
+      {
+       "tokens": 17108,
+       "park_ms": 68.8,
+       "parked": 11,
+       "cache_bytes": 6801286268,
+       "image_bytes": 615539244
+      }
+     ],
+     "park_ms": 70.0,
+     "resume_ms": 71.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615539244,
+     "cache_bytes_after": 8473490948,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3912,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 353.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.7507,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 29.3,
+       "parked": 11,
+       "cache_bytes": 8119082808
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 94.9,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 254.1,
+       "parked": 11,
+       "cache_bytes": 7827597120,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 94.9,
+     "resume_ms": 29.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8473490948,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 3949,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1329.0,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.561,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 39.7,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 71.1,
+       "parked": 12,
+       "cache_bytes": 8473490948,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 39.7,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8473490948,
+     "rss_increment_mib": 56.5,
+     "rss_samples": 4027,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 63057,
+     "engine_prompt_ms": 204.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 63050,
+     "client_wall_s": 0.5746,
+     "answer": "The magic code word is velvet.",
+     "checkpoints_after": 5,
+     "resume_events": [
+      {
+       "tokens": 63050,
+       "kind": "checkpoint",
+       "resume_ms": 72.0,
+       "parked": 11,
+       "cache_bytes": 7764016108
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17109,
+       "park_ms": 68.8,
+       "parked": 12,
+       "cache_bytes": 8473545868,
+       "image_bytes": 615594164
+      },
+      {
+       "tokens": 17109,
+       "park_ms": 68.4,
+       "parked": 11,
+       "cache_bytes": 6801341188,
+       "image_bytes": 615594164
+      }
+     ],
+     "park_ms": 68.8,
+     "resume_ms": 72.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594164,
+     "cache_bytes_after": 8473545868,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 4055,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 355.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 0.748,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 29.8,
+       "parked": 11,
+       "cache_bytes": 8119137728
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63066,
+       "park_ms": 97.5,
+       "parked": 12,
+       "cache_bytes": 8473545868,
+       "image_bytes": 1672204680
+      },
+      {
+       "tokens": 63066,
+       "park_ms": 255.9,
+       "parked": 11,
+       "cache_bytes": 7827652040,
+       "image_bytes": 1672204680
+      }
+     ],
+     "park_ms": 97.5,
+     "resume_ms": 29.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1672204680,
+     "cache_bytes_after": 8473545868,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 4092,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1329.8,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.5695,
+     "answer": "velvet",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19095,
+       "park_ms": 41.8,
+       "parked": 12,
+       "cache_bytes": 8473545868,
+       "image_bytes": 645893828
+      },
+      {
+       "tokens": 19095,
+       "park_ms": 74.6,
+       "parked": 12,
+       "cache_bytes": 8473545868,
+       "image_bytes": 645893828
+      }
+     ],
+     "park_ms": 41.8,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645893828,
+     "cache_bytes_after": 8473545868,
+     "rss_increment_mib": 41.8,
+     "rss_samples": 4170,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "deep_rewind"
+    }
+   ],
+   "append_only": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 205.15,
+     "min": 203.5,
+     "max": 209.3,
+     "mean": 205.91
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 0.576,
+     "min": 0.567,
+     "max": 0.601,
+     "mean": 0.578
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 70.2,
+     "min": 68.4,
+     "max": 92.9,
+     "mean": 72.33
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 72.05,
+     "min": 71.1,
+     "max": 74.8,
+     "mean": 72.34
+    },
+    "image_bytes": [
+     615539244,
+     615594164
+    ],
+    "reused_tokens": [
+     63050
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     5
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 0.0,
+     "min": -224.3,
+     "max": 0.0,
+     "mean": -56.22
+    }
+   },
+   "older_ckpt": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 389.9,
+     "min": 353.4,
+     "max": 470.5,
+     "mean": 406.16
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 0.827,
+     "min": 0.748,
+     "max": 0.911,
+     "mean": 0.828
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 118.95,
+     "min": 94.9,
+     "max": 187.3,
+     "mean": 123.56
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 30.55,
+     "min": 29.3,
+     "max": 35.1,
+     "mean": 31.63
+    },
+    "image_bytes": [
+     1672204680
+    ],
+    "reused_tokens": [
+     19084
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 112.6,
+     "min": -0.2,
+     "max": 450.0,
+     "mean": 134.78
+    }
+   },
+   "deep_rewind": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 1329.4,
+     "min": 1319.6,
+     "max": 1348.6,
+     "mean": 1330.26
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 1.564,
+     "min": 1.556,
+     "max": 1.586,
+     "mean": 1.567
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 40.35,
+     "min": 39.1,
+     "max": 42.1,
+     "mean": 40.56
+    },
+    "resume_ms": {},
+    "image_bytes": [
+     645893828
+    ],
+    "reused_tokens": [
+     16384
+    ],
+    "prompt_read": [
+     720,
+     721
+    ],
+    "resume_kinds": [],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 35.3,
+     "min": 0.0,
+     "max": 278.2,
+     "mean": 73.97
+    }
+   },
+   "wall_s_for_size": 84.2
+  },
+  {
+   "round": 0,
+   "order_position": 0,
+   "arm": "fp32",
+   "engine": "strata.lazy2",
+   "engine_commit": "bbb167c6b43d54a39199d4e2b0e76aadf7b8abaf",
+   "base_config": "<USER>/Desktop/Strata/bench-state-codec/bench-fp32.json",
+   "codec": "fp32",
+   "codec_log_line": null,
+   "engine_args": [
+    "<USER>/Desktop/Strata/engine-cuda12/strata.lazy2",
+    "--serve",
+    "--pack",
+    "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+    "--native",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+    "--ple-gguf",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+    "--expert-profile",
+    "<USER>/Desktop/Strata/data/expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "auto",
+    "--spec",
+    "4",
+    "--spec-min-p",
+    "0.5",
+    "--mtp",
+    "<USER>/Desktop/Strata-data/mtp/rt",
+    "--max-context",
+    "262144",
+    "--kv",
+    "int8",
+    "--kv-resident",
+    "32768",
+    "--vision",
+    "--vram-reserve-mib",
+    "722",
+    "--pool-workers",
+    "15",
+    "--conversation-cache-mib",
+    "16384",
+    "--conversation-cache-slots",
+    "12",
+    "--conversation-cache-min-free-mib",
+    "8192",
+    "--session-state-codec",
+    "fp32",
+    "--adapt-swaps",
+    "0",
+    "--pcie-frac",
+    "0",
+    ""
+   ],
+   "metrics": {
+    "model": "qwen3.8-flash-next-iq3_s",
+    "max_context": 262144,
+    "images": true,
+    "version": "0.1.43.1",
+    "logit_bias": 1,
+    "context": 262144,
+    "kv": "int8",
+    "kv_resident": 32768,
+    "expert_slots": 12064,
+    "expert_cache_mib": 23449,
+    "expert_slots_primary": 12064,
+    "expert_cache_primary_mib": 23449,
+    "spec": 6,
+    "mtp_max": 4,
+    "lookup": 3,
+    "vram_free_mib": 514,
+    "cvec": 0,
+    "arena_mib": 47962,
+    "pool_workers": 15,
+    "pcie_frac": "0.00",
+    "spec_min_p": "0.50",
+    "conversation_cache_mib": 16384,
+    "conversation_cache_slots": 12,
+    "conversation_cache_min_free_mib": 8192,
+    "conversation_cache_min_tokens": 0,
+    "tail_role_token": -1,
+    "vram_elastic": 0,
+    "engine": "0.1.43.1"
+   },
+   "cache": {
+    "enabled": true,
+    "budget_mib": 16384,
+    "slots": 12,
+    "parked": 0,
+    "bytes": 0,
+    "evictions": 0,
+    "parks": 0,
+    "restores": 0,
+    "last_event": null,
+    "last_tokens": null,
+    "last_at": null,
+    "requests": 0,
+    "requests_reused": 0,
+    "reused_tokens": 0,
+    "prompt_tokens": 0,
+    "last_reused": null,
+    "last_prompt": null
+   },
+   "target_tokens": 125000,
+   "code_word": "tundra",
+   "prefill_tokens": 121417,
+   "prefill_prompt_ms": 94994.6,
+   "prefill_answer": "tundra",
+   "prefill_ok": true,
+   "edit_tokens": 19091,
+   "checkpoints_after_prefill": 2,
+   "turns": [
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 503.5,
+     "engine_prompt_read": 35,
+     "engine_reused": 121410,
+     "client_wall_s": 0.9874,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121410,
+       "kind": "checkpoint",
+       "resume_ms": 123.9,
+       "parked": 11,
+       "cache_bytes": 9741844428
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 72.9,
+       "parked": 12,
+       "cache_bytes": 10570766444,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 73.4,
+       "parked": 11,
+       "cache_bytes": 7888422276,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 72.9,
+     "resume_ms": 123.9,
+     "resume_kind": "checkpoint",
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10570766444,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5009,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 850.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.4398,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 34.0,
+       "parked": 11,
+       "cache_bytes": 10217076636
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 175.6,
+       "parked": 12,
+       "cache_bytes": 11309550700,
+       "image_bytes": 3421128424
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 699.9,
+       "parked": 11,
+       "cache_bytes": 9925584804,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 175.6,
+     "resume_ms": 34.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 3421128424,
+     "cache_bytes_after": 11309550700,
+     "rss_increment_mib": 449.5,
+     "rss_samples": 5080,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1333.2,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6428,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 40.0,
+       "parked": 12,
+       "cache_bytes": 10571484780,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 72.7,
+       "parked": 12,
+       "cache_bytes": 10571484780,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 40.0,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571484780,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5161,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 260.0,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.718,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 124.3,
+       "parked": 11,
+       "cache_bytes": 9742393944
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 71.0,
+       "parked": 12,
+       "cache_bytes": 10571539704,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 70.3,
+       "parked": 11,
+       "cache_bytes": 7888477200,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 71.0,
+     "resume_ms": 124.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 10571539704,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5197,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 821.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.3993,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 35.7,
+       "parked": 11,
+       "cache_bytes": 10217131560
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 174.9,
+       "parked": 12,
+       "cache_bytes": 10571539704,
+       "image_bytes": 2683062504
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 671.8,
+       "parked": 11,
+       "cache_bytes": 9925639728,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 174.9,
+     "resume_ms": 35.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683062504,
+     "cache_bytes_after": 10571539704,
+     "rss_increment_mib": 448.8,
+     "rss_samples": 5266,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1338.7,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6702,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 39.5,
+       "parked": 12,
+       "cache_bytes": 10571539704,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 71.4,
+       "parked": 12,
+       "cache_bytes": 10571539704,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 39.5,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571539704,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5349,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 263.7,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7854,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 127.5,
+       "parked": 11,
+       "cache_bytes": 9742448868
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 69.5,
+       "parked": 12,
+       "cache_bytes": 10571594628,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 70.5,
+       "parked": 11,
+       "cache_bytes": 7888532124,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 69.5,
+     "resume_ms": 127.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 10571594628,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5388,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 825.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.4325,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 36.1,
+       "parked": 11,
+       "cache_bytes": 10217186484
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121458,
+       "park_ms": 198.5,
+       "parked": 12,
+       "cache_bytes": 11108854892,
+       "image_bytes": 3220322768
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 676.5,
+       "parked": 11,
+       "cache_bytes": 9925694652,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 198.5,
+     "resume_ms": 36.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 3220322768,
+     "cache_bytes_after": 11108854892,
+     "rss_increment_mib": 561.2,
+     "rss_samples": 5460,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1330.3,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6368,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 39.5,
+       "parked": 12,
+       "cache_bytes": 10571594628,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 72.4,
+       "parked": 12,
+       "cache_bytes": 10571594628,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 39.5,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571594628,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5541,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 258.7,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7522,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 123.4,
+       "parked": 11,
+       "cache_bytes": 9742503792
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 70.0,
+       "parked": 12,
+       "cache_bytes": 10571649552,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 69.8,
+       "parked": 11,
+       "cache_bytes": 7888587048,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 70.0,
+     "resume_ms": 123.4,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 10571649552,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5578,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 801.1,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.4085,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 42.2,
+       "parked": 11,
+       "cache_bytes": 10217241408
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121458,
+       "park_ms": 197.6,
+       "parked": 12,
+       "cache_bytes": 11108909816,
+       "image_bytes": 3220322768
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 650.0,
+       "parked": 11,
+       "cache_bytes": 9925749576,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 197.6,
+     "resume_ms": 42.2,
+     "resume_kind": "checkpoint",
+     "image_bytes": 3220322768,
+     "cache_bytes_after": 11108909816,
+     "rss_increment_mib": 561.2,
+     "rss_samples": 5648,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1315.4,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6476,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 39.5,
+       "parked": 12,
+       "cache_bytes": 10571649552,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 71.7,
+       "parked": 12,
+       "cache_bytes": 10571649552,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 39.5,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571649552,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5729,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 259.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7752,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 123.4,
+       "parked": 11,
+       "cache_bytes": 9742558716
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 69.7,
+       "parked": 12,
+       "cache_bytes": 10571704476,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 70.4,
+       "parked": 11,
+       "cache_bytes": 7888641972,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 69.7,
+     "resume_ms": 123.4,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 10571704476,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5768,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 797.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.4445,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 38.6,
+       "parked": 11,
+       "cache_bytes": 10217351252
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121458,
+       "park_ms": 198.4,
+       "parked": 12,
+       "cache_bytes": 11108964740,
+       "image_bytes": 3220322768
+      },
+      {
+       "tokens": 121458,
+       "park_ms": 651.0,
+       "parked": 11,
+       "cache_bytes": 9925859420,
+       "image_bytes": 2683117424
+      }
+     ],
+     "park_ms": 198.4,
+     "resume_ms": 38.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 3220322768,
+     "cache_bytes_after": 11108964740,
+     "rss_increment_mib": 564.6,
+     "rss_samples": 5839,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1327.5,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6584,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 41.9,
+       "parked": 12,
+       "cache_bytes": 10571759396,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 72.1,
+       "parked": 12,
+       "cache_bytes": 10571759396,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 41.9,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571759396,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5922,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 258.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7452,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 124.1,
+       "parked": 11,
+       "cache_bytes": 9742668552
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 71.2,
+       "parked": 12,
+       "cache_bytes": 10571814320,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 69.6,
+       "parked": 11,
+       "cache_bytes": 7888696896,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 71.2,
+     "resume_ms": 124.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 10571814320,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 5959,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 798.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.4487,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 39.8,
+       "parked": 11,
+       "cache_bytes": 10217406176
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 197.4,
+       "parked": 12,
+       "cache_bytes": 10571814312,
+       "image_bytes": 2683117416
+      },
+      {
+       "tokens": 121458,
+       "park_ms": 651.1,
+       "parked": 11,
+       "cache_bytes": 9925914344,
+       "image_bytes": 2683117424
+      }
+     ],
+     "park_ms": 197.4,
+     "resume_ms": 39.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683117416,
+     "cache_bytes_after": 10571814312,
+     "rss_increment_mib": 560.8,
+     "rss_samples": 6031,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1331.3,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6624,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 40.1,
+       "parked": 12,
+       "cache_bytes": 10571814320,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 72.0,
+       "parked": 12,
+       "cache_bytes": 10571814320,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 40.1,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571814320,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6113,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 258.9,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7488,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 123.7,
+       "parked": 11,
+       "cache_bytes": 9742723476
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 69.4,
+       "parked": 12,
+       "cache_bytes": 10571869244,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 69.9,
+       "parked": 11,
+       "cache_bytes": 7888751820,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 69.4,
+     "resume_ms": 123.7,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 10571869244,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6150,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 802.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.4172,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 39.3,
+       "parked": 11,
+       "cache_bytes": 10217406180
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 198.2,
+       "parked": 12,
+       "cache_bytes": 10571869236,
+       "image_bytes": 2683117416
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 655.3,
+       "parked": 11,
+       "cache_bytes": 9925914348,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 198.2,
+     "resume_ms": 39.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683117416,
+     "cache_bytes_after": 10571869236,
+     "rss_increment_mib": 560.8,
+     "rss_samples": 6221,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1328.0,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6373,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 42.2,
+       "parked": 12,
+       "cache_bytes": 10571814324,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 73.7,
+       "parked": 12,
+       "cache_bytes": 10571814324,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 42.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571814324,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6301,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 259.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7251,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 123.5,
+       "parked": 11,
+       "cache_bytes": 9742668568
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 70.3,
+       "parked": 12,
+       "cache_bytes": 10571814328,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 70.5,
+       "parked": 11,
+       "cache_bytes": 7888751824,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 70.3,
+     "resume_ms": 123.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 10571814328,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6337,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 802.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.448,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 40.6,
+       "parked": 11,
+       "cache_bytes": 10217461104
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 198.5,
+       "parked": 12,
+       "cache_bytes": 10571814328,
+       "image_bytes": 2683062504
+      },
+      {
+       "tokens": 121458,
+       "park_ms": 655.4,
+       "parked": 11,
+       "cache_bytes": 9925969272,
+       "image_bytes": 2683117424
+      }
+     ],
+     "park_ms": 198.5,
+     "resume_ms": 40.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683062504,
+     "cache_bytes_after": 10571814328,
+     "rss_increment_mib": 575.7,
+     "rss_samples": 6409,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1312.6,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6437,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 39.9,
+       "parked": 12,
+       "cache_bytes": 10571869248,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 71.9,
+       "parked": 12,
+       "cache_bytes": 10571869248,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 39.9,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 10571869248,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6491,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 260.0,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.747,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 124.0,
+       "parked": 11,
+       "cache_bytes": 8686112968
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 69.9,
+       "parked": 12,
+       "cache_bytes": 9515258736,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 70.4,
+       "parked": 11,
+       "cache_bytes": 6832141312,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 69.9,
+     "resume_ms": 124.0,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 9515258736,
+     "rss_increment_mib": -112.2,
+     "rss_samples": 6528,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 640.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.1874,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 38.6,
+       "parked": 11,
+       "cache_bytes": 9160795672
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 129.4,
+       "parked": 12,
+       "cache_bytes": 9515258728,
+       "image_bytes": 2683117416
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 499.5,
+       "parked": 11,
+       "cache_bytes": 8869303840,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 129.4,
+     "resume_ms": 38.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683117416,
+     "cache_bytes_after": 9515258728,
+     "rss_increment_mib": 224.0,
+     "rss_samples": 6587,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1315.9,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6261,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 39.7,
+       "parked": 12,
+       "cache_bytes": 9515203816,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 72.1,
+       "parked": 12,
+       "cache_bytes": 9515203816,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 39.7,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 9515203816,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6667,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 262.0,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7297,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 125.3,
+       "parked": 11,
+       "cache_bytes": 8655758396
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 70.3,
+       "parked": 12,
+       "cache_bytes": 9484904156,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 71.2,
+       "parked": 11,
+       "cache_bytes": 6801841652,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 70.3,
+     "resume_ms": 125.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 9484904156,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6703,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 693.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.3418,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 32.1,
+       "parked": 11,
+       "cache_bytes": 9130550932
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 200.7,
+       "parked": 12,
+       "cache_bytes": 9484904156,
+       "image_bytes": 2683062504
+      },
+      {
+       "tokens": 121458,
+       "park_ms": 562.1,
+       "parked": 11,
+       "cache_bytes": 8839059100,
+       "image_bytes": 2683117424
+      }
+     ],
+     "park_ms": 200.7,
+     "resume_ms": 32.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683062504,
+     "cache_bytes_after": 9484904156,
+     "rss_increment_mib": 561.0,
+     "rss_samples": 6770,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17105,
+     "engine_prompt_ms": 1338.2,
+     "engine_prompt_read": 721,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6458,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 39.2,
+       "parked": 12,
+       "cache_bytes": 9484959076,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 72.0,
+       "parked": 12,
+       "cache_bytes": 9484959076,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 39.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 9484959076,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6851,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 260.0,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7279,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 124.8,
+       "parked": 11,
+       "cache_bytes": 8655813312
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17110,
+       "park_ms": 69.8,
+       "parked": 12,
+       "cache_bytes": 9484959080,
+       "image_bytes": 615594168
+      },
+      {
+       "tokens": 17110,
+       "park_ms": 69.8,
+       "parked": 11,
+       "cache_bytes": 6801841656,
+       "image_bytes": 615594168
+      }
+     ],
+     "park_ms": 69.8,
+     "resume_ms": 124.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594168,
+     "cache_bytes_after": 9484959080,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 6887,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 618.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.1632,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 41.5,
+       "parked": 11,
+       "cache_bytes": 9130496016
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 128.9,
+       "parked": 12,
+       "cache_bytes": 9484959072,
+       "image_bytes": 2683117416
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 490.2,
+       "parked": 11,
+       "cache_bytes": 8839004184,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 128.9,
+     "resume_ms": 41.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683117416,
+     "cache_bytes_after": 9484959072,
+     "rss_increment_mib": 224.3,
+     "rss_samples": 6945,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17106,
+     "engine_prompt_ms": 1325.7,
+     "engine_prompt_read": 722,
+     "engine_reused": 16384,
+     "client_wall_s": 1.6348,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 41.2,
+       "parked": 12,
+       "cache_bytes": 9484904160,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 71.8,
+       "parked": 12,
+       "cache_bytes": 9484904160,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 41.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 9484904160,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 7026,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 121445,
+     "engine_prompt_ms": 266.9,
+     "engine_prompt_read": 7,
+     "engine_reused": 121438,
+     "client_wall_s": 0.7269,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 6,
+     "resume_events": [
+      {
+       "tokens": 121438,
+       "kind": "checkpoint",
+       "resume_ms": 131.5,
+       "parked": 11,
+       "cache_bytes": 8655758408
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17111,
+       "park_ms": 68.8,
+       "parked": 12,
+       "cache_bytes": 9484904168,
+       "image_bytes": 615594176
+      },
+      {
+       "tokens": 17111,
+       "park_ms": 70.1,
+       "parked": 11,
+       "cache_bytes": 6801841664,
+       "image_bytes": 615594176
+      }
+     ],
+     "park_ms": 68.8,
+     "resume_ms": 131.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 615594176,
+     "cache_bytes_after": 9484904168,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 7062,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19091,
+     "engine_prompt_ms": 696.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 19084,
+     "client_wall_s": 1.3155,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19084,
+       "kind": "checkpoint",
+       "resume_ms": 33.9,
+       "parked": 11,
+       "cache_bytes": 9130496024
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 121456,
+       "park_ms": 200.6,
+       "parked": 12,
+       "cache_bytes": 9484904168,
+       "image_bytes": 2683062504
+      },
+      {
+       "tokens": 121456,
+       "park_ms": 564.2,
+       "parked": 11,
+       "cache_bytes": 8839004192,
+       "image_bytes": 2683062504
+      }
+     ],
+     "park_ms": 200.6,
+     "resume_ms": 33.9,
+     "resume_kind": "checkpoint",
+     "image_bytes": 2683062504,
+     "cache_bytes_after": 9484904168,
+     "rss_increment_mib": 575.8,
+     "rss_samples": 7127,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17106,
+     "engine_prompt_ms": 1340.9,
+     "engine_prompt_read": 722,
+     "engine_reused": 16384,
+     "client_wall_s": 1.651,
+     "answer": "tundra",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19096,
+       "park_ms": 40.0,
+       "parked": 12,
+       "cache_bytes": 9484904168,
+       "image_bytes": 645899976
+      },
+      {
+       "tokens": 19096,
+       "park_ms": 73.0,
+       "parked": 12,
+       "cache_bytes": 9484904168,
+       "image_bytes": 645899976
+      }
+     ],
+     "park_ms": 40.0,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 645899976,
+     "cache_bytes_after": 9484904168,
+     "rss_increment_mib": 21.4,
+     "rss_samples": 7209,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "deep_rewind"
+    }
+   ],
+   "append_only": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 259.7,
+     "min": 258.6,
+     "max": 266.9,
+     "mean": 260.75
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 0.746,
+     "min": 0.725,
+     "max": 0.785,
+     "mean": 0.746
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 69.85,
+     "min": 68.8,
+     "max": 71.2,
+     "mean": 69.89
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 124.05,
+     "min": 123.4,
+     "max": 131.5,
+     "mean": 125.12
+    },
+    "image_bytes": [
+     615594168,
+     615594176
+    ],
+    "reused_tokens": [
+     121438
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     6
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 0.0,
+     "min": -112.2,
+     "max": 0.0,
+     "mean": -11.22
+    }
+   },
+   "older_ckpt": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 797.9,
+     "min": 618.3,
+     "max": 825.6,
+     "mean": 747.61
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 1.413,
+     "min": 1.163,
+     "max": 1.449,
+     "mean": 1.361
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 198.3,
+     "min": 128.9,
+     "max": 200.7,
+     "mean": 184.82
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 38.95,
+     "min": 32.1,
+     "max": 42.2,
+     "mean": 38.27
+    },
+    "image_bytes": [
+     2683062504,
+     2683117416,
+     3220322768
+    ],
+    "reused_tokens": [
+     19084
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 561.1,
+     "min": 224.0,
+     "max": 575.8,
+     "mean": 496.94
+    }
+   },
+   "deep_rewind": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 1327.75,
+     "min": 1312.6,
+     "max": 1340.9,
+     "mean": 1326.58
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 1.645,
+     "min": 1.626,
+     "max": 1.662,
+     "mean": 1.644
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 39.95,
+     "min": 39.2,
+     "max": 42.2,
+     "mean": 40.32
+    },
+    "resume_ms": {},
+    "image_bytes": [
+     645899976
+    ],
+    "reused_tokens": [
+     16384
+    ],
+    "prompt_read": [
+     721,
+     722
+    ],
+    "resume_kinds": [],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [],
+    "selected_ms": {},
+    "selected_how": [],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 0.0,
+     "min": 0.0,
+     "max": 21.4,
+     "mean": 2.14
+    }
+   },
+   "wall_s_for_size": 145.5
+  },
+  {
+   "round": 0,
+   "order_position": 1,
+   "arm": "bf16",
+   "engine": "strata.lazy2",
+   "engine_commit": "8fa384c152e8af13f39793f26fa9fc11c49a783e",
+   "base_config": "<USER>/Desktop/Strata/bench-state-codec/bench-bf16.json",
+   "codec": "bf16",
+   "codec_log_line": "stored conversation state: bf16 (parked images and session files; the working state stays fp32, and a resumed conversation keeps its imported snapshots in the codec they were parked in)",
+   "engine_args": [
+    "<USER>/Desktop/Strata/engine-cuda12/strata.lazy2",
+    "--serve",
+    "--pack",
+    "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+    "--native",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+    "--ple-gguf",
+    "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+    "--expert-profile",
+    "<USER>/Desktop/Strata/data/expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "auto",
+    "--spec",
+    "4",
+    "--spec-min-p",
+    "0.5",
+    "--mtp",
+    "<USER>/Desktop/Strata-data/mtp/rt",
+    "--max-context",
+    "262144",
+    "--kv",
+    "int8",
+    "--kv-resident",
+    "32768",
+    "--vision",
+    "--vram-reserve-mib",
+    "722",
+    "--pool-workers",
+    "15",
+    "--conversation-cache-mib",
+    "16384",
+    "--conversation-cache-slots",
+    "12",
+    "--conversation-cache-min-free-mib",
+    "8192",
+    "--session-state-codec",
+    "bf16",
+    "--adapt-swaps",
+    "0",
+    "--pcie-frac",
+    "0",
+    ""
+   ],
+   "metrics": {
+    "model": "qwen3.8-flash-next-iq3_s",
+    "max_context": 262144,
+    "images": true,
+    "version": "0.1.43.1",
+    "logit_bias": 1,
+    "context": 262144,
+    "kv": "int8",
+    "kv_resident": 32768,
+    "expert_slots": 12064,
+    "expert_cache_mib": 23449,
+    "expert_slots_primary": 12064,
+    "expert_cache_primary_mib": 23449,
+    "spec": 6,
+    "mtp_max": 4,
+    "lookup": 3,
+    "vram_free_mib": 514,
+    "cvec": 0,
+    "arena_mib": 47962,
+    "pool_workers": 15,
+    "pcie_frac": "0.00",
+    "spec_min_p": "0.50",
+    "conversation_cache_mib": 16384,
+    "conversation_cache_slots": 12,
+    "conversation_cache_min_free_mib": 8192,
+    "conversation_cache_min_tokens": 0,
+    "tail_role_token": -1,
+    "vram_elastic": 0,
+    "engine": "0.1.43.1"
+   },
+   "cache": {
+    "enabled": true,
+    "budget_mib": 16384,
+    "slots": 12,
+    "parked": 0,
+    "bytes": 0,
+    "evictions": 0,
+    "parks": 0,
+    "restores": 0,
+    "last_event": null,
+    "last_tokens": null,
+    "last_at": null,
+    "requests": 0,
+    "requests_reused": 0,
+    "reused_tokens": 0,
+    "prompt_tokens": 0,
+    "last_reused": null,
+    "last_prompt": null
+   },
+   "target_tokens": 31250,
+   "code_word": "ember",
+   "prefill_tokens": 31801,
+   "prefill_prompt_ms": 21689.7,
+   "prefill_answer": "ember",
+   "prefill_ok": true,
+   "edit_tokens": 19090,
+   "checkpoints_after_prefill": 2,
+   "turns": [
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 566.8,
+     "engine_prompt_read": 34,
+     "engine_reused": 31794,
+     "client_wall_s": 0.8086,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31794,
+       "kind": "checkpoint",
+       "resume_ms": 54.6,
+       "parked": 1,
+       "cache_bytes": 954320820
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 185.3,
+       "parked": 1,
+       "cache_bytes": 468799164,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 185.3,
+     "resume_ms": 54.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 468799164,
+     "cache_bytes_after": 468799164,
+     "rss_increment_mib": 450.8,
+     "rss_samples": 1290,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118255912,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118255912,
+     "selected_checkpoint_tokens": 31794,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.3,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 211.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2965,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 42.3,
+       "parked": 1,
+       "cache_bytes": 1573969324
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 102.0,
+       "parked": 1,
+       "cache_bytes": 1282483636,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 102.0,
+     "resume_ms": 42.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 1282483636,
+     "rss_increment_mib": 246.2,
+     "rss_samples": 1305,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.1,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1401.4,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4868,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 78.8,
+       "parked": 2,
+       "cache_bytes": 1751282800,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 78.8,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 1751282800,
+     "rss_increment_mib": 237.3,
+     "rss_samples": 1379,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.2,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 0,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 308.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5426,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 53.4,
+       "parked": 2,
+       "cache_bytes": 1953146840
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 187.0,
+       "parked": 2,
+       "cache_bytes": 907237600,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 187.0,
+     "resume_ms": 53.4,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 907237600,
+     "rss_increment_mib": 526.0,
+     "rss_samples": 1405,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.3,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 226.8,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.314,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 52.8,
+       "parked": 2,
+       "cache_bytes": 2012407760
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 102.7,
+       "parked": 2,
+       "cache_bytes": 1720922072,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 102.7,
+     "resume_ms": 52.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 1720922072,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 1421,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 19.0,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1376.4,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4609,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 90.2,
+       "parked": 3,
+       "cache_bytes": 2189721236,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 90.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 2189721236,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 1493,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 18.8,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 1,
+     "warm": true,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 300.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.534,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 53.3,
+       "parked": 3,
+       "cache_bytes": 2391585276
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 179.0,
+       "parked": 3,
+       "cache_bytes": 1345676036,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 179.0,
+     "resume_ms": 53.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 1345676036,
+     "rss_increment_mib": 530.0,
+     "rss_samples": 1520,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.1,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 198.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2835,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 40.4,
+       "parked": 3,
+       "cache_bytes": 2450846196
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.9,
+       "parked": 3,
+       "cache_bytes": 2159360508,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.9,
+     "resume_ms": 40.4,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 2159360508,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 1534,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.2,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1349.3,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4317,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 73.4,
+       "parked": 4,
+       "cache_bytes": 2628159672,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 73.4,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 2628159672,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 1605,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.2,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 2,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 284.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5169,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 51.8,
+       "parked": 4,
+       "cache_bytes": 2830023712
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 164.8,
+       "parked": 4,
+       "cache_bytes": 1784114472,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 164.8,
+     "resume_ms": 51.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 1784114472,
+     "rss_increment_mib": 526.0,
+     "rss_samples": 1630,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 15.9,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 198.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2834,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 40.3,
+       "parked": 4,
+       "cache_bytes": 2889284632
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.8,
+       "parked": 4,
+       "cache_bytes": 2597798944,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.8,
+     "resume_ms": 40.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 2597798944,
+     "rss_increment_mib": 224.5,
+     "rss_samples": 1644,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.2,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1339.3,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4219,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 73.6,
+       "parked": 5,
+       "cache_bytes": 3066598108,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 73.6,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 3066598108,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 1715,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.3,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 3,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 288.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5227,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 55.8,
+       "parked": 5,
+       "cache_bytes": 3268462148
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 164.8,
+       "parked": 5,
+       "cache_bytes": 2222552908,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 164.8,
+     "resume_ms": 55.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 2222552908,
+     "rss_increment_mib": 530.0,
+     "rss_samples": 1741,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.1,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 199.8,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2843,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 40.2,
+       "parked": 5,
+       "cache_bytes": 3327723068
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 92.1,
+       "parked": 5,
+       "cache_bytes": 3036237380,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 92.1,
+     "resume_ms": 40.2,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 3036237380,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 1755,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.2,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1364.9,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.447,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 73.7,
+       "parked": 6,
+       "cache_bytes": 3505036544,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 73.7,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 3505036544,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 1826,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.4,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 4,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 282.5,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5154,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 52.2,
+       "parked": 6,
+       "cache_bytes": 3706900584
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 163.4,
+       "parked": 6,
+       "cache_bytes": 2660991344,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 163.4,
+     "resume_ms": 52.2,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 2660991344,
+     "rss_increment_mib": 529.8,
+     "rss_samples": 1852,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.9,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 195.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2802,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 38.9,
+       "parked": 6,
+       "cache_bytes": 3766161504
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.4,
+       "parked": 6,
+       "cache_bytes": 3474675816,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.4,
+     "resume_ms": 38.9,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 3474675816,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 1866,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.9,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1344.1,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4261,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 73.2,
+       "parked": 7,
+       "cache_bytes": 3943474980,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 73.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 3943474980,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 1936,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.9,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 5,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 285.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5196,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 54.1,
+       "parked": 7,
+       "cache_bytes": 4145339020
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 163.4,
+       "parked": 7,
+       "cache_bytes": 3099429780,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 163.4,
+     "resume_ms": 54.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 3099429780,
+     "rss_increment_mib": 530.2,
+     "rss_samples": 1962,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.2,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 196.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2812,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 39.8,
+       "parked": 7,
+       "cache_bytes": 4204599940
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.7,
+       "parked": 7,
+       "cache_bytes": 3913114252,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.7,
+     "resume_ms": 39.8,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 3913114252,
+     "rss_increment_mib": 224.5,
+     "rss_samples": 1976,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.8,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1354.4,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4375,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 74.8,
+       "parked": 8,
+       "cache_bytes": 4381913416,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 74.8,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 4381913416,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 2047,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.8,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 6,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 282.6,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5159,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 52.6,
+       "parked": 8,
+       "cache_bytes": 4583777456
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 163.6,
+       "parked": 8,
+       "cache_bytes": 3537868216,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 163.6,
+     "resume_ms": 52.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 3537868216,
+     "rss_increment_mib": 530.0,
+     "rss_samples": 2073,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.9,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 197.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2822,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 40.6,
+       "parked": 8,
+       "cache_bytes": 4643038376
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.8,
+       "parked": 8,
+       "cache_bytes": 4351552688,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.8,
+     "resume_ms": 40.6,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 4351552688,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 2087,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.8,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1365.7,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4479,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 74.7,
+       "parked": 9,
+       "cache_bytes": 4820351852,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 74.7,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 4820351852,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 2159,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 15.0,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 7,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 283.8,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5159,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 51.5,
+       "parked": 9,
+       "cache_bytes": 5022215892
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 165.8,
+       "parked": 9,
+       "cache_bytes": 3976306652,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 165.8,
+     "resume_ms": 51.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 3976306652,
+     "rss_increment_mib": 526.0,
+     "rss_samples": 2184,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.8,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 195.7,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2809,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 39.1,
+       "parked": 9,
+       "cache_bytes": 5081476812
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.6,
+       "parked": 9,
+       "cache_bytes": 4789991124,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.6,
+     "resume_ms": 39.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 4789991124,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 2198,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.9,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1363.6,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4454,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 73.3,
+       "parked": 10,
+       "cache_bytes": 5258790288,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 73.3,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 5258790288,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 2270,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.9,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 8,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 282.0,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.516,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 52.1,
+       "parked": 10,
+       "cache_bytes": 5460654328
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 163.1,
+       "parked": 10,
+       "cache_bytes": 4414745088,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 163.1,
+     "resume_ms": 52.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 4414745088,
+     "rss_increment_mib": 530.0,
+     "rss_samples": 2296,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.9,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 196.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2811,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 39.9,
+       "parked": 10,
+       "cache_bytes": 5519915248
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.3,
+       "parked": 10,
+       "cache_bytes": 5228429560,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.3,
+     "resume_ms": 39.9,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 5228429560,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 2310,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.8,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17103,
+     "engine_prompt_ms": 1374.0,
+     "engine_prompt_read": 719,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4566,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 73.2,
+       "parked": 11,
+       "cache_bytes": 5697228724,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 73.2,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 5697228724,
+     "rss_increment_mib": 224.2,
+     "rss_samples": 2381,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 14.8,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 9,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 284.9,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5176,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 53.4,
+       "parked": 11,
+       "cache_bytes": 5899092764
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17107,
+       "park_ms": 163.6,
+       "parked": 11,
+       "cache_bytes": 4853183524,
+       "image_bytes": 438438436
+      }
+     ],
+     "park_ms": 163.6,
+     "resume_ms": 53.4,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438438436,
+     "cache_bytes_after": 4853183524,
+     "rss_increment_mib": 529.8,
+     "rss_samples": 2407,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.0,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 198.2,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2837,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 40.1,
+       "parked": 11,
+       "cache_bytes": 5958353684
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.4,
+       "parked": 11,
+       "cache_bytes": 5666867996,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.4,
+     "resume_ms": 40.1,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 5666867996,
+     "rss_increment_mib": 224.5,
+     "rss_samples": 2421,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.1,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1358.8,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4415,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 73.4,
+       "parked": 12,
+       "cache_bytes": 6135667160,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 73.4,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 6135667160,
+     "rss_increment_mib": 224.5,
+     "rss_samples": 2492,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.1,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 10,
+     "warm": false,
+     "workload": "deep_rewind"
+    },
+    {
+     "prompt_tokens": 31828,
+     "engine_prompt_ms": 285.4,
+     "engine_prompt_read": 7,
+     "engine_reused": 31821,
+     "client_wall_s": 0.5179,
+     "answer": "The magic code word for this session is ",
+     "checkpoints_after": 3,
+     "resume_events": [
+      {
+       "tokens": 31821,
+       "kind": "checkpoint",
+       "resume_ms": 53.5,
+       "parked": 12,
+       "cache_bytes": 6337537352
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 17108,
+       "park_ms": 164.1,
+       "parked": 12,
+       "cache_bytes": 5291628112,
+       "image_bytes": 438444588
+      }
+     ],
+     "park_ms": 164.1,
+     "resume_ms": 53.5,
+     "resume_kind": "checkpoint",
+     "image_bytes": 438444588,
+     "cache_bytes_after": 5291628112,
+     "rss_increment_mib": 530.2,
+     "rss_samples": 2518,
+     "retained_checkpoints": 3,
+     "retained_bytes": 177414796,
+     "retained_coded": 3,
+     "retained_coded_bytes": 177414796,
+     "selected_checkpoint_tokens": 31821,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.1,
+     "checkpoints_untouched": 2,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "append_only"
+    },
+    {
+     "prompt_tokens": 19090,
+     "engine_prompt_ms": 198.3,
+     "engine_prompt_read": 7,
+     "engine_reused": 19083,
+     "client_wall_s": 0.2836,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [
+      {
+       "tokens": 19083,
+       "kind": "checkpoint",
+       "resume_ms": 40.3,
+       "parked": 12,
+       "cache_bytes": 6396798272
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31838,
+       "park_ms": 90.5,
+       "parked": 12,
+       "cache_bytes": 6105312584,
+       "image_bytes": 1282483636
+      }
+     ],
+     "park_ms": 90.5,
+     "resume_ms": 40.3,
+     "resume_kind": "checkpoint",
+     "image_bytes": 1282483636,
+     "cache_bytes_after": 6105312584,
+     "rss_increment_mib": 224.8,
+     "rss_samples": 2532,
+     "retained_checkpoints": 2,
+     "retained_bytes": 118205068,
+     "retained_coded": 2,
+     "retained_coded_bytes": 118205068,
+     "selected_checkpoint_tokens": 19083,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.1,
+     "checkpoints_untouched": 1,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "older_ckpt"
+    },
+    {
+     "prompt_tokens": 17104,
+     "engine_prompt_ms": 1323.9,
+     "engine_prompt_read": 720,
+     "engine_reused": 16384,
+     "client_wall_s": 1.4064,
+     "answer": "ember",
+     "checkpoints_after": 2,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 19094,
+       "park_ms": 39.6,
+       "parked": 12,
+       "cache_bytes": 6135673312,
+       "image_bytes": 468799164
+      }
+     ],
+     "park_ms": 39.6,
+     "resume_ms": null,
+     "resume_kind": null,
+     "image_bytes": 468799164,
+     "cache_bytes_after": 6135673312,
+     "rss_increment_mib": 0.0,
+     "rss_samples": 2602,
+     "selected_checkpoint_tokens": 16384,
+     "selected_how": "widened into the session's fp32 buffers; its stored bytes are kept as they are",
+     "selected_ms": 16.2,
+     "checkpoints_untouched": 0,
+     "ok": true,
+     "rep": 11,
+     "warm": false,
+     "workload": "deep_rewind"
+    }
+   ],
+   "append_only": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 284.55,
+     "min": 282.0,
+     "max": 300.2,
+     "mean": 285.96
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 0.517,
+     "min": 0.515,
+     "max": 0.534,
+     "mean": 0.519
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 163.85,
+     "min": 163.1,
+     "max": 179.0,
+     "mean": 165.56
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 52.95,
+     "min": 51.5,
+     "max": 55.8,
+     "mean": 53.03
+    },
+    "image_bytes": [
+     438438436,
+     438444588
+    ],
+    "reused_tokens": [
+     31821
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [
+     3
+    ],
+    "retained_bytes": [
+     177414796
+    ],
+    "retained_coded": [
+     3
+    ],
+    "retained_coded_bytes": [
+     177414796
+    ],
+    "selected_checkpoint_tokens": [
+     31821
+    ],
+    "selected_ms": {
+     "n": 10,
+     "median": 15.95,
+     "min": 14.8,
+     "max": 16.2,
+     "mean": 15.59
+    },
+    "selected_how": [
+     "widened into the session's fp32 buffers; its stored bytes are kept as they are"
+    ],
+    "checkpoints_after": [
+     3
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 530.0,
+     "min": 526.0,
+     "max": 530.2,
+     "mean": 529.2
+    }
+   },
+   "older_ckpt": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 197.7,
+     "min": 195.3,
+     "max": 199.8,
+     "mean": 197.37
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 0.283,
+     "min": 0.28,
+     "max": 0.284,
+     "mean": 0.282
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 90.65,
+     "min": 90.3,
+     "max": 92.1,
+     "mean": 90.75
+    },
+    "resume_ms": {
+     "n": 10,
+     "median": 40.15,
+     "min": 38.9,
+     "max": 40.6,
+     "mean": 39.96
+    },
+    "image_bytes": [
+     1282483636
+    ],
+    "reused_tokens": [
+     19083
+    ],
+    "prompt_read": [
+     7
+    ],
+    "resume_kinds": [
+     "checkpoint"
+    ],
+    "retained_checkpoints": [
+     2
+    ],
+    "retained_bytes": [
+     118205068
+    ],
+    "retained_coded": [
+     2
+    ],
+    "retained_coded_bytes": [
+     118205068
+    ],
+    "selected_checkpoint_tokens": [
+     19083
+    ],
+    "selected_ms": {
+     "n": 10,
+     "median": 15.5,
+     "min": 14.8,
+     "max": 16.2,
+     "mean": 15.5
+    },
+    "selected_how": [
+     "widened into the session's fp32 buffers; its stored bytes are kept as they are"
+    ],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 224.8,
+     "min": 224.5,
+     "max": 224.8,
+     "mean": 224.71
+    }
+   },
+   "deep_rewind": {
+    "n": 10,
+    "answered_right": 10,
+    "engine_prompt_ms": {
+     "n": 10,
+     "median": 1356.6,
+     "min": 1323.9,
+     "max": 1374.0,
+     "mean": 1353.8
+    },
+    "client_wall_s": {
+     "n": 10,
+     "median": 1.44,
+     "min": 1.406,
+     "max": 1.457,
+     "mean": 1.436
+    },
+    "park_ms": {
+     "n": 10,
+     "median": 73.4,
+     "min": 39.6,
+     "max": 74.8,
+     "mean": 70.29
+    },
+    "resume_ms": {},
+    "image_bytes": [
+     468799164
+    ],
+    "reused_tokens": [
+     16384
+    ],
+    "prompt_read": [
+     719,
+     720
+    ],
+    "resume_kinds": [],
+    "retained_checkpoints": [],
+    "retained_bytes": [],
+    "retained_coded": [],
+    "retained_coded_bytes": [],
+    "selected_checkpoint_tokens": [
+     16384
+    ],
+    "selected_ms": {
+     "n": 10,
+     "median": 15.55,
+     "min": 14.8,
+     "max": 16.4,
+     "mean": 15.56
+    },
+    "selected_how": [
+     "widened into the session's fp32 buffers; its stored bytes are kept as they are"
+    ],
+    "checkpoints_after": [
+     2
+    ],
+    "rss_increment_mib": {
+     "n": 10,
+     "median": 224.2,
+     "min": 0.0,
+     "max": 224.5,
+     "mean": 201.81
+    }
+   },
+   "wall_s_for_size": 52.5
+  }
+ ]
+}

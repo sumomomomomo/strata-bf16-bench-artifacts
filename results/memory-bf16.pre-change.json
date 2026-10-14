@@ -1,0 +1,1149 @@
+{
+ "phase": "memory",
+ "codec": "bf16",
+ "env": {
+  "commit": "d178753d117579ae2824d7db7fcc983513196dfb",
+  "engine_version": "0.1.43.1",
+  "codec_under_test": "bf16",
+  "codec_log_line": "stored conversation state: bf16 (parked images and session files; the live state stays fp32)",
+  "engine_args": [
+   "<USER>/Desktop/Strata/engine-cuda12/strata.pre-change",
+   "--serve",
+   "--pack",
+   "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+   "--native",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+   "--ple-gguf",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+   "--expert-profile",
+   "<USER>/Desktop/Strata/data/expert-profile.bin",
+   "--expert-cache",
+   "auto",
+   "--prefill",
+   "auto",
+   "--spec",
+   "4",
+   "--spec-min-p",
+   "0.5",
+   "--mtp",
+   "<USER>/Desktop/Strata-data/mtp/rt",
+   "--max-context",
+   "262144",
+   "--kv",
+   "int8",
+   "--kv-resident",
+   "32768",
+   "--vision",
+   "--vram-reserve-mib",
+   "722",
+   "--pool-workers",
+   "15",
+   "--conversation-cache-mib",
+   "16384",
+   "--conversation-cache-slots",
+   "12",
+   "--conversation-cache-min-free-mib",
+   "8192",
+   "--session-state-codec",
+   "bf16",
+   ""
+  ],
+  "model": "qwen3.8-flash-next-iq3_s",
+  "kv": "int8",
+  "max_context": 262144,
+  "cache": {
+   "model": "qwen3.8-flash-next-iq3_s",
+   "max_context": 262144,
+   "images": true,
+   "version": "0.1.43.1",
+   "logit_bias": 1,
+   "context": 262144,
+   "kv": "int8",
+   "kv_resident": 32768,
+   "expert_slots": 12064,
+   "expert_cache_mib": 23449,
+   "expert_slots_primary": 12064,
+   "expert_cache_primary_mib": 23449,
+   "spec": 6,
+   "mtp_max": 4,
+   "lookup": 3,
+   "vram_free_mib": 514,
+   "cvec": 0,
+   "arena_mib": 47962,
+   "pool_workers": 15,
+   "pcie_frac": "0.36",
+   "spec_min_p": "0.50",
+   "conversation_cache_mib": 16384,
+   "conversation_cache_slots": 12,
+   "conversation_cache_min_free_mib": 8192,
+   "conversation_cache_min_tokens": 0,
+   "tail_role_token": -1,
+   "vram_elastic": 0,
+   "engine": "0.1.43.1"
+  },
+  "hardware_static": {
+   "gpu_name": "Tesla V100-PCIE-32GB",
+   "gpu_count": 1,
+   "gpu_note": null,
+   "cpu_name": "Genuine Intel(R) 0000",
+   "cores": 24,
+   "threads": 32,
+   "psutil": true
+  },
+  "server_url": "http://127.0.0.1:8080",
+  "log": "<USER>/Desktop/Strata/bench-bf16-prechange.log"
+ },
+ "sampling_interval_s": 0.02,
+ "sizes": [
+  {
+   "target_tokens": 31250,
+   "prefill_A": {
+    "tokens": 31798,
+    "answer": "ember",
+    "want": "ember"
+   },
+   "prefill_B": {
+    "tokens": 31798,
+    "answer": "amber",
+    "want": "amber"
+   },
+   "windows": [
+    {
+     "rep": 0,
+     "op": "save",
+     "rss_baseline_mib": 54265.8,
+     "rss_peak_increment_mib": 240.8,
+     "rss_after_mib": 54282.2,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 410.8,
+     "bytes_written": 603775484,
+     "client_wall_s": 0.4136
+    },
+    {
+     "rep": 0,
+     "op": "restore",
+     "rss_baseline_mib": 54506.5,
+     "rss_peak_increment_mib": 350.5,
+     "rss_after_mib": 54594.8,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 384.8,
+     "bytes_read": 603775484,
+     "client_wall_s": 0.386
+    },
+    {
+     "rep": 0,
+     "op": "switch_to_B",
+     "rss_baseline_mib": 54506.5,
+     "rss_peak_increment_mib": 293.1,
+     "rss_after_mib": 54799.6,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 2,
+      "bytes": 1266654128,
+      "evictions": 0,
+      "parks": 2,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "prompt_ms": 493.2,
+     "wall_s": 0.6644,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 31802,
+       "park_ms": 204.4,
+       "parked": 2,
+       "cache_bytes": 1266654128,
+       "image_bytes": 603778388
+      }
+     ]
+    },
+    {
+     "rep": 0,
+     "op": "switch_to_A",
+     "rss_baseline_mib": 54686.9,
+     "rss_peak_increment_mib": 164.2,
+     "rss_after_mib": 54861.2,
+     "cache_before": {
+      "parked": 2,
+      "bytes": 1266654128,
+      "evictions": 0,
+      "parks": 2,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1148825552,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "prompt_ms": 552.3,
+     "wall_s": 0.7251,
+     "resume_events": [
+      {
+       "tokens": 31791,
+       "kind": "checkpoint",
+       "resume_ms": 140.6,
+       "parked": 1,
+       "cache_bytes": 1148825552
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31829,
+       "park_ms": 146.3,
+       "parked": 1,
+       "cache_bytes": 663364952,
+       "image_bytes": 663364952
+      }
+     ]
+    },
+    {
+     "rep": 1,
+     "op": "save",
+     "rss_baseline_mib": 54808.3,
+     "rss_peak_increment_mib": 290.0,
+     "rss_after_mib": 54873.8,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1148825552,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1148825552,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "engine_ms": 326.6,
+     "bytes_written": 604203068,
+     "client_wall_s": 0.3277
+    },
+    {
+     "rep": 1,
+     "op": "restore",
+     "rss_baseline_mib": 55059.5,
+     "rss_peak_increment_mib": 389.6,
+     "rss_after_mib": 55074.6,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1148825552,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1148825552,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "engine_ms": 393.7,
+     "bytes_read": 604203068,
+     "client_wall_s": 0.3951
+    },
+    {
+     "rep": 1,
+     "op": "switch_to_B",
+     "rss_baseline_mib": 55126.8,
+     "rss_peak_increment_mib": -265.1,
+     "rss_after_mib": 54861.7,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1148825552,
+      "evictions": 0,
+      "parks": 3,
+      "restores": 1,
+      "last_event": "restored",
+      "last_tokens": 31791
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1090093964,
+      "evictions": 0,
+      "parks": 4,
+      "restores": 2,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "prompt_ms": 372.8,
+     "wall_s": 0.5411,
+     "resume_events": [
+      {
+       "tokens": 31812,
+       "kind": "checkpoint",
+       "resume_ms": 175.8,
+       "parked": 1,
+       "cache_bytes": 1090093964
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31829,
+       "park_ms": 136.0,
+       "parked": 1,
+       "cache_bytes": 604205972,
+       "image_bytes": 604205972
+      }
+     ]
+    },
+    {
+     "rep": 1,
+     "op": "switch_to_A",
+     "rss_baseline_mib": 54813.7,
+     "rss_peak_increment_mib": 48.0,
+     "rss_after_mib": 54749.5,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1090093964,
+      "evictions": 0,
+      "parks": 4,
+      "restores": 2,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1149252944,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "prompt_ms": 287.7,
+     "wall_s": 0.5033,
+     "resume_events": [
+      {
+       "tokens": 31812,
+       "kind": "checkpoint",
+       "resume_ms": 128.0,
+       "parked": 1,
+       "cache_bytes": 1149252944
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31829,
+       "park_ms": 99.4,
+       "parked": 1,
+       "cache_bytes": 663364952,
+       "image_bytes": 663364952
+      }
+     ]
+    },
+    {
+     "rep": 2,
+     "op": "save",
+     "rss_baseline_mib": 54749.5,
+     "rss_peak_increment_mib": 124.2,
+     "rss_after_mib": 54761.7,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1149252944,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1149252944,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "engine_ms": 407.7,
+     "bytes_written": 604203068,
+     "client_wall_s": 0.4087
+    },
+    {
+     "rep": 2,
+     "op": "restore",
+     "rss_baseline_mib": 54873.8,
+     "rss_peak_increment_mib": 351.0,
+     "rss_after_mib": 55074.9,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1149252944,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1149252944,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "engine_ms": 483.2,
+     "bytes_read": 604203068,
+     "client_wall_s": 0.4845
+    },
+    {
+     "rep": 2,
+     "op": "switch_to_B",
+     "rss_baseline_mib": 54873.8,
+     "rss_peak_increment_mib": -12.0,
+     "rss_after_mib": 54861.8,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1149252944,
+      "evictions": 0,
+      "parks": 5,
+      "restores": 3,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1090093964,
+      "evictions": 0,
+      "parks": 6,
+      "restores": 4,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "prompt_ms": 304.2,
+     "wall_s": 0.4788,
+     "resume_events": [
+      {
+       "tokens": 31812,
+       "kind": "checkpoint",
+       "resume_ms": 134.1,
+       "parked": 1,
+       "cache_bytes": 1090093964
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31829,
+       "park_ms": 111.8,
+       "parked": 1,
+       "cache_bytes": 604205972,
+       "image_bytes": 604205972
+      }
+     ]
+    },
+    {
+     "rep": 2,
+     "op": "switch_to_A",
+     "rss_baseline_mib": 54834.0,
+     "rss_peak_increment_mib": 27.8,
+     "rss_after_mib": 54749.5,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 1090093964,
+      "evictions": 0,
+      "parks": 6,
+      "restores": 4,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 1149252944,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 5,
+      "last_event": "restored",
+      "last_tokens": 31812
+     },
+     "prompt_ms": 223.2,
+     "wall_s": 0.4348,
+     "resume_events": [
+      {
+       "tokens": 31812,
+       "kind": "checkpoint",
+       "resume_ms": 94.7,
+       "parked": 1,
+       "cache_bytes": 1149252944
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 31829,
+       "park_ms": 69.6,
+       "parked": 1,
+       "cache_bytes": 663364952,
+       "image_bytes": 663364952
+      }
+     ]
+    }
+   ],
+   "steady_rss_mib": 54749.5,
+   "save_increment_mib": {
+    "n": 3,
+    "median": 240.8,
+    "min": 124.2,
+    "max": 290.0,
+    "mean": 218.333
+   },
+   "save_engine_ms": {
+    "n": 3,
+    "median": 407.7,
+    "min": 326.6,
+    "max": 410.8,
+    "mean": 381.7
+   },
+   "restore_increment_mib": {
+    "n": 3,
+    "median": 351.0,
+    "min": 350.5,
+    "max": 389.6,
+    "mean": 363.7
+   },
+   "restore_engine_ms": {
+    "n": 3,
+    "median": 393.7,
+    "min": 384.8,
+    "max": 483.2,
+    "mean": 420.567
+   },
+   "switch_to_B_increment_mib": {
+    "n": 3,
+    "median": -12.0,
+    "min": -265.1,
+    "max": 293.1,
+    "mean": 5.333
+   },
+   "switch_to_B_engine_ms": {
+    "n": 2,
+    "median": 154.95,
+    "min": 134.1,
+    "max": 175.8,
+    "mean": 154.95
+   },
+   "switch_to_B_park_ms": {
+    "n": 3,
+    "median": 136.0,
+    "min": 111.8,
+    "max": 204.4,
+    "mean": 150.733
+   },
+   "switch_to_A_increment_mib": {
+    "n": 3,
+    "median": 48.0,
+    "min": 27.8,
+    "max": 164.2,
+    "mean": 80.0
+   },
+   "switch_to_A_engine_ms": {
+    "n": 3,
+    "median": 128.0,
+    "min": 94.7,
+    "max": 140.6,
+    "mean": 121.1
+   },
+   "switch_to_A_park_ms": {
+    "n": 3,
+    "median": 99.4,
+    "min": 69.6,
+    "max": 146.3,
+    "mean": 105.1
+   },
+   "cache_bytes_after": {
+    "parked": 1,
+    "bytes": 1149252944,
+    "evictions": 0,
+    "parks": 7,
+    "restores": 5,
+    "last_event": "restored",
+    "last_tokens": 31812
+   }
+  },
+  {
+   "target_tokens": 62500,
+   "prefill_A": {
+    "tokens": 63027,
+    "answer": "velvet",
+    "want": "velvet"
+   },
+   "prefill_B": {
+    "tokens": 63027,
+    "answer": "ember",
+    "want": "ember"
+   },
+   "windows": [
+    {
+     "rep": 0,
+     "op": "save",
+     "rss_baseline_mib": 56286.9,
+     "rss_peak_increment_mib": 241.2,
+     "rss_after_mib": 56303.7,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 2525752624,
+      "evictions": 0,
+      "parks": 9,
+      "restores": 5,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 2525752624,
+      "evictions": 0,
+      "parks": 9,
+      "restores": 5,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 431.7,
+     "bytes_written": 1080689508,
+     "client_wall_s": 0.4329
+    },
+    {
+     "rep": 0,
+     "op": "restore",
+     "rss_baseline_mib": 56528.2,
+     "rss_peak_increment_mib": 804.6,
+     "rss_after_mib": 56846.2,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 2525752624,
+      "evictions": 0,
+      "parks": 9,
+      "restores": 5,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 2525752624,
+      "evictions": 0,
+      "parks": 9,
+      "restores": 5,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 704.3,
+     "bytes_read": 1080689508,
+     "client_wall_s": 0.7057
+    },
+    {
+     "rep": 0,
+     "op": "switch_to_B",
+     "rss_baseline_mib": 57055.7,
+     "rss_peak_increment_mib": -8.1,
+     "rss_after_mib": 57047.7,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 2525752624,
+      "evictions": 0,
+      "parks": 9,
+      "restores": 5,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 4,
+      "bytes": 3606445660,
+      "evictions": 0,
+      "parks": 10,
+      "restores": 5,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "prompt_ms": 632.7,
+     "wall_s": 0.8839,
+     "resume_events": [],
+     "park_events": [
+      {
+       "tokens": 63031,
+       "park_ms": 368.3,
+       "parked": 4,
+       "cache_bytes": 3606445660,
+       "image_bytes": 1080693036
+      }
+     ]
+    },
+    {
+     "rep": 0,
+     "op": "switch_to_A",
+     "rss_baseline_mib": 57040.2,
+     "rss_peak_increment_mib": 188.5,
+     "rss_after_mib": 57228.7,
+     "cache_before": {
+      "parked": 4,
+      "bytes": 3606445660,
+      "evictions": 0,
+      "parks": 10,
+      "restores": 5,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3370100856,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "prompt_ms": 641.0,
+     "wall_s": 0.8193,
+     "resume_events": [
+      {
+       "tokens": 63031,
+       "kind": "live",
+       "resume_ms": 256.6,
+       "parked": 3,
+       "cache_bytes": 3370100856
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63058,
+       "park_ms": 205.5,
+       "parked": 3,
+       "cache_bytes": 2407975440,
+       "image_bytes": 1140404516
+      }
+     ]
+    },
+    {
+     "rep": 1,
+     "op": "save",
+     "rss_baseline_mib": 57185.4,
+     "rss_peak_increment_mib": 284.5,
+     "rss_after_mib": 57245.6,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3370100856,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3370100856,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "engine_ms": 450.3,
+     "bytes_written": 1081117100,
+     "client_wall_s": 0.4515
+    },
+    {
+     "rep": 1,
+     "op": "restore",
+     "rss_baseline_mib": 57469.9,
+     "rss_peak_increment_mib": 805.2,
+     "rss_after_mib": 57676.2,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3370100856,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3370100856,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "engine_ms": 891.0,
+     "bytes_read": 1081117100,
+     "client_wall_s": 0.8922
+    },
+    {
+     "rep": 1,
+     "op": "switch_to_B",
+     "rss_baseline_mib": 58028.6,
+     "rss_peak_increment_mib": -1016.4,
+     "rss_after_mib": 57012.2,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3370100856,
+      "evictions": 0,
+      "parks": 11,
+      "restores": 6,
+      "last_event": "restored",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3311244360,
+      "evictions": 0,
+      "parks": 12,
+      "restores": 7,
+      "last_event": "restored",
+      "last_tokens": 63041
+     },
+     "prompt_ms": 394.8,
+     "wall_s": 0.6436,
+     "resume_events": [
+      {
+       "tokens": 63041,
+       "kind": "checkpoint",
+       "resume_ms": 164.7,
+       "parked": 3,
+       "cache_bytes": 3311244360
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63059,
+       "park_ms": 171.2,
+       "parked": 3,
+       "cache_bytes": 2348691552,
+       "image_bytes": 1081120628
+      }
+     ]
+    },
+    {
+     "rep": 1,
+     "op": "switch_to_A",
+     "rss_baseline_mib": 57012.2,
+     "rss_peak_increment_mib": 0.0,
+     "rss_after_mib": 56899.9,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3311244360,
+      "evictions": 0,
+      "parks": 12,
+      "restores": 7,
+      "last_event": "restored",
+      "last_tokens": 63041
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3370528248,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 63042
+     },
+     "prompt_ms": 253.8,
+     "wall_s": 0.4393,
+     "resume_events": [
+      {
+       "tokens": 63042,
+       "kind": "checkpoint",
+       "resume_ms": 124.6,
+       "parked": 3,
+       "cache_bytes": 3370528248
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63058,
+       "park_ms": 70.4,
+       "parked": 3,
+       "cache_bytes": 2407975440,
+       "image_bytes": 1140404516
+      }
+     ]
+    },
+    {
+     "rep": 2,
+     "op": "save",
+     "rss_baseline_mib": 57012.2,
+     "rss_peak_increment_mib": 124.2,
+     "rss_after_mib": 56912.2,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3370528248,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 63042
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3370528248,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 63042
+     },
+     "engine_ms": 552.5,
+     "bytes_written": 1081117100,
+     "client_wall_s": 0.5535
+    },
+    {
+     "rep": 2,
+     "op": "restore",
+     "rss_baseline_mib": 57024.2,
+     "rss_peak_increment_mib": 803.5,
+     "rss_after_mib": 57677.9,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3370528248,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 63042
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3370528248,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 63042
+     },
+     "engine_ms": 649.4,
+     "bytes_read": 1081117100,
+     "client_wall_s": 0.6508
+    },
+    {
+     "rep": 2,
+     "op": "switch_to_B",
+     "rss_baseline_mib": 57532.2,
+     "rss_peak_increment_mib": -102.0,
+     "rss_after_mib": 57010.4,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3370528248,
+      "evictions": 0,
+      "parks": 13,
+      "restores": 8,
+      "last_event": "restored",
+      "last_tokens": 63042
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3311244360,
+      "evictions": 0,
+      "parks": 14,
+      "restores": 9,
+      "last_event": "restored",
+      "last_tokens": 63041
+     },
+     "prompt_ms": 394.4,
+     "wall_s": 0.6265,
+     "resume_events": [
+      {
+       "tokens": 63041,
+       "kind": "checkpoint",
+       "resume_ms": 163.7,
+       "parked": 3,
+       "cache_bytes": 3311244360
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63059,
+       "park_ms": 171.3,
+       "parked": 3,
+       "cache_bytes": 2348691552,
+       "image_bytes": 1081120628
+      }
+     ]
+    },
+    {
+     "rep": 2,
+     "op": "switch_to_A",
+     "rss_baseline_mib": 57010.4,
+     "rss_peak_increment_mib": 0.0,
+     "rss_after_mib": 56898.1,
+     "cache_before": {
+      "parked": 3,
+      "bytes": 3311244360,
+      "evictions": 0,
+      "parks": 14,
+      "restores": 9,
+      "last_event": "restored",
+      "last_tokens": 63041
+     },
+     "cache_after": {
+      "parked": 3,
+      "bytes": 3370528248,
+      "evictions": 0,
+      "parks": 15,
+      "restores": 10,
+      "last_event": "restored",
+      "last_tokens": 63042
+     },
+     "prompt_ms": 251.5,
+     "wall_s": 0.4402,
+     "resume_events": [
+      {
+       "tokens": 63042,
+       "kind": "checkpoint",
+       "resume_ms": 123.0,
+       "parked": 3,
+       "cache_bytes": 3370528248
+      }
+     ],
+     "park_events": [
+      {
+       "tokens": 63058,
+       "park_ms": 69.7,
+       "parked": 3,
+       "cache_bytes": 2407975440,
+       "image_bytes": 1140404516
+      }
+     ]
+    }
+   ],
+   "steady_rss_mib": 57010.4,
+   "save_increment_mib": {
+    "n": 3,
+    "median": 241.2,
+    "min": 124.2,
+    "max": 284.5,
+    "mean": 216.633
+   },
+   "save_engine_ms": {
+    "n": 3,
+    "median": 450.3,
+    "min": 431.7,
+    "max": 552.5,
+    "mean": 478.167
+   },
+   "restore_increment_mib": {
+    "n": 3,
+    "median": 804.6,
+    "min": 803.5,
+    "max": 805.2,
+    "mean": 804.433
+   },
+   "restore_engine_ms": {
+    "n": 3,
+    "median": 704.3,
+    "min": 649.4,
+    "max": 891.0,
+    "mean": 748.233
+   },
+   "switch_to_B_increment_mib": {
+    "n": 3,
+    "median": -102.0,
+    "min": -1016.4,
+    "max": -8.1,
+    "mean": -375.5
+   },
+   "switch_to_B_engine_ms": {
+    "n": 2,
+    "median": 164.2,
+    "min": 163.7,
+    "max": 164.7,
+    "mean": 164.2
+   },
+   "switch_to_B_park_ms": {
+    "n": 3,
+    "median": 171.3,
+    "min": 171.2,
+    "max": 368.3,
+    "mean": 236.933
+   },
+   "switch_to_A_increment_mib": {
+    "n": 3,
+    "median": 0.0,
+    "min": 0.0,
+    "max": 188.5,
+    "mean": 62.833
+   },
+   "switch_to_A_engine_ms": {
+    "n": 3,
+    "median": 124.6,
+    "min": 123.0,
+    "max": 256.6,
+    "mean": 168.067
+   },
+   "switch_to_A_park_ms": {
+    "n": 3,
+    "median": 70.4,
+    "min": 69.7,
+    "max": 205.5,
+    "mean": 115.2
+   },
+   "cache_bytes_after": {
+    "parked": 3,
+    "bytes": 3370528248,
+    "evictions": 0,
+    "parks": 15,
+    "restores": 10,
+    "last_event": "restored",
+    "last_tokens": 63042
+   }
+  }
+ ]
+}

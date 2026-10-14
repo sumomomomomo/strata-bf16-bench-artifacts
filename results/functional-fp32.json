@@ -1,0 +1,870 @@
+{
+ "phase": "functional",
+ "codec": "fp32",
+ "env": {
+  "commit": "d178753d117579ae2824d7db7fcc983513196dfb",
+  "engine_version": "0.1.43.1",
+  "codec_under_test": "fp32",
+  "codec_log_line": null,
+  "engine_args": [
+   "<USER>/Desktop/Strata/engine-cuda12/strata",
+   "--serve",
+   "--pack",
+   "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+   "--native",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+   "--ple-gguf",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+   "--expert-profile",
+   "<USER>/Desktop/Strata/data/expert-profile.bin",
+   "--expert-cache",
+   "auto",
+   "--prefill",
+   "auto",
+   "--spec",
+   "4",
+   "--spec-min-p",
+   "0.5",
+   "--mtp",
+   "<USER>/Desktop/Strata-data/mtp/rt",
+   "--max-context",
+   "262144",
+   "--kv",
+   "int8",
+   "--kv-resident",
+   "32768",
+   "--vision",
+   "--vram-reserve-mib",
+   "722",
+   "--pool-workers",
+   "15",
+   "--conversation-cache-mib",
+   "16384",
+   "--conversation-cache-slots",
+   "12",
+   "--conversation-cache-min-free-mib",
+   "8192",
+   "--session-state-codec",
+   "fp32",
+   ""
+  ],
+  "model": "qwen3.8-flash-next-iq3_s",
+  "kv": "int8",
+  "max_context": 262144,
+  "cache": {
+   "model": "qwen3.8-flash-next-iq3_s",
+   "max_context": 262144,
+   "images": true,
+   "version": "0.1.43.1",
+   "logit_bias": 1,
+   "context": 262144,
+   "kv": "int8",
+   "kv_resident": 32768,
+   "expert_slots": 12064,
+   "expert_cache_mib": 23449,
+   "expert_slots_primary": 12064,
+   "expert_cache_primary_mib": 23449,
+   "spec": 6,
+   "mtp_max": 4,
+   "lookup": 3,
+   "vram_free_mib": 514,
+   "cvec": 0,
+   "arena_mib": 47962,
+   "pool_workers": 15,
+   "pcie_frac": "0.36",
+   "spec_min_p": "0.50",
+   "conversation_cache_mib": 16384,
+   "conversation_cache_slots": 12,
+   "conversation_cache_min_free_mib": 8192,
+   "conversation_cache_min_tokens": 0,
+   "tail_role_token": -1,
+   "vram_elastic": 0,
+   "engine": "0.1.43.1"
+  },
+  "hardware_static": {
+   "gpu_name": "Tesla V100-PCIE-32GB",
+   "gpu_count": 1,
+   "gpu_note": null,
+   "cpu_name": "Genuine Intel(R) 0000",
+   "cores": 24,
+   "threads": 32,
+   "psutil": true
+  },
+  "server_url": "http://127.0.0.1:8080",
+  "log": "<USER>/Desktop/Strata/bench-fp32.log"
+ },
+ "checks": {
+  "needle_across_disk_restore": [
+   {
+    "tokens": 31768,
+    "depth": 10,
+    "seed": 0,
+    "want": "meadow",
+    "cold_answer": "meadow",
+    "restored_answer": "meadow",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721356028,
+    "restored_tokens": 31772,
+    "restore_ms": 411.9
+   },
+   {
+    "tokens": 31767,
+    "depth": 10,
+    "seed": 1,
+    "want": "ember",
+    "cold_answer": "ember",
+    "restored_answer": "ember",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721349876,
+    "restored_tokens": 31771,
+    "restore_ms": 339.2
+   },
+   {
+    "tokens": 31767,
+    "depth": 10,
+    "seed": 2,
+    "want": "copper",
+    "cold_answer": "copper",
+    "restored_answer": "copper",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721349876,
+    "restored_tokens": 31771,
+    "restore_ms": 330.1
+   },
+   {
+    "tokens": 31764,
+    "depth": 50,
+    "seed": 0,
+    "want": "quartz",
+    "cold_answer": "quartz",
+    "restored_answer": "quartz",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721294940,
+    "restored_tokens": 31768,
+    "restore_ms": 521.9
+   },
+   {
+    "tokens": 31764,
+    "depth": 50,
+    "seed": 1,
+    "want": "glacier",
+    "cold_answer": "glacier",
+    "restored_answer": "glacier",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721349856,
+    "restored_tokens": 31769,
+    "restore_ms": 459.6
+   },
+   {
+    "tokens": 31765,
+    "depth": 50,
+    "seed": 2,
+    "want": "juniper",
+    "cold_answer": "juniper",
+    "restored_answer": "juniper",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721349860,
+    "restored_tokens": 31769,
+    "restore_ms": 447.7
+   },
+   {
+    "tokens": 31767,
+    "depth": 90,
+    "seed": 0,
+    "want": "meadow",
+    "cold_answer": "meadow",
+    "restored_answer": "meadow",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721349876,
+    "restored_tokens": 31771,
+    "restore_ms": 514.6
+   },
+   {
+    "tokens": 31766,
+    "depth": 90,
+    "seed": 1,
+    "want": "ember",
+    "cold_answer": "ember",
+    "restored_answer": "ember",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721349868,
+    "restored_tokens": 31770,
+    "restore_ms": 365.9
+   },
+   {
+    "tokens": 31766,
+    "depth": 90,
+    "seed": 2,
+    "want": "copper",
+    "cold_answer": "copper",
+    "restored_answer": "copper",
+    "cold_ok": true,
+    "restored_ok": true,
+    "saved_bytes": 721349868,
+    "restored_tokens": 31770,
+    "restore_ms": 501.7
+   }
+  ],
+  "needle_across_parked_resume": [
+   {
+    "tokens": 31796,
+    "depth": 10,
+    "seed": 0,
+    "want": "juniper",
+    "resumed_answer": "juniper",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31800,
+      "kind": "live",
+      "resume_ms": 41.7,
+      "parked": 12,
+      "cache_bytes": 15356066280
+     }
+    ],
+    "cache_n": 31800,
+    "prompt_read": 26
+   },
+   {
+    "tokens": 31796,
+    "depth": 10,
+    "seed": 1,
+    "want": "falcon",
+    "resumed_answer": "falcon",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31800,
+      "kind": "live",
+      "resume_ms": 42.8,
+      "parked": 12,
+      "cache_bytes": 10488058964
+     }
+    ],
+    "cache_n": 31800,
+    "prompt_read": 26
+   },
+   {
+    "tokens": 31797,
+    "depth": 10,
+    "seed": 2,
+    "want": "saffron",
+    "resumed_answer": "saffron",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31801,
+      "kind": "live",
+      "resume_ms": 44.1,
+      "parked": 12,
+      "cache_bytes": 10788620264
+     }
+    ],
+    "cache_n": 31801,
+    "prompt_read": 27
+   },
+   {
+    "tokens": 31795,
+    "depth": 50,
+    "seed": 0,
+    "want": "copper",
+    "resumed_answer": "copper",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31799,
+      "kind": "live",
+      "resume_ms": 41.2,
+      "parked": 12,
+      "cache_bytes": 11089130028
+     }
+    ],
+    "cache_n": 31799,
+    "prompt_read": 26
+   },
+   {
+    "tokens": 31795,
+    "depth": 50,
+    "seed": 1,
+    "want": "lantern",
+    "resumed_answer": "lantern",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31799,
+      "kind": "live",
+      "resume_ms": 41.9,
+      "parked": 12,
+      "cache_bytes": 11389685232
+     }
+    ],
+    "cache_n": 31799,
+    "prompt_read": 26
+   },
+   {
+    "tokens": 31795,
+    "depth": 50,
+    "seed": 2,
+    "want": "velvet",
+    "resumed_answer": "velvet",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31799,
+      "kind": "live",
+      "resume_ms": 42.4,
+      "parked": 12,
+      "cache_bytes": 11690234260
+     }
+    ],
+    "cache_n": 31799,
+    "prompt_read": 26
+   },
+   {
+    "tokens": 31796,
+    "depth": 90,
+    "seed": 0,
+    "want": "juniper",
+    "resumed_answer": "juniper",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31800,
+      "kind": "live",
+      "resume_ms": 41.3,
+      "parked": 12,
+      "cache_bytes": 12368719864
+     }
+    ],
+    "cache_n": 31800,
+    "prompt_read": 26
+   },
+   {
+    "tokens": 31796,
+    "depth": 90,
+    "seed": 1,
+    "want": "falcon",
+    "resumed_answer": "falcon",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31800,
+      "kind": "live",
+      "resume_ms": 42.3,
+      "parked": 12,
+      "cache_bytes": 12368719864
+     }
+    ],
+    "cache_n": 31800,
+    "prompt_read": 26
+   },
+   {
+    "tokens": 31797,
+    "depth": 90,
+    "seed": 2,
+    "want": "saffron",
+    "resumed_answer": "saffron",
+    "ok": true,
+    "resume_events": [
+     {
+      "tokens": 31801,
+      "kind": "live",
+      "resume_ms": 42.9,
+      "parked": 12,
+      "cache_bytes": 12368774776
+     }
+    ],
+    "cache_n": 31801,
+    "prompt_read": 27
+   }
+  ],
+  "older_checkpoint_resume": [
+   {
+    "full_tokens": 63025,
+    "cut": 0.5,
+    "edited_tokens": 31792,
+    "want": "saffron",
+    "answer": "saffron",
+    "ok": true,
+    "resume_events": [],
+    "prompt_events": [
+     {
+      "tokens": 31792,
+      "reused": 16384,
+      "read": 15408,
+      "prompt_ms": 12818.0,
+      "checkpoints": 2
+     }
+    ]
+   },
+   {
+    "full_tokens": 63025,
+    "cut": 0.25,
+    "edited_tokens": 14766,
+    "want": "saffron",
+    "answer": "OLD25",
+    "ok": false,
+    "resume_events": [],
+    "prompt_events": [
+     {
+      "tokens": 14766,
+      "reused": 0,
+      "read": 14766,
+      "prompt_ms": 11720.0,
+      "checkpoints": 1
+     }
+    ]
+   }
+  ],
+  "park_resume_generate_cycles": [
+   {
+    "cycle": 0,
+    "conversation": "A",
+    "want": "lantern",
+    "answer": "lantern",
+    "ok": true,
+    "generated_tokens": 3,
+    "prompt_tokens": 31793,
+    "prompt_read": 31793,
+    "cache_n": 0,
+    "resume_events": [],
+    "park_events": [
+     {
+      "tokens": 14770,
+      "park_ms": 53.5,
+      "parked": 12,
+      "cache_bytes": 12330582600,
+      "image_bytes": 461728788
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 12330582600,
+     "evictions": 33,
+     "parks": 131,
+     "restores": 82,
+     "last_event": "parked",
+     "last_tokens": 14770
+    }
+   },
+   {
+    "cycle": 1,
+    "conversation": "B",
+    "want": "meadow",
+    "answer": "Please specify the topic.",
+    "ok": false,
+    "generated_tokens": 6,
+    "prompt_tokens": 19,
+    "prompt_read": 19,
+    "cache_n": 0,
+    "resume_events": [],
+    "park_events": [
+     {
+      "tokens": 31797,
+      "park_ms": 94.2,
+      "parked": 12,
+      "cache_bytes": 12708396592,
+      "image_bytes": 839909300
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 12708396592,
+     "evictions": 34,
+     "parks": 132,
+     "restores": 82,
+     "last_event": "parked",
+     "last_tokens": 31797
+    }
+   },
+   {
+    "cycle": 2,
+    "conversation": "A",
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31816,
+    "prompt_read": 19,
+    "cache_n": 31797,
+    "resume_events": [
+     {
+      "tokens": 31797,
+      "kind": "live",
+      "resume_ms": 42.5,
+      "parked": 12,
+      "cache_bytes": 12590445248
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 27,
+      "park_ms": 30.0,
+      "parked": 12,
+      "cache_bytes": 12105045704,
+      "image_bytes": 236558412
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 12590445248,
+     "evictions": 34,
+     "parks": 133,
+     "restores": 83,
+     "last_event": "restored",
+     "last_tokens": 31797
+    }
+   },
+   {
+    "cycle": 3,
+    "conversation": "B",
+    "want": "meadow",
+    "answer": "I need a topic to write about.",
+    "ok": false,
+    "generated_tokens": 9,
+    "prompt_tokens": 45,
+    "prompt_read": 33,
+    "cache_n": 12,
+    "resume_events": [
+     {
+      "tokens": 12,
+      "kind": "checkpoint",
+      "resume_ms": 10.5,
+      "parked": 12,
+      "cache_bytes": 13387375400
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31826,
+      "park_ms": 50.4,
+      "parked": 12,
+      "cache_bytes": 13386943664,
+      "image_bytes": 1518456372
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13387375400,
+     "evictions": 34,
+     "parks": 134,
+     "restores": 84,
+     "last_event": "restored",
+     "last_tokens": 12
+    }
+   },
+   {
+    "cycle": 4,
+    "conversation": "A",
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31847,
+    "prompt_read": 21,
+    "cache_n": 31826,
+    "resume_events": [
+     {
+      "tokens": 31826,
+      "kind": "live",
+      "resume_ms": 42.0,
+      "parked": 12,
+      "cache_bytes": 13273061068
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 54,
+      "park_ms": 39.8,
+      "parked": 12,
+      "cache_bytes": 12227305172,
+      "image_bytes": 358817880
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13273061068,
+     "evictions": 34,
+     "parks": 135,
+     "restores": 85,
+     "last_event": "restored",
+     "last_tokens": 31826
+    }
+   },
+   {
+    "cycle": 5,
+    "conversation": "B",
+    "want": "meadow",
+    "answer": "Still waiting for a topic.",
+    "ok": false,
+    "generated_tokens": 7,
+    "prompt_tokens": 74,
+    "prompt_read": 20,
+    "cache_n": 54,
+    "resume_events": [
+     {
+      "tokens": 54,
+      "kind": "live",
+      "resume_ms": 10.9,
+      "parked": 12,
+      "cache_bytes": 13509762100
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31859,
+      "park_ms": 61.2,
+      "parked": 12,
+      "cache_bytes": 13505134524,
+      "image_bytes": 1636647232
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13509762100,
+     "evictions": 34,
+     "parks": 136,
+     "restores": 86,
+     "last_event": "restored",
+     "last_tokens": 54
+    }
+   },
+   {
+    "cycle": 6,
+    "conversation": "A",
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31878,
+    "prompt_read": 19,
+    "cache_n": 31859,
+    "resume_events": [
+     {
+      "tokens": 31859,
+      "kind": "live",
+      "resume_ms": 42.5,
+      "parked": 12,
+      "cache_bytes": 13391124816
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 82,
+      "park_ms": 51.2,
+      "parked": 12,
+      "cache_bytes": 12345368920,
+      "image_bytes": 476881628
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13391124816,
+     "evictions": 34,
+     "parks": 137,
+     "restores": 87,
+     "last_event": "restored",
+     "last_tokens": 31859
+    }
+   },
+   {
+    "cycle": 7,
+    "conversation": "B",
+    "want": "meadow",
+    "answer": "Please provide a subject.",
+    "ok": false,
+    "generated_tokens": 6,
+    "prompt_tokens": 101,
+    "prompt_read": 19,
+    "cache_n": 82,
+    "resume_events": [
+     {
+      "tokens": 82,
+      "kind": "live",
+      "resume_ms": 10.9,
+      "parked": 12,
+      "cache_bytes": 13627953076
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31890,
+      "park_ms": 71.9,
+      "parked": 12,
+      "cache_bytes": 13623325500,
+      "image_bytes": 1754838208
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13627953076,
+     "evictions": 34,
+     "parks": 138,
+     "restores": 88,
+     "last_event": "restored",
+     "last_tokens": 82
+    }
+   },
+   {
+    "cycle": 8,
+    "conversation": "A",
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31909,
+    "prompt_read": 19,
+    "cache_n": 31890,
+    "resume_events": [
+     {
+      "tokens": 31890,
+      "kind": "live",
+      "resume_ms": 42.6,
+      "parked": 12,
+      "cache_bytes": 13509188664
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 108,
+      "park_ms": 60.3,
+      "parked": 12,
+      "cache_bytes": 12463432768,
+      "image_bytes": 594945476
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13509188664,
+     "evictions": 34,
+     "parks": 139,
+     "restores": 89,
+     "last_event": "restored",
+     "last_tokens": 31890
+    }
+   },
+   {
+    "cycle": 9,
+    "conversation": "B",
+    "want": "meadow",
+    "answer": "No topic, no sentence.",
+    "ok": false,
+    "generated_tokens": 7,
+    "prompt_tokens": 127,
+    "prompt_read": 19,
+    "cache_n": 108,
+    "resume_events": [
+     {
+      "tokens": 108,
+      "kind": "live",
+      "resume_ms": 10.8,
+      "parked": 12,
+      "cache_bytes": 13746144176
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31921,
+      "park_ms": 92.6,
+      "parked": 12,
+      "cache_bytes": 13741516600,
+      "image_bytes": 1873029308
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13746144176,
+     "evictions": 34,
+     "parks": 140,
+     "restores": 90,
+     "last_event": "restored",
+     "last_tokens": 108
+    }
+   },
+   {
+    "cycle": 10,
+    "conversation": "A",
+    "want": "lantern",
+    "answer": "The magic code word for this session is lantern.",
+    "ok": true,
+    "generated_tokens": 11,
+    "prompt_tokens": 31940,
+    "prompt_read": 19,
+    "cache_n": 31921,
+    "resume_events": [
+     {
+      "tokens": 31921,
+      "kind": "live",
+      "resume_ms": 42.4,
+      "parked": 12,
+      "cache_bytes": 13627252612
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 133,
+      "park_ms": 72.6,
+      "parked": 12,
+      "cache_bytes": 12581496716,
+      "image_bytes": 713009424
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13627252612,
+     "evictions": 34,
+     "parks": 141,
+     "restores": 91,
+     "last_event": "restored",
+     "last_tokens": 31921
+    }
+   },
+   {
+    "cycle": 11,
+    "conversation": "B",
+    "want": "meadow",
+    "answer": "Define \"it\".",
+    "ok": false,
+    "generated_tokens": 5,
+    "prompt_tokens": 154,
+    "prompt_read": 21,
+    "cache_n": 133,
+    "resume_events": [
+     {
+      "tokens": 133,
+      "kind": "live",
+      "resume_ms": 10.9,
+      "parked": 12,
+      "cache_bytes": 13746144888
+     }
+    ],
+    "park_events": [
+     {
+      "tokens": 31952,
+      "park_ms": 84.1,
+      "parked": 12,
+      "cache_bytes": 13741517312,
+      "image_bytes": 1873030020
+     }
+    ],
+    "cache": {
+     "parked": 12,
+     "bytes": 13746144888,
+     "evictions": 34,
+     "parks": 142,
+     "restores": 92,
+     "last_event": "restored",
+     "last_tokens": 133
+    }
+   }
+  ]
+ }
+}

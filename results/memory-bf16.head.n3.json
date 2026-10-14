@@ -1,0 +1,559 @@
+{
+ "phase": "memory_rerun",
+ "codec": "bf16",
+ "env": {
+  "commit": "7995546126a948c329596d10c083939c5c0fab8e",
+  "engine_version": "0.1.43.1",
+  "codec_under_test": "bf16",
+  "codec_log_line": "stored conversation state: bf16 (parked images and session files; the working state stays fp32, and a resumed conversation keeps its imported snapshots in the codec they were parked in)",
+  "engine_args": [
+   "<USER>/Desktop/Strata/engine-cuda12/strata",
+   "--serve",
+   "--pack",
+   "<USER>/Desktop/Strata-data/packs/sc117_iq3_s",
+   "--native",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00001-of-00002.gguf",
+   "--ple-gguf",
+   "<USER>/Desktop/Strata-data/models/SC117-IQ3_S/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-abliterated-IQ3_S-00002-of-00002.gguf",
+   "--expert-profile",
+   "<USER>/Desktop/Strata/data/expert-profile.bin",
+   "--expert-cache",
+   "auto",
+   "--prefill",
+   "auto",
+   "--spec",
+   "4",
+   "--spec-min-p",
+   "0.5",
+   "--mtp",
+   "<USER>/Desktop/Strata-data/mtp/rt",
+   "--max-context",
+   "262144",
+   "--kv",
+   "int8",
+   "--kv-resident",
+   "32768",
+   "--vision",
+   "--vram-reserve-mib",
+   "722",
+   "--pool-workers",
+   "15",
+   "--conversation-cache-mib",
+   "16384",
+   "--conversation-cache-slots",
+   "12",
+   "--conversation-cache-min-free-mib",
+   "8192",
+   "--session-state-codec",
+   "bf16",
+   ""
+  ],
+  "model": "qwen3.8-flash-next-iq3_s",
+  "kv": "int8",
+  "max_context": 262144,
+  "hardware_static": {
+   "gpu_name": "Tesla V100-PCIE-32GB",
+   "gpu_count": 1,
+   "gpu_note": null,
+   "cpu_name": "Genuine Intel(R) 0000",
+   "cores": 24,
+   "threads": 32,
+   "psutil": true
+  },
+  "server_url": "http://127.0.0.1:8080",
+  "log": "<USER>/Desktop/Strata/bench-mem-bf16.log"
+ },
+ "sampling_interval_s": 0.02,
+ "note": "one invocation covers every size; increments are observed peak RSS above steady baseline, an observed lower bound because parked state is pageable",
+ "sizes": [
+  {
+   "target_tokens": 31250,
+   "prefill_A": {
+    "tokens": 31798,
+    "answer": "ember",
+    "want": "ember"
+   },
+   "prefill_B": {
+    "tokens": 31798,
+    "answer": "amber",
+    "want": "amber"
+   },
+   "windows": [
+    {
+     "rep": 0,
+     "op": "save",
+     "rss_baseline_mib": 54155.9,
+     "rss_peak_increment_mib": 180.5,
+     "rss_after_mib": 54168.2,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 364.4,
+     "bytes_written": 603775484,
+     "client_wall_s": 0.3688
+    },
+    {
+     "rep": 0,
+     "op": "restore",
+     "rss_baseline_mib": 54336.4,
+     "rss_peak_increment_mib": 406.6,
+     "rss_after_mib": 54593.1,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 376.9,
+     "bytes_read": 603775484,
+     "client_wall_s": 0.378
+    },
+    {
+     "rep": 1,
+     "op": "save",
+     "rss_baseline_mib": 54403.2,
+     "rss_peak_increment_mib": -107.3,
+     "rss_after_mib": 54127.8,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 365.7,
+     "bytes_written": 603775484,
+     "client_wall_s": 0.375
+    },
+    {
+     "rep": 1,
+     "op": "restore",
+     "rss_baseline_mib": 54295.9,
+     "rss_peak_increment_mib": 391.4,
+     "rss_after_mib": 54593.6,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 376.8,
+     "bytes_read": 603775484,
+     "client_wall_s": 0.3781
+    },
+    {
+     "rep": 2,
+     "op": "save",
+     "rss_baseline_mib": 54327.3,
+     "rss_peak_increment_mib": -47.2,
+     "rss_after_mib": 54111.9,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 400.7,
+     "bytes_written": 603775484,
+     "client_wall_s": 0.4104
+    },
+    {
+     "rep": 2,
+     "op": "restore",
+     "rss_baseline_mib": 54280.2,
+     "rss_peak_increment_mib": 406.5,
+     "rss_after_mib": 54592.8,
+     "cache_before": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "cache_after": {
+      "parked": 1,
+      "bytes": 662875740,
+      "evictions": 0,
+      "parks": 1,
+      "restores": 0,
+      "last_event": "parked",
+      "last_tokens": 31802
+     },
+     "engine_ms": 381.5,
+     "bytes_read": 603775484,
+     "client_wall_s": 0.3834
+    }
+   ],
+   "steady_rss_mib": 54346.9,
+   "save_increment_mib": {
+    "n": 3,
+    "median": -47.2,
+    "min": -107.3,
+    "max": 180.5,
+    "mean": 8.667
+   },
+   "save_engine_ms": {
+    "n": 3,
+    "median": 365.7,
+    "min": 364.4,
+    "max": 400.7,
+    "mean": 376.933
+   },
+   "restore_increment_mib": {
+    "n": 3,
+    "median": 406.5,
+    "min": 391.4,
+    "max": 406.6,
+    "mean": 401.5
+   },
+   "restore_engine_ms": {
+    "n": 3,
+    "median": 376.9,
+    "min": 376.8,
+    "max": 381.5,
+    "mean": 378.4
+   },
+   "parked_counts_seen": [
+    1
+   ],
+   "max_parked_bytes": 662875740,
+   "park_cycle": {
+    "target_tokens": 31250,
+    "prefills": [
+     {
+      "tag": "P",
+      "tokens": 31796,
+      "answer": "ember",
+      "want": "ember"
+     },
+     {
+      "tag": "Q",
+      "tokens": 31796,
+      "answer": "amber",
+      "want": "amber"
+     },
+     {
+      "tag": "R",
+      "tokens": 31797,
+      "answer": "falcon",
+      "want": "falcon"
+     }
+    ],
+    "cycle": [
+     {
+      "tag": "P",
+      "prompt_ms": 558.0,
+      "resume_events": [
+       {
+        "tokens": 31789,
+        "kind": "checkpoint",
+        "resume_ms": 51.7,
+        "parked": 4,
+        "cache_bytes": 3077756360
+       }
+      ],
+      "park_events": [
+       {
+        "tokens": 31801,
+        "park_ms": 225.8,
+        "parked": 4,
+        "cache_bytes": 2592350672,
+        "image_bytes": 662875732
+       }
+      ]
+     }
+    ],
+    "steady_rss_mib_after_parking": 56527.5,
+    "cache_after_parking": {
+     "parked": 4,
+     "bytes": 3077756360,
+     "evictions": 0,
+     "parks": 5,
+     "restores": 1,
+     "last_event": "restored",
+     "last_tokens": 31789
+    }
+   }
+  },
+  {
+   "target_tokens": 62500,
+   "prefill_A": {
+    "tokens": 63027,
+    "answer": "velvet",
+    "want": "velvet"
+   },
+   "prefill_B": {
+    "tokens": 63027,
+    "answer": "ember",
+    "want": "ember"
+   },
+   "windows": [
+    {
+     "rep": 0,
+     "op": "save",
+     "rss_baseline_mib": 58031.3,
+     "rss_peak_increment_mib": 181.2,
+     "rss_after_mib": 58044.3,
+     "cache_before": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 534.7,
+     "bytes_written": 1080689508,
+     "client_wall_s": 0.5374
+    },
+    {
+     "rep": 0,
+     "op": "restore",
+     "rss_baseline_mib": 58212.6,
+     "rss_peak_increment_mib": 861.0,
+     "rss_after_mib": 58811.4,
+     "cache_before": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 676.0,
+     "bytes_read": 1080689508,
+     "client_wall_s": 0.6774
+    },
+    {
+     "rep": 1,
+     "op": "save",
+     "rss_baseline_mib": 58786.8,
+     "rss_peak_increment_mib": -386.9,
+     "rss_after_mib": 57875.7,
+     "cache_before": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 377.3,
+     "bytes_written": 1080689508,
+     "client_wall_s": 0.4005
+    },
+    {
+     "rep": 1,
+     "op": "restore",
+     "rss_baseline_mib": 58043.9,
+     "rss_peak_increment_mib": 861.2,
+     "rss_after_mib": 58815.5,
+     "cache_before": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 766.9,
+     "bytes_read": 1080689508,
+     "client_wall_s": 0.7681
+    },
+    {
+     "rep": 2,
+     "op": "save",
+     "rss_baseline_mib": 58658.9,
+     "rss_peak_increment_mib": -77.4,
+     "rss_after_mib": 57891.2,
+     "cache_before": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 674.8,
+     "bytes_written": 1080689508,
+     "client_wall_s": 0.7018
+    },
+    {
+     "rep": 2,
+     "op": "restore",
+     "rss_baseline_mib": 58059.3,
+     "rss_peak_increment_mib": 845.6,
+     "rss_after_mib": 58811.0,
+     "cache_before": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "cache_after": {
+      "parked": 6,
+      "bytes": 5132880996,
+      "evictions": 0,
+      "parks": 7,
+      "restores": 1,
+      "last_event": "parked",
+      "last_tokens": 63031
+     },
+     "engine_ms": 721.2,
+     "bytes_read": 1080689508,
+     "client_wall_s": 0.7223
+    }
+   ],
+   "steady_rss_mib": 58658.7,
+   "save_increment_mib": {
+    "n": 3,
+    "median": -77.4,
+    "min": -386.9,
+    "max": 181.2,
+    "mean": -94.367
+   },
+   "save_engine_ms": {
+    "n": 3,
+    "median": 534.7,
+    "min": 377.3,
+    "max": 674.8,
+    "mean": 528.933
+   },
+   "restore_increment_mib": {
+    "n": 3,
+    "median": 861.0,
+    "min": 845.6,
+    "max": 861.2,
+    "mean": 855.933
+   },
+   "restore_engine_ms": {
+    "n": 3,
+    "median": 721.2,
+    "min": 676.0,
+    "max": 766.9,
+    "mean": 721.367
+   },
+   "parked_counts_seen": [
+    6
+   ],
+   "max_parked_bytes": 5132880996
+  }
+ ]
+}
