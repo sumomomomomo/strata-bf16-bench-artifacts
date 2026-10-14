@@ -130,9 +130,7 @@ because the allocator already owns the blocks, which is why both arms run on a f
 
 ## Scrub
 
-`<USER>` → `<USER>` (1,522 lines) and `<LAN>` → `<LAN>` (2 lines). Verified by hashing the whole bundle
-with those tokens normalised **before** and **after** the rewrite: identical digests, so only the identifier tokens
-changed and every byte of measured payload is intact.
+This tree is scrubbed. Every absolute home path on the test box is shown as `<USER>` (1,522 lines across 53 files) and its private LAN address as `<LAN>` (5 files); the hostname appears nowhere. Verified rather than assumed: the whole tree was hashed with those tokens normalised **before** and **after** the rewrite and the digests match, so only identifier tokens changed and every byte of measured payload is exactly as recorded.
 
 ## Excluded
 
